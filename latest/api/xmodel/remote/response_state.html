@@ -1,0 +1,1136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>xmodel.remote.response_state API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>xmodel.remote.response_state</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from typing import Dict, List, Any, Optional, Union, TypeVar, Generic
+# noinspection PyPep8Naming
+from enum import Enum, auto as EnumAuto  # noqa
+from xurls.url import URL
+from abc import ABC, abstractmethod
+
+T = TypeVar(&#34;T&#34;)
+
+# We want these special methods in the documentation.
+__pdoc__ = {
+    &#39;HttpErrorHandler.__call__&#39;: True
+}
+
+
+# todo: Consider moving this somewhere else, perhaps make it exclusive to ApiOptions for now...
+class ErrorHandler(Generic[T], ABC):
+    &#34;&#34;&#34; Method signature of a ErrorHandler callback method.
+
+        See `HttpErrorHandler.__call__` for details.
+    &#34;&#34;&#34;
+    @abstractmethod
+    def __call__(self, obj: T, http: &#34;ResponseState[T]&#34;, url: URL) -&gt; bool:
+        &#34;&#34;&#34;
+        Signature of the call that happens for an HttpErrorHandler.
+
+        Keep in mind that xmodel.rest.RestClient only checks for this for POST/PUT/PATCH
+        at the moment. I want to expand it&#39;s use to other methods in the future.
+
+        Different things happen based on what&#39;s returned:
+            If True: Error was handled and no more error handling will be done.
+            If False: Run next handler, and if that does not exist we do the default handling.
+
+        False is the default value returned from this.
+
+        Args:
+            obj (xmodel.base.model.BaseModel): The original model object.
+
+            http (ResponseState): The `xmodel.remote.api.RemoteApi.response_state` object,
+                passed in here for convenience.
+
+            url (xurls.URL): url that was used. You can ask the url for the http method that
+                was used, there will always only be exactly ONE method assigned to the URL you get
+                here (`xurls.URL.methods`).
+        &#34;&#34;&#34;
+        return False
+
+
+class ResponseStateRetryValue(Enum):
+    &#34;&#34;&#34; Possible values for HttpState.should_retry_send.
+        Controls if the data that was previously exported from the object should be reused in
+        the new request, or if the objects data/values needs to be re-exported into JSON.
+    &#34;&#34;&#34;
+    AS_IS = EnumAuto()
+    &#34;&#34;&#34;
+    This is an optimization: The values that were previously exported when we previously
+    attempted to send it will be reused again.  It&#39;s more efficient because dates, and other
+    special objects, along with the JSON dicts/lists won&#39;t have to be re-created again.
+    This is the default option. If the object has changed in some way, then you should
+    use the `ResponseStateRetryValue.EXPORT_JSON_AGAIN` value instead.
+    &#34;&#34;&#34;
+
+    EXPORT_JSON_AGAIN = EnumAuto()
+    &#34;&#34;&#34;
+    Will re-export/convert to JSON from the object&#39;s values before trying the request again.
+    You want to use this option if the object was changed in some way and we need to re-export
+    it&#39;s value before trying to sending it again.
+    &#34;&#34;&#34;
+
+
+class ResponseState(Generic[T]):
+    &#34;&#34;&#34; This object encapsulates the previous request to send the object to the API.
+
+        You can use retry_send to mark an object as needing to be retried while it&#39;s error handler,
+        or while the `RestClient.parse_send_response_error` method is called for object.
+
+        Use `HttpState.has_field_error` to easily see if there was a specific type of field error.
+
+        Also useful:
+
+        - `HttpState.had_error`
+        - `HttpState.did_send`
+
+        `HttpState.try_count` is incremented each time the object had an attempt to send it.
+        The `xmodel.rest.RestClient` by default will only retry 4 times,
+        to prevent infinite loops.
+    &#34;&#34;&#34;
+
+    had_error: Optional[bool] = None
+    &#34;&#34;&#34; Is `None` if no request involving this object has been completed yet. `True` if last http
+        request with this object had an error, otherwise `False`.
+    &#34;&#34;&#34;
+
+    errors: Optional[List[Any]] = None
+    &#34;&#34;&#34; List of error strings related to last request involving this object, meant to be
+        Human readable reasons for the error from the API.
+
+        Even if `HttpState.had_error` is True, this could still be None.
+    &#34;&#34;&#34;
+
+    field_errors: Optional[Dict[str, List[Dict[str, str]]]] = None
+    &#34;&#34;&#34;
+    Dict with the key a field name, the value is a list of errors. Each list element is a
+    dict with a human readable error message, consistent code, etc; about field if we are able
+    to parse this out of the response.
+
+    for easy ways to work with this structure see methods:
+
+    - `HttpState.add_field_error`
+    - `HttpState.has_field_error`
+
+    Even if `HttpState.had_error` is True, this could still be None if we were unable to find/parse
+    the field errors. Field are are just more specific information about the error(s) with the
+    request.
+
+    You can subclass the `xmodel.rest.RestClient` class and override
+    `xmodel.rest.RestClient.parse_errors_from_send_response`
+    (go there for more docs/details about this).
+
+    You can get a `xmodel.base.model.BaseModel`&#39;s response_state state from
+    `xmodel.remote.api.RemoteApi.response_state` via `xmodel.base.model.BaseModel.api`.
+
+    If you want to parse out field errors and add them to the `model_obj.api.response_state`
+    see `xmodel.rest.RestClient.parse_errors_from_send_response`.
+    &#34;&#34;&#34;
+
+    response_code: Optional[int] = None
+    &#34;&#34;&#34; HTTP response code for the last request involving this object. &#34;&#34;&#34;
+
+    did_send = None
+    &#34;&#34;&#34; If value is:
+
+        - `True`: Object was sent to API.
+        - `False`: Then `xmodel.rest.RestClient.enable_send_changes_only` was enabled for
+            client and it was determined the object did not have any changes to send.
+        - `None`: No determination has been made yet or an attempt to send object has not happened
+            yet.
+    &#34;&#34;&#34;
+
+    try_count: int = 0
+    &#34;&#34;&#34; Right after an attempt is made to send object, this should be incremented by 1.
+        This is how many attempts have been made to send the object.
+
+        If the `HttpState.try_count` is zero, we are either in the middle of sending the object
+        or it has not been attempted yet.
+    &#34;&#34;&#34;
+
+    should_retry_send: Optional[ResponseStateRetryValue] = None
+    &#34;&#34;&#34; The system uses this to mark something that had an error, that it should be retried.
+        You should use &#39;HttpState.retry_send()` if you want to mark something to retry.
+
+        The `xmodel.rest.RestClient` will call `HttpState.reset` passing in `for_retry=True`
+        right before it actually does the retry.
+    &#34;&#34;&#34;
+
+    error_handler: Optional[ErrorHandler[T]] = None
+    &#34;&#34;&#34; Totally optional way to customize the error handling process for a single object.
+
+        If this is None, then we check the `error_handler` in
+        `xmodel.options.ApiOptions.error_handler`
+        {via `xmodel.api.BaseApi.option_for_name`(&#39;error_handler&#39;)}. If that turns up nothing
+        the `xmodel.rest.RestClient` will do whatever the standard error handling is.
+
+        Normally it would move on to to send next object so it can update as many objects as it
+        can (if there are more to send). An exception is normally only raised if there is a more
+        serious error (ie: can&#39;t parse the response due to invalid JSON, etc).
+
+        .. todo:: In Future: Perhaps have a way to raise an exception if there is an error after
+            it sends as many objects as it can?  Not sure... I&#39;ll think about it.
+    &#34;&#34;&#34;
+
+    def mark_for_no_errors(self):
+        &#34;&#34;&#34;
+        This can be called to reliably mark that no errors happened.
+        Resets all related error fields and set had_error = False.
+
+        Won&#39;t change the `HttpState.did_send` and other non-error related information.
+        This only sets the error related info to indicate no errors happened.
+
+        Resets:
+
+        - `HttpState.had_error`
+        - `HttpState.errors`
+        - `HttpState.field_errors`
+        &#34;&#34;&#34;
+        # _self Helps PyCharm go to the class-level attribute when jumping to it&#39;s declaration.
+        # Otherwise it will come here instead of where the attributes doc-comment is.
+        _self = self
+        _self.had_error = False
+        _self.errors = None
+        _self.field_errors = None
+
+    def reset(self, *, for_retry: bool = False):
+        &#34;&#34;&#34;
+        RestClient calls this on all objects before it tries to send/get anything.
+        Everything in object will be reset to None or Zero.
+
+        Args:
+            for_retry (bool): If provided value is:
+
+            - `False` (default): Nothing more happens.
+            - `True`: We will NOT reset the self.try_count, it will be left as-is.
+        &#34;&#34;&#34;
+
+        # _self Helps PyCharm go to the class-level attribute when jumping to it&#39;s declaration.
+        # Otherwise it will come here instead of where the attributes doc-comment is.
+        _self = self
+        _self.had_error = None
+        _self.errors = None
+        _self.field_errors = None
+        _self.response_code = None
+        _self.did_send = None
+        _self.should_retry_send = None
+
+        if not for_retry:
+            _self.try_count = 0
+
+    def retry_send(
+        self, retry_value: Union[bool, ResponseStateRetryValue] = ResponseStateRetryValue.AS_IS
+    ):
+        &#34;&#34;&#34;
+        RestClient calls this on all objects that it wants the system to retry when client calls
+        the `parse_send_response_error` method on RestClient class object.
+
+        Args:
+            retry_value (Union[bool, ResponseStateRetryValue]): Default to
+                `ResponseStateRetryValue.AS_IS`, if it is:
+
+                - `False`: We will use the value ResponseStateRetryValue.EXPORT_JSON_AGAIN,
+                    which will re-export
+                    the JSON from the object before trying again. You want to use this option if
+                    the object was changed in some way and we need to re-export it&#39;s value before
+                    we try sending it again.
+                - `True` / `ResponseStateRetryValue.RETRY_AS_IS` (default):
+                    If retry_value is True, ResponseStateRetryValue.RETRY_AS_IS will be used.
+                - `ResponseStateRetryValue`: Use whatever ResponseStateRetryValue was passed in,
+                    see `ResponseStateRetryValue` for details.
+        &#34;&#34;&#34;
+        if retry_value is True:
+            retry_value = ResponseStateRetryValue.AS_IS
+        elif retry_value is False:
+            retry_value = ResponseStateRetryValue.EXPORT_JSON_AGAIN
+
+        self.should_retry_send = retry_value
+
+    def add_field_error(
+            self,
+            field: str,
+            code: Union[str, int],
+            other: Dict[str, Union[str, int]] = None
+    ):
+        &#34;&#34;&#34;
+        Easily add/append a field-error into self.field_errors in a way that will make it
+        work when using &#39;has_field_error&#39;.
+
+        .. important::
+            The &#39;code&#39; that is passed in will override anything keyed with &#39;code&#39; from other.
+
+        Args:
+            field (str): Field name that had the error. Used as the field-key in self.field_errors.
+            code (Union[str, int]): str/int that&#39;s value consistent for the type of error returned
+                from api. This will be added to the final message dict after inserting anything
+                from `other` into message.
+            other (Dict[str, Union[str, int]]): Other data the api may return about the error,
+                will be inserted into the final message dict.
+                Usually includes some sort of human readable message among other things.
+        &#34;&#34;&#34;
+        field_errors = self.field_errors
+        if field_errors is None:
+            field_errors = {}
+            self.field_errors = field_errors
+
+        error_list = field_errors.setdefault(field, [])
+
+        # construct final message structure:
+        message = {
+            **(other or {}),
+            &#34;code&#34;: code
+        }
+
+        # Append message to error list.
+        error_list.append(message)
+        self.had_error = True
+
+    def has_field_error(self, field: str, code: Union[str, int]) -&gt; bool:
+        &#34;&#34;&#34;
+        Looks for a field error for the name/code, and returns True if one is found,
+        otherwise False.
+
+        If self.had_error is False, we will always return False.
+        Args:
+            field (str): field name to check.
+            code: (Union[str, int]): value to check for on field if any field error is present.
+
+        Returns:
+            bool: `True` if error with code found, otherwise `False`.
+        &#34;&#34;&#34;
+        if not self.had_error:
+            return False
+
+        errors = self.field_errors
+        if not errors or not isinstance(errors, dict):
+            return False
+
+        field_err = errors.get(field)
+        if not field_err or not isinstance(field_err, list):
+            return False
+
+        for e in field_err:
+            if not isinstance(e, dict):
+                continue
+
+            if e.get(&#39;code&#39;) == code:
+                return True
+
+        return False</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="xmodel.remote.response_state.ErrorHandler"><code class="flex name class">
+<span>class <span class="ident">ErrorHandler</span></span>
+<span>(</span><span>*args, **kwds)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Method signature of a ErrorHandler callback method.</p>
+<p>See <code>HttpErrorHandler.__call__</code> for details.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ErrorHandler(Generic[T], ABC):
+    &#34;&#34;&#34; Method signature of a ErrorHandler callback method.
+
+        See `HttpErrorHandler.__call__` for details.
+    &#34;&#34;&#34;
+    @abstractmethod
+    def __call__(self, obj: T, http: &#34;ResponseState[T]&#34;, url: URL) -&gt; bool:
+        &#34;&#34;&#34;
+        Signature of the call that happens for an HttpErrorHandler.
+
+        Keep in mind that xmodel.rest.RestClient only checks for this for POST/PUT/PATCH
+        at the moment. I want to expand it&#39;s use to other methods in the future.
+
+        Different things happen based on what&#39;s returned:
+            If True: Error was handled and no more error handling will be done.
+            If False: Run next handler, and if that does not exist we do the default handling.
+
+        False is the default value returned from this.
+
+        Args:
+            obj (xmodel.base.model.BaseModel): The original model object.
+
+            http (ResponseState): The `xmodel.remote.api.RemoteApi.response_state` object,
+                passed in here for convenience.
+
+            url (xurls.URL): url that was used. You can ask the url for the http method that
+                was used, there will always only be exactly ONE method assigned to the URL you get
+                here (`xurls.URL.methods`).
+        &#34;&#34;&#34;
+        return False</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>typing.Generic</li>
+<li>abc.ABC</li>
+</ul>
+</dd>
+<dt id="xmodel.remote.response_state.ResponseState"><code class="flex name class">
+<span>class <span class="ident">ResponseState</span></span>
+<span>(</span><span>*args, **kwds)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This object encapsulates the previous request to send the object to the API.</p>
+<p>You can use retry_send to mark an object as needing to be retried while it's error handler,
+or while the <code>RestClient.parse_send_response_error</code> method is called for object.</p>
+<p>Use <code>HttpState.has_field_error</code> to easily see if there was a specific type of field error.</p>
+<p>Also useful:</p>
+<ul>
+<li><code>HttpState.had_error</code></li>
+<li><code>HttpState.did_send</code></li>
+</ul>
+<p><code>HttpState.try_count</code> is incremented each time the object had an attempt to send it.
+The <code>xmodel.rest.RestClient</code> by default will only retry 4 times,
+to prevent infinite loops.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ResponseState(Generic[T]):
+    &#34;&#34;&#34; This object encapsulates the previous request to send the object to the API.
+
+        You can use retry_send to mark an object as needing to be retried while it&#39;s error handler,
+        or while the `RestClient.parse_send_response_error` method is called for object.
+
+        Use `HttpState.has_field_error` to easily see if there was a specific type of field error.
+
+        Also useful:
+
+        - `HttpState.had_error`
+        - `HttpState.did_send`
+
+        `HttpState.try_count` is incremented each time the object had an attempt to send it.
+        The `xmodel.rest.RestClient` by default will only retry 4 times,
+        to prevent infinite loops.
+    &#34;&#34;&#34;
+
+    had_error: Optional[bool] = None
+    &#34;&#34;&#34; Is `None` if no request involving this object has been completed yet. `True` if last http
+        request with this object had an error, otherwise `False`.
+    &#34;&#34;&#34;
+
+    errors: Optional[List[Any]] = None
+    &#34;&#34;&#34; List of error strings related to last request involving this object, meant to be
+        Human readable reasons for the error from the API.
+
+        Even if `HttpState.had_error` is True, this could still be None.
+    &#34;&#34;&#34;
+
+    field_errors: Optional[Dict[str, List[Dict[str, str]]]] = None
+    &#34;&#34;&#34;
+    Dict with the key a field name, the value is a list of errors. Each list element is a
+    dict with a human readable error message, consistent code, etc; about field if we are able
+    to parse this out of the response.
+
+    for easy ways to work with this structure see methods:
+
+    - `HttpState.add_field_error`
+    - `HttpState.has_field_error`
+
+    Even if `HttpState.had_error` is True, this could still be None if we were unable to find/parse
+    the field errors. Field are are just more specific information about the error(s) with the
+    request.
+
+    You can subclass the `xmodel.rest.RestClient` class and override
+    `xmodel.rest.RestClient.parse_errors_from_send_response`
+    (go there for more docs/details about this).
+
+    You can get a `xmodel.base.model.BaseModel`&#39;s response_state state from
+    `xmodel.remote.api.RemoteApi.response_state` via `xmodel.base.model.BaseModel.api`.
+
+    If you want to parse out field errors and add them to the `model_obj.api.response_state`
+    see `xmodel.rest.RestClient.parse_errors_from_send_response`.
+    &#34;&#34;&#34;
+
+    response_code: Optional[int] = None
+    &#34;&#34;&#34; HTTP response code for the last request involving this object. &#34;&#34;&#34;
+
+    did_send = None
+    &#34;&#34;&#34; If value is:
+
+        - `True`: Object was sent to API.
+        - `False`: Then `xmodel.rest.RestClient.enable_send_changes_only` was enabled for
+            client and it was determined the object did not have any changes to send.
+        - `None`: No determination has been made yet or an attempt to send object has not happened
+            yet.
+    &#34;&#34;&#34;
+
+    try_count: int = 0
+    &#34;&#34;&#34; Right after an attempt is made to send object, this should be incremented by 1.
+        This is how many attempts have been made to send the object.
+
+        If the `HttpState.try_count` is zero, we are either in the middle of sending the object
+        or it has not been attempted yet.
+    &#34;&#34;&#34;
+
+    should_retry_send: Optional[ResponseStateRetryValue] = None
+    &#34;&#34;&#34; The system uses this to mark something that had an error, that it should be retried.
+        You should use &#39;HttpState.retry_send()` if you want to mark something to retry.
+
+        The `xmodel.rest.RestClient` will call `HttpState.reset` passing in `for_retry=True`
+        right before it actually does the retry.
+    &#34;&#34;&#34;
+
+    error_handler: Optional[ErrorHandler[T]] = None
+    &#34;&#34;&#34; Totally optional way to customize the error handling process for a single object.
+
+        If this is None, then we check the `error_handler` in
+        `xmodel.options.ApiOptions.error_handler`
+        {via `xmodel.api.BaseApi.option_for_name`(&#39;error_handler&#39;)}. If that turns up nothing
+        the `xmodel.rest.RestClient` will do whatever the standard error handling is.
+
+        Normally it would move on to to send next object so it can update as many objects as it
+        can (if there are more to send). An exception is normally only raised if there is a more
+        serious error (ie: can&#39;t parse the response due to invalid JSON, etc).
+
+        .. todo:: In Future: Perhaps have a way to raise an exception if there is an error after
+            it sends as many objects as it can?  Not sure... I&#39;ll think about it.
+    &#34;&#34;&#34;
+
+    def mark_for_no_errors(self):
+        &#34;&#34;&#34;
+        This can be called to reliably mark that no errors happened.
+        Resets all related error fields and set had_error = False.
+
+        Won&#39;t change the `HttpState.did_send` and other non-error related information.
+        This only sets the error related info to indicate no errors happened.
+
+        Resets:
+
+        - `HttpState.had_error`
+        - `HttpState.errors`
+        - `HttpState.field_errors`
+        &#34;&#34;&#34;
+        # _self Helps PyCharm go to the class-level attribute when jumping to it&#39;s declaration.
+        # Otherwise it will come here instead of where the attributes doc-comment is.
+        _self = self
+        _self.had_error = False
+        _self.errors = None
+        _self.field_errors = None
+
+    def reset(self, *, for_retry: bool = False):
+        &#34;&#34;&#34;
+        RestClient calls this on all objects before it tries to send/get anything.
+        Everything in object will be reset to None or Zero.
+
+        Args:
+            for_retry (bool): If provided value is:
+
+            - `False` (default): Nothing more happens.
+            - `True`: We will NOT reset the self.try_count, it will be left as-is.
+        &#34;&#34;&#34;
+
+        # _self Helps PyCharm go to the class-level attribute when jumping to it&#39;s declaration.
+        # Otherwise it will come here instead of where the attributes doc-comment is.
+        _self = self
+        _self.had_error = None
+        _self.errors = None
+        _self.field_errors = None
+        _self.response_code = None
+        _self.did_send = None
+        _self.should_retry_send = None
+
+        if not for_retry:
+            _self.try_count = 0
+
+    def retry_send(
+        self, retry_value: Union[bool, ResponseStateRetryValue] = ResponseStateRetryValue.AS_IS
+    ):
+        &#34;&#34;&#34;
+        RestClient calls this on all objects that it wants the system to retry when client calls
+        the `parse_send_response_error` method on RestClient class object.
+
+        Args:
+            retry_value (Union[bool, ResponseStateRetryValue]): Default to
+                `ResponseStateRetryValue.AS_IS`, if it is:
+
+                - `False`: We will use the value ResponseStateRetryValue.EXPORT_JSON_AGAIN,
+                    which will re-export
+                    the JSON from the object before trying again. You want to use this option if
+                    the object was changed in some way and we need to re-export it&#39;s value before
+                    we try sending it again.
+                - `True` / `ResponseStateRetryValue.RETRY_AS_IS` (default):
+                    If retry_value is True, ResponseStateRetryValue.RETRY_AS_IS will be used.
+                - `ResponseStateRetryValue`: Use whatever ResponseStateRetryValue was passed in,
+                    see `ResponseStateRetryValue` for details.
+        &#34;&#34;&#34;
+        if retry_value is True:
+            retry_value = ResponseStateRetryValue.AS_IS
+        elif retry_value is False:
+            retry_value = ResponseStateRetryValue.EXPORT_JSON_AGAIN
+
+        self.should_retry_send = retry_value
+
+    def add_field_error(
+            self,
+            field: str,
+            code: Union[str, int],
+            other: Dict[str, Union[str, int]] = None
+    ):
+        &#34;&#34;&#34;
+        Easily add/append a field-error into self.field_errors in a way that will make it
+        work when using &#39;has_field_error&#39;.
+
+        .. important::
+            The &#39;code&#39; that is passed in will override anything keyed with &#39;code&#39; from other.
+
+        Args:
+            field (str): Field name that had the error. Used as the field-key in self.field_errors.
+            code (Union[str, int]): str/int that&#39;s value consistent for the type of error returned
+                from api. This will be added to the final message dict after inserting anything
+                from `other` into message.
+            other (Dict[str, Union[str, int]]): Other data the api may return about the error,
+                will be inserted into the final message dict.
+                Usually includes some sort of human readable message among other things.
+        &#34;&#34;&#34;
+        field_errors = self.field_errors
+        if field_errors is None:
+            field_errors = {}
+            self.field_errors = field_errors
+
+        error_list = field_errors.setdefault(field, [])
+
+        # construct final message structure:
+        message = {
+            **(other or {}),
+            &#34;code&#34;: code
+        }
+
+        # Append message to error list.
+        error_list.append(message)
+        self.had_error = True
+
+    def has_field_error(self, field: str, code: Union[str, int]) -&gt; bool:
+        &#34;&#34;&#34;
+        Looks for a field error for the name/code, and returns True if one is found,
+        otherwise False.
+
+        If self.had_error is False, we will always return False.
+        Args:
+            field (str): field name to check.
+            code: (Union[str, int]): value to check for on field if any field error is present.
+
+        Returns:
+            bool: `True` if error with code found, otherwise `False`.
+        &#34;&#34;&#34;
+        if not self.had_error:
+            return False
+
+        errors = self.field_errors
+        if not errors or not isinstance(errors, dict):
+            return False
+
+        field_err = errors.get(field)
+        if not field_err or not isinstance(field_err, list):
+            return False
+
+        for e in field_err:
+            if not isinstance(e, dict):
+                continue
+
+            if e.get(&#39;code&#39;) == code:
+                return True
+
+        return False</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>typing.Generic</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="xmodel.remote.response_state.ResponseState.did_send"><code class="name">var <span class="ident">did_send</span></code></dt>
+<dd>
+<div class="desc"><p>If value is:</p>
+<ul>
+<li><code>True</code>: Object was sent to API.</li>
+<li><code>False</code>: Then <code>xmodel.rest.RestClient.enable_send_changes_only</code> was enabled for
+client and it was determined the object did not have any changes to send.</li>
+<li><code>None</code>: No determination has been made yet or an attempt to send object has not happened
+yet.</li>
+</ul></div>
+</dd>
+<dt id="xmodel.remote.response_state.ResponseState.error_handler"><code class="name">var <span class="ident">error_handler</span> : Optional[<a title="xmodel.remote.response_state.ErrorHandler" href="#xmodel.remote.response_state.ErrorHandler">ErrorHandler</a>[~T]]</code></dt>
+<dd>
+<div class="desc"><p>Totally optional way to customize the error handling process for a single object.</p>
+<p>If this is None, then we check the <code>error_handler</code> in
+<code>xmodel.options.ApiOptions.error_handler</code>
+{via <code>xmodel.api.BaseApi.option_for_name</code>('error_handler')}. If that turns up nothing
+the <code>xmodel.rest.RestClient</code> will do whatever the standard error handling is.</p>
+<p>Normally it would move on to to send next object so it can update as many objects as it
+can (if there are more to send). An exception is normally only raised if there is a more
+serious error (ie: can't parse the response due to invalid JSON, etc).</p>
+<div class="admonition todo">
+<p class="admonition-title">TODO</p>
+<p>In Future: Perhaps have a way to raise an exception if there is an error after
+it sends as many objects as it can?
+Not sure&hellip; I'll think about it.</p>
+</div></div>
+</dd>
+<dt id="xmodel.remote.response_state.ResponseState.errors"><code class="name">var <span class="ident">errors</span> : Optional[List[Any]]</code></dt>
+<dd>
+<div class="desc"><p>List of error strings related to last request involving this object, meant to be
+Human readable reasons for the error from the API.</p>
+<p>Even if <code>HttpState.had_error</code> is True, this could still be None.</p></div>
+</dd>
+<dt id="xmodel.remote.response_state.ResponseState.field_errors"><code class="name">var <span class="ident">field_errors</span> : Optional[Dict[str, List[Dict[str, str]]]]</code></dt>
+<dd>
+<div class="desc"><p>Dict with the key a field name, the value is a list of errors. Each list element is a
+dict with a human readable error message, consistent code, etc; about field if we are able
+to parse this out of the response.</p>
+<p>for easy ways to work with this structure see methods:</p>
+<ul>
+<li><code>HttpState.add_field_error</code></li>
+<li><code>HttpState.has_field_error</code></li>
+</ul>
+<p>Even if <code>HttpState.had_error</code> is True, this could still be None if we were unable to find/parse
+the field errors. Field are are just more specific information about the error(s) with the
+request.</p>
+<p>You can subclass the <code>xmodel.rest.RestClient</code> class and override
+<code>xmodel.rest.RestClient.parse_errors_from_send_response</code>
+(go there for more docs/details about this).</p>
+<p>You can get a <code><a title="xmodel.base.model.BaseModel" href="../base/model.html#xmodel.base.model.BaseModel">BaseModel</a></code>'s response_state state from
+<code><a title="xmodel.remote.api.RemoteApi.response_state" href="api.html#xmodel.remote.api.RemoteApi.response_state">RemoteApi.response_state</a></code> via <code><a title="xmodel.base.model.BaseModel.api" href="../base/model.html#xmodel.base.model.BaseModel.api">BaseModel.api</a></code>.</p>
+<p>If you want to parse out field errors and add them to the <code>model_obj.api.response_state</code>
+see <code>xmodel.rest.RestClient.parse_errors_from_send_response</code>.</p></div>
+</dd>
+<dt id="xmodel.remote.response_state.ResponseState.had_error"><code class="name">var <span class="ident">had_error</span> : Optional[bool]</code></dt>
+<dd>
+<div class="desc"><p>Is <code>None</code> if no request involving this object has been completed yet. <code>True</code> if last http
+request with this object had an error, otherwise <code>False</code>.</p></div>
+</dd>
+<dt id="xmodel.remote.response_state.ResponseState.response_code"><code class="name">var <span class="ident">response_code</span> : Optional[int]</code></dt>
+<dd>
+<div class="desc"><p>HTTP response code for the last request involving this object.</p></div>
+</dd>
+<dt id="xmodel.remote.response_state.ResponseState.should_retry_send"><code class="name">var <span class="ident">should_retry_send</span> : Optional[<a title="xmodel.remote.response_state.ResponseStateRetryValue" href="#xmodel.remote.response_state.ResponseStateRetryValue">ResponseStateRetryValue</a>]</code></dt>
+<dd>
+<div class="desc"><p>The system uses this to mark something that had an error, that it should be retried.
+You should use 'HttpState.retry_send()` if you want to mark something to retry.</p>
+<p>The <code>xmodel.rest.RestClient</code> will call <code>HttpState.reset</code> passing in <code>for_retry=True</code>
+right before it actually does the retry.</p></div>
+</dd>
+<dt id="xmodel.remote.response_state.ResponseState.try_count"><code class="name">var <span class="ident">try_count</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Right after an attempt is made to send object, this should be incremented by 1.
+This is how many attempts have been made to send the object.</p>
+<p>If the <code>HttpState.try_count</code> is zero, we are either in the middle of sending the object
+or it has not been attempted yet.</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="xmodel.remote.response_state.ResponseState.add_field_error"><code class="name flex">
+<span>def <span class="ident">add_field_error</span></span>(<span>self, field: str, code: Union[str, int], other: Dict[str, Union[str, int]] = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Easily add/append a field-error into self.field_errors in a way that will make it
+work when using 'has_field_error'.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The 'code' that is passed in will override anything keyed with 'code' from other.</p>
+</div>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>field</code></strong> :&ensp;<code>str</code></dt>
+<dd>Field name that had the error. Used as the field-key in self.field_errors.</dd>
+<dt><strong><code>code</code></strong> :&ensp;<code>Union[str, int]</code></dt>
+<dd>str/int that's value consistent for the type of error returned
+from api. This will be added to the final message dict after inserting anything
+from <code>other</code> into message.</dd>
+<dt><strong><code>other</code></strong> :&ensp;<code>Dict[str, Union[str, int]]</code></dt>
+<dd>Other data the api may return about the error,
+will be inserted into the final message dict.
+Usually includes some sort of human readable message among other things.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_field_error(
+        self,
+        field: str,
+        code: Union[str, int],
+        other: Dict[str, Union[str, int]] = None
+):
+    &#34;&#34;&#34;
+    Easily add/append a field-error into self.field_errors in a way that will make it
+    work when using &#39;has_field_error&#39;.
+
+    .. important::
+        The &#39;code&#39; that is passed in will override anything keyed with &#39;code&#39; from other.
+
+    Args:
+        field (str): Field name that had the error. Used as the field-key in self.field_errors.
+        code (Union[str, int]): str/int that&#39;s value consistent for the type of error returned
+            from api. This will be added to the final message dict after inserting anything
+            from `other` into message.
+        other (Dict[str, Union[str, int]]): Other data the api may return about the error,
+            will be inserted into the final message dict.
+            Usually includes some sort of human readable message among other things.
+    &#34;&#34;&#34;
+    field_errors = self.field_errors
+    if field_errors is None:
+        field_errors = {}
+        self.field_errors = field_errors
+
+    error_list = field_errors.setdefault(field, [])
+
+    # construct final message structure:
+    message = {
+        **(other or {}),
+        &#34;code&#34;: code
+    }
+
+    # Append message to error list.
+    error_list.append(message)
+    self.had_error = True</code></pre>
+</details>
+</dd>
+<dt id="xmodel.remote.response_state.ResponseState.has_field_error"><code class="name flex">
+<span>def <span class="ident">has_field_error</span></span>(<span>self, field: str, code: Union[str, int]) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Looks for a field error for the name/code, and returns True if one is found,
+otherwise False.</p>
+<p>If self.had_error is False, we will always return False.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>field</code></strong> :&ensp;<code>str</code></dt>
+<dd>field name to check.</dd>
+<dt><strong><code>code</code></strong></dt>
+<dd>(Union[str, int]): value to check for on field if any field error is present.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd><code>True</code> if error with code found, otherwise <code>False</code>.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def has_field_error(self, field: str, code: Union[str, int]) -&gt; bool:
+    &#34;&#34;&#34;
+    Looks for a field error for the name/code, and returns True if one is found,
+    otherwise False.
+
+    If self.had_error is False, we will always return False.
+    Args:
+        field (str): field name to check.
+        code: (Union[str, int]): value to check for on field if any field error is present.
+
+    Returns:
+        bool: `True` if error with code found, otherwise `False`.
+    &#34;&#34;&#34;
+    if not self.had_error:
+        return False
+
+    errors = self.field_errors
+    if not errors or not isinstance(errors, dict):
+        return False
+
+    field_err = errors.get(field)
+    if not field_err or not isinstance(field_err, list):
+        return False
+
+    for e in field_err:
+        if not isinstance(e, dict):
+            continue
+
+        if e.get(&#39;code&#39;) == code:
+            return True
+
+    return False</code></pre>
+</details>
+</dd>
+<dt id="xmodel.remote.response_state.ResponseState.mark_for_no_errors"><code class="name flex">
+<span>def <span class="ident">mark_for_no_errors</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This can be called to reliably mark that no errors happened.
+Resets all related error fields and set had_error = False.</p>
+<p>Won't change the <code>HttpState.did_send</code> and other non-error related information.
+This only sets the error related info to indicate no errors happened.</p>
+<p>Resets:</p>
+<ul>
+<li><code>HttpState.had_error</code></li>
+<li><code>HttpState.errors</code></li>
+<li><code>HttpState.field_errors</code></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mark_for_no_errors(self):
+    &#34;&#34;&#34;
+    This can be called to reliably mark that no errors happened.
+    Resets all related error fields and set had_error = False.
+
+    Won&#39;t change the `HttpState.did_send` and other non-error related information.
+    This only sets the error related info to indicate no errors happened.
+
+    Resets:
+
+    - `HttpState.had_error`
+    - `HttpState.errors`
+    - `HttpState.field_errors`
+    &#34;&#34;&#34;
+    # _self Helps PyCharm go to the class-level attribute when jumping to it&#39;s declaration.
+    # Otherwise it will come here instead of where the attributes doc-comment is.
+    _self = self
+    _self.had_error = False
+    _self.errors = None
+    _self.field_errors = None</code></pre>
+</details>
+</dd>
+<dt id="xmodel.remote.response_state.ResponseState.reset"><code class="name flex">
+<span>def <span class="ident">reset</span></span>(<span>self, *, for_retry: bool = False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>RestClient calls this on all objects before it tries to send/get anything.
+Everything in object will be reset to None or Zero.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>for_retry</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If provided value is:</dd>
+</dl>
+<ul>
+<li><code>False</code> (default): Nothing more happens.</li>
+<li><code>True</code>: We will NOT reset the self.try_count, it will be left as-is.</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reset(self, *, for_retry: bool = False):
+    &#34;&#34;&#34;
+    RestClient calls this on all objects before it tries to send/get anything.
+    Everything in object will be reset to None or Zero.
+
+    Args:
+        for_retry (bool): If provided value is:
+
+        - `False` (default): Nothing more happens.
+        - `True`: We will NOT reset the self.try_count, it will be left as-is.
+    &#34;&#34;&#34;
+
+    # _self Helps PyCharm go to the class-level attribute when jumping to it&#39;s declaration.
+    # Otherwise it will come here instead of where the attributes doc-comment is.
+    _self = self
+    _self.had_error = None
+    _self.errors = None
+    _self.field_errors = None
+    _self.response_code = None
+    _self.did_send = None
+    _self.should_retry_send = None
+
+    if not for_retry:
+        _self.try_count = 0</code></pre>
+</details>
+</dd>
+<dt id="xmodel.remote.response_state.ResponseState.retry_send"><code class="name flex">
+<span>def <span class="ident">retry_send</span></span>(<span>self, retry_value: Union[bool, <a title="xmodel.remote.response_state.ResponseStateRetryValue" href="#xmodel.remote.response_state.ResponseStateRetryValue">ResponseStateRetryValue</a>] = ResponseStateRetryValue.AS_IS)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>RestClient calls this on all objects that it wants the system to retry when client calls
+the <code>parse_send_response_error</code> method on RestClient class object.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>retry_value</code></strong> :&ensp;<code>Union[bool, <a title="xmodel.remote.response_state.ResponseStateRetryValue" href="#xmodel.remote.response_state.ResponseStateRetryValue">ResponseStateRetryValue</a>]</code></dt>
+<dd>
+<p>Default to
+<code><a title="xmodel.remote.response_state.ResponseStateRetryValue.AS_IS" href="#xmodel.remote.response_state.ResponseStateRetryValue.AS_IS">ResponseStateRetryValue.AS_IS</a></code>, if it is:</p>
+<ul>
+<li><code>False</code>: We will use the value ResponseStateRetryValue.EXPORT_JSON_AGAIN,
+which will re-export
+the JSON from the object before trying again. You want to use this option if
+the object was changed in some way and we need to re-export it's value before
+we try sending it again.</li>
+<li><code>True</code> / <code>ResponseStateRetryValue.RETRY_AS_IS</code> (default):
+If retry_value is True, ResponseStateRetryValue.RETRY_AS_IS will be used.</li>
+<li><code><a title="xmodel.remote.response_state.ResponseStateRetryValue" href="#xmodel.remote.response_state.ResponseStateRetryValue">ResponseStateRetryValue</a></code>: Use whatever ResponseStateRetryValue was passed in,
+see <code><a title="xmodel.remote.response_state.ResponseStateRetryValue" href="#xmodel.remote.response_state.ResponseStateRetryValue">ResponseStateRetryValue</a></code> for details.</li>
+</ul>
+</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def retry_send(
+    self, retry_value: Union[bool, ResponseStateRetryValue] = ResponseStateRetryValue.AS_IS
+):
+    &#34;&#34;&#34;
+    RestClient calls this on all objects that it wants the system to retry when client calls
+    the `parse_send_response_error` method on RestClient class object.
+
+    Args:
+        retry_value (Union[bool, ResponseStateRetryValue]): Default to
+            `ResponseStateRetryValue.AS_IS`, if it is:
+
+            - `False`: We will use the value ResponseStateRetryValue.EXPORT_JSON_AGAIN,
+                which will re-export
+                the JSON from the object before trying again. You want to use this option if
+                the object was changed in some way and we need to re-export it&#39;s value before
+                we try sending it again.
+            - `True` / `ResponseStateRetryValue.RETRY_AS_IS` (default):
+                If retry_value is True, ResponseStateRetryValue.RETRY_AS_IS will be used.
+            - `ResponseStateRetryValue`: Use whatever ResponseStateRetryValue was passed in,
+                see `ResponseStateRetryValue` for details.
+    &#34;&#34;&#34;
+    if retry_value is True:
+        retry_value = ResponseStateRetryValue.AS_IS
+    elif retry_value is False:
+        retry_value = ResponseStateRetryValue.EXPORT_JSON_AGAIN
+
+    self.should_retry_send = retry_value</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="xmodel.remote.response_state.ResponseStateRetryValue"><code class="flex name class">
+<span>class <span class="ident">ResponseStateRetryValue</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Possible values for HttpState.should_retry_send.
+Controls if the data that was previously exported from the object should be reused in
+the new request, or if the objects data/values needs to be re-exported into JSON.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ResponseStateRetryValue(Enum):
+    &#34;&#34;&#34; Possible values for HttpState.should_retry_send.
+        Controls if the data that was previously exported from the object should be reused in
+        the new request, or if the objects data/values needs to be re-exported into JSON.
+    &#34;&#34;&#34;
+    AS_IS = EnumAuto()
+    &#34;&#34;&#34;
+    This is an optimization: The values that were previously exported when we previously
+    attempted to send it will be reused again.  It&#39;s more efficient because dates, and other
+    special objects, along with the JSON dicts/lists won&#39;t have to be re-created again.
+    This is the default option. If the object has changed in some way, then you should
+    use the `ResponseStateRetryValue.EXPORT_JSON_AGAIN` value instead.
+    &#34;&#34;&#34;
+
+    EXPORT_JSON_AGAIN = EnumAuto()
+    &#34;&#34;&#34;
+    Will re-export/convert to JSON from the object&#39;s values before trying the request again.
+    You want to use this option if the object was changed in some way and we need to re-export
+    it&#39;s value before trying to sending it again.
+    &#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="xmodel.remote.response_state.ResponseStateRetryValue.AS_IS"><code class="name">var <span class="ident">AS_IS</span></code></dt>
+<dd>
+<div class="desc"><p>This is an optimization: The values that were previously exported when we previously
+attempted to send it will be reused again.
+It's more efficient because dates, and other
+special objects, along with the JSON dicts/lists won't have to be re-created again.
+This is the default option. If the object has changed in some way, then you should
+use the <code><a title="xmodel.remote.response_state.ResponseStateRetryValue.EXPORT_JSON_AGAIN" href="#xmodel.remote.response_state.ResponseStateRetryValue.EXPORT_JSON_AGAIN">ResponseStateRetryValue.EXPORT_JSON_AGAIN</a></code> value instead.</p></div>
+</dd>
+<dt id="xmodel.remote.response_state.ResponseStateRetryValue.EXPORT_JSON_AGAIN"><code class="name">var <span class="ident">EXPORT_JSON_AGAIN</span></code></dt>
+<dd>
+<div class="desc"><p>Will re-export/convert to JSON from the object's values before trying the request again.
+You want to use this option if the object was changed in some way and we need to re-export
+it's value before trying to sending it again.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="xmodel.remote" href="index.html">xmodel.remote</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="xmodel.remote.response_state.ErrorHandler" href="#xmodel.remote.response_state.ErrorHandler">ErrorHandler</a></code></h4>
+</li>
+<li>
+<h4><code><a title="xmodel.remote.response_state.ResponseState" href="#xmodel.remote.response_state.ResponseState">ResponseState</a></code></h4>
+<ul class="two-column">
+<li><code><a title="xmodel.remote.response_state.ResponseState.add_field_error" href="#xmodel.remote.response_state.ResponseState.add_field_error">add_field_error</a></code></li>
+<li><code><a title="xmodel.remote.response_state.ResponseState.did_send" href="#xmodel.remote.response_state.ResponseState.did_send">did_send</a></code></li>
+<li><code><a title="xmodel.remote.response_state.ResponseState.error_handler" href="#xmodel.remote.response_state.ResponseState.error_handler">error_handler</a></code></li>
+<li><code><a title="xmodel.remote.response_state.ResponseState.errors" href="#xmodel.remote.response_state.ResponseState.errors">errors</a></code></li>
+<li><code><a title="xmodel.remote.response_state.ResponseState.field_errors" href="#xmodel.remote.response_state.ResponseState.field_errors">field_errors</a></code></li>
+<li><code><a title="xmodel.remote.response_state.ResponseState.had_error" href="#xmodel.remote.response_state.ResponseState.had_error">had_error</a></code></li>
+<li><code><a title="xmodel.remote.response_state.ResponseState.has_field_error" href="#xmodel.remote.response_state.ResponseState.has_field_error">has_field_error</a></code></li>
+<li><code><a title="xmodel.remote.response_state.ResponseState.mark_for_no_errors" href="#xmodel.remote.response_state.ResponseState.mark_for_no_errors">mark_for_no_errors</a></code></li>
+<li><code><a title="xmodel.remote.response_state.ResponseState.reset" href="#xmodel.remote.response_state.ResponseState.reset">reset</a></code></li>
+<li><code><a title="xmodel.remote.response_state.ResponseState.response_code" href="#xmodel.remote.response_state.ResponseState.response_code">response_code</a></code></li>
+<li><code><a title="xmodel.remote.response_state.ResponseState.retry_send" href="#xmodel.remote.response_state.ResponseState.retry_send">retry_send</a></code></li>
+<li><code><a title="xmodel.remote.response_state.ResponseState.should_retry_send" href="#xmodel.remote.response_state.ResponseState.should_retry_send">should_retry_send</a></code></li>
+<li><code><a title="xmodel.remote.response_state.ResponseState.try_count" href="#xmodel.remote.response_state.ResponseState.try_count">try_count</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="xmodel.remote.response_state.ResponseStateRetryValue" href="#xmodel.remote.response_state.ResponseStateRetryValue">ResponseStateRetryValue</a></code></h4>
+<ul class="">
+<li><code><a title="xmodel.remote.response_state.ResponseStateRetryValue.AS_IS" href="#xmodel.remote.response_state.ResponseStateRetryValue.AS_IS">AS_IS</a></code></li>
+<li><code><a title="xmodel.remote.response_state.ResponseStateRetryValue.EXPORT_JSON_AGAIN" href="#xmodel.remote.response_state.ResponseStateRetryValue.EXPORT_JSON_AGAIN">EXPORT_JSON_AGAIN</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
