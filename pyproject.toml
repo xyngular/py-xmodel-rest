@@ -1,0 +1,85 @@
+[tool.poetry]
+name = "xmodel_rest"
+version = "0.1.0"
+description = "Builds on xmodel, adds ability to get/send/update objects to/from rest API; especially if api uses JSON as it’s request/response body format."
+authors = ["Joshua Orr <josho39@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+# Right now, we are compatiable with both v2 and v3 of xyn-resource.
+#xyn-model = "^1.1.0"
+#xyn-resource = ">=2.1.2,<4"
+#xyn-types = "^1.1.0"
+#xyn-url = "^1.1.0"
+#xyn-dateutils = "^1.1.0"
+#xyn-settings = "^1.4.0"
+
+requests = "^2.26.0"
+requests-mock = "^1.9.3"
+xmodel = "^0.2.0"
+xinject = "^1.4.0"
+xloop = "^1.0.1"
+xsentinels = "^1.2.1"
+xurls = "^0.2.0"
+ciso8601 = "^2.3.0"
+
+[tool.poetry.dev-dependencies]
+pycodestyle = "^2.7.0"
+pdoc3 = "^0"
+pylint = "^2.11.1"
+pytest = "^6.2.5"
+pytest-mock = "^3.6.1"
+pytest-pycodestyle = "^2.2.0"
+black = {version = "*", allow-prereleases = true}
+mkdocstrings = { extras = ["python"], version = "^0" }
+mkdocs-autorefs = "^0"
+mkdocs-git-revision-date-plugin = "^0"
+mkdocs = "^1.4.2"
+mkdocs-material = "^9.0.12"
+mike = "^1.1.2"
+tomlkit = "^0.11.7"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.custom.xpublish]
+extra-module-docs = ['xsentinels', 'xloop', 'xinject', 'xurls', 'xmodel']
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+
+# By default, reuse db schema
+# (speeds up unit test starts after first unit test run)
+# If test-db schmea gets messed up, drop `--reuse-db`
+# and it will recreate db next time you run unit tests.
+addopts = "--verbose --pycodestyle"
+
+testpaths = ["tests", "xurls"]
+python_files = "tests.py test_*.py *_tests.py tests/*"
+norecursedirs = "lib/* tests/scripts .serverless .eggs dist/* node_modules"
+
+[tool.black]
+line-length = 99
+target_version = ['py38']
+skip-string-normalization = 1
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+  )/
+  | foo.py           # also separately exclude a file named foo.py in
+                     # the root of the project
+)
+'''
