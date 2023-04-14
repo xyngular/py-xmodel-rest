@@ -1,7 +1,7 @@
 # Includes all the basic generic/abstract types we use everywhere, very light-weight.
 from xmodel.remote.options import ApiOptionsGroup
 
-from xyn_url.url import DefaultQueryValueListFormat
+from xurls.url import DefaultQueryValueListFormat
 import time
 from collections import deque
 from dataclasses import dataclass
@@ -11,21 +11,20 @@ from typing import (
 )
 from xmodel.common.types import FieldNames
 from .auth import RestAuth
-from xyn_resource.context import Context
 import requests
-from xyn_types.singleton import Singleton
+from xsentinels.singleton import Singleton
 from xmodel.common.types import JsonDict
-from xyn_url.url import (
+from xurls.url import (
     URLMutable, URL, URLStr, HTTPPatch, HTTPPost, HTTPPut, HTTPGet, HTTPDelete, HTTPMethodType
 )
 from .errors import XynRestError
 from xmodel.remote.response_state import ResponseStateRetryValue, ErrorHandler
 from logging import getLogger
-from xyn_utils.loop import loop
-from xyn_url.url import Query
+from xloop import xloop
+from xurls.url import Query
 from xmodel.remote import RemoteModel
 from .session import Session
-from xyn_types.default import Default, DefaultType
+from xsentinels.default import Default, DefaultType
 from xmodel.remote import RemoteClient
 from .model import RestModel
 from requests.exceptions import ConnectionError, Timeout, ReadTimeout
@@ -55,7 +54,7 @@ UseSingularValue = UseSingularValueType()
 """
 
 
-DefaultStatusSetToRaiseForSending = frozenset(loop([400, 401, 403], range(500, 599)))
+DefaultStatusSetToRaiseForSending = frozenset(xloop([400, 401, 403], range(500, 599)))
 """ Default set of status to raise exceptions for vs  """
 
 # todo: This may have things in it that are more specific to how Xyngular BaseApi's work.
@@ -469,7 +468,7 @@ class RestClient(RemoteClient[M]):
         def debug_log_item(item):
             log.debug(f"Sending JSON ({item[1]})")
 
-        starting_objects = list(loop(objs))
+        starting_objects = list(xloop(objs))
         objs_by_endpoint = self._create_deque_verify_and_reset_http_state(starting_objects)
         self._do_http_method_on_objs(
             objects=objs_by_endpoint,
@@ -1692,7 +1691,7 @@ class RestClient(RemoteClient[M]):
             # Next time the current requests Session is asked for, we will generate a new Session.
             # This forces a new connection to be used.
             # We don't want to attempt to reuse any of the old connections, to be safe.
-            Session.resource().reset()
+            Session.grab().reset()
 
             if creating_objects and isinstance(e, ReadTimeout):
                 # We reset the connection so the next time we try to use the connection it gets
@@ -1793,7 +1792,7 @@ class RestClient(RemoteClient[M]):
 
         if fields is not None:
             if fields and fields is not Default:
-                only_fields = set(loop(fields))
+                only_fields = set(xloop(fields))
             elif excluded_field_map:
                 # noinspection PyTypeChecker
                 ignore_fields = excluded_field_map.keys()
@@ -1922,7 +1921,7 @@ class RestClient(RemoteClient[M]):
         If we only have a single, we will raise an exception.
 
         If we send back a result, it's a `GeneratedURL`. This `GeneratedURL` contains the
-        `xyn_url.URL`
+        `xurls.URL`
         to use plus the model objects that are valid for this URL.
 
         You must call us again
@@ -2214,4 +2213,4 @@ class RestClient(RemoteClient[M]):
 
     @property
     def _requests_session(self) -> requests.Session:
-        return Session.resource().requests_session
+        return Session.grab().requests_session

@@ -1,17 +1,17 @@
-from xyn_resource import Context
+from xinject import XContext
 from .client import RestClient
 from .errors import XynRestError
 from .settings import RestSettings
 from xmodel.remote import RemoteApi, RemoteModel
 from typing import TypeVar, List, Tuple, Iterable, Union, Type, get_type_hints, TYPE_CHECKING
 from logging import getLogger
-from xyn_url.url import URLStr
+from xurls.url import URLStr
 from xmodel import Field
 from abc import ABC
 from .structure import RestStructure
 from .auth import RestAuth
-from xyn_types import Default
-from xyn_url.url import HTTPGet, HTTPPatch, HTTPDelete, URL
+from xsentinels import Default
+from xurls.url import HTTPGet, HTTPPatch, HTTPDelete, URL
 from .auth import RestAuth
 from .auth import RestAuth
 from typing import TypeVar
@@ -74,7 +74,7 @@ class RestApi(RemoteApi[M]):
 
         If the url is validated, it will use that final url [with passed in `url` this appended].
         For more information about how URL's are appended to each-other see:
-        `xyn_url.url.URLMutable.append_url`.
+        `xurls.url.URLMutable.append_url`.
 
         The response from API will update all the values on this object with the results
         of the change [all fields will be updated] and with the latest values from API.
@@ -127,7 +127,7 @@ class RestApi(RemoteApi[M]):
         ...     auth: MyCoolAuthClass
 
         Doing that is enough, `xynlib.orm.rest.RestClient` class will see the type-hint and will
-        grab one of that type from the Context and return it.
+        grab one of that type from the XContext and return it.
         In the example above, it would be a `MyCoolAuthClass` type.
 
         The type-hint is lazily cached in self for fast lookup in the future.
@@ -144,7 +144,7 @@ class RestApi(RemoteApi[M]):
             self._auth_type = auth_type
 
         # Auth has tokens we want to try and share, treat it as a resource.
-        return auth_type.resource()
+        return auth_type.grab()
 
     _settings_type: Type[RestSettings] = None
 
@@ -180,7 +180,7 @@ class RestApi(RemoteApi[M]):
                     f"what type to get."
                 )
 
-        return Context.current(for_type=config_type)
+        return XContext.current(for_type=config_type)
 
     # PyCharm has some sort of issue, if I provide property type-hint and then a property function
     # that implements it. For some reason, this makes it ignore the type-hint in subclasses

@@ -1,6 +1,6 @@
 from requests.models import PreparedRequest
 
-from xyn_resource import Resource
+from xinject import Dependency
 from requests.auth import AuthBase as Requests_AuthBase
 from requests import PreparedRequest
 from .settings import RestSettings
@@ -10,7 +10,7 @@ __pdoc__ = {
 }
 
 
-class RestAuth(Resource, Requests_AuthBase):
+class RestAuth(Dependency, Requests_AuthBase):
     """ Abstract type from which all-other api-auth-context's are descended from.
         For an example of one used for our Xyngular API's (that can also be used directly with
         the Requests 3rd party library), see: `xyn_sdk.core.common.Auth`.

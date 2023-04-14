@@ -2,7 +2,11 @@
 name = "xmodel_rest"
 version = "0.1.0"
 description = "Builds on xmodel, adds ability to get/send/update objects to/from rest API; especially if api uses JSON as it’s request/response body format."
-authors = ["Joshua Orr <josho39@gmail.com>"]
+authors = ["Josh Orr <josh@orr.blue>"]
+packages = [{include = "xmodel-rest"}]
+readme = "README.md"
+license = "The Unlicense (Unlicense)"
+repository = "https://github.com/xyngular/py-xmodel-rest"
 
 [tool.poetry.dependencies]
 python = "^3.8"
@@ -23,6 +27,7 @@ xloop = "^1.0.1"
 xsentinels = "^1.2.1"
 xurls = "^0.2.0"
 ciso8601 = "^2.3.0"
+xsettings = "^1.3.0"
 
 [tool.poetry.dev-dependencies]
 pycodestyle = "^2.7.0"
@@ -56,7 +61,7 @@ minversion = "6.0"
 # and it will recreate db next time you run unit tests.
 addopts = "--verbose --pycodestyle"
 
-testpaths = ["tests", "xurls"]
+testpaths = ["tests", "xmodel_rest"]
 python_files = "tests.py test_*.py *_tests.py tests/*"
 norecursedirs = "lib/* tests/scripts .serverless .eggs dist/* node_modules"
 

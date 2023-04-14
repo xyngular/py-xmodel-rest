@@ -1,11 +1,11 @@
 from typing import TypeVar, List, Tuple, Iterable, Union
 
 from .default_model_urls import DefaultModelURLs
-from xyn_url.url import URLStr
+from xurls.url import URLStr
 from xmodel import Field
 from xmodel.remote import RemoteStructure
-from xyn_types import Default
-from xyn_url import HTTPGet, HTTPPatch, HTTPDelete, URL
+from xsentinels import Default
+from xurls import HTTPGet, HTTPPatch, HTTPDelete, URL
 
 
 F = TypeVar("F", bound=Field)

@@ -5,7 +5,7 @@ import pytest
 import requests_mock
 import requests
 
-from xmodel.errors import XynModelError
+from xmodel.errors import XModelError
 from xmodel_rest.errors import XynRestError
 from .test_models import TestModel, TestFormatBodyModel, TestRestSettings
 from unittest.mock import patch
@@ -99,9 +99,9 @@ def test_basic_get_without_timeout(mocked_resp):
     call.reset()
 
     # We disable retry_requests, and it should fail on the first call and not retry.
-    TestRestSettings.resource().retry_requests = False
+    TestRestSettings.grab().retry_requests = False
     first_time = True
-    with pytest.raises(XynModelError):
+    with pytest.raises(XModelError):
         obj = TestModel.api.get_via_id(2)
     assert call.call_count == 1
 
@@ -139,7 +139,7 @@ def test_basic_get_for_valid_json_but_non_dict_root(mocked_resp):
         status_code=200,
     )
 
-    with pytest.raises(XynModelError):
+    with pytest.raises(XModelError):
         TestModel.api.get_via_id(2)
 
 
@@ -152,7 +152,7 @@ def test_basic_get_for_basic_error_response(mocked_resp):
         status_code=500,
     )
 
-    with pytest.raises(XynModelError):
+    with pytest.raises(XModelError):
         TestModel.api.get_via_id(2)
 
 
@@ -165,7 +165,7 @@ def test_basic_get_for_invalid_json_response_body(mocked_resp):
         status_code=200,
     )
 
-    with pytest.raises(XynModelError):
+    with pytest.raises(XModelError):
         TestModel.api.get_via_id(2)
 
 

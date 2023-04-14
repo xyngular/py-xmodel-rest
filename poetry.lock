@@ -1454,6 +1454,18 @@ files = [
 ]
 
 [[package]]
+name = "xbool"
+version = "1.0.0"
+description = "General purpose bool/boolean utilities, extracting bools from strings."
+category = "main"
+optional = false
+python-versions = ">=3.8,<4.0"
+files = [
+    {file = "xbool-1.0.0-py3-none-any.whl", hash = "sha256:9c436078be1bce0a386c9f66b29db6dae66e09babe76e803bb530093c4c6202f"},
+    {file = "xbool-1.0.0.tar.gz", hash = "sha256:a63758fa9ccf38c9b865e8f71ccf7bf1400f2dc0971f0f33e51623f614d57fd9"},
+]
+
+[[package]]
 name = "xinject"
 version = "1.4.0"
 description = "Lazy dependency injection."
@@ -1517,6 +1529,25 @@ files = [
 typing-inspect = ">=0,<1"
 
 [[package]]
+name = "xsettings"
+version = "1.3.0"
+description = "Ways to document, centeralize, retreive and validate settings."
+category = "main"
+optional = false
+python-versions = ">=3.8,<4.0"
+files = [
+    {file = "xsettings-1.3.0-py3-none-any.whl", hash = "sha256:6b47fe0b8efb7d7091ff539bee219c44662fed3a830f97e22fd2939625cb5129"},
+    {file = "xsettings-1.3.0.tar.gz", hash = "sha256:b8287199e7f87add18abfca3a8b6111da142c69a376d3443349e3d4168dc7137"},
+]
+
+[package.dependencies]
+ciso8601 = ">=2.3.0,<3.0.0"
+xbool = ">=1.0.0,<2.0.0"
+xinject = ">=1.2.0,<2.0.0"
+xloop = ">=1.0.1,<2.0.0"
+xsentinels = ">=1.2.0,<2.0.0"
+
+[[package]]
 name = "xurls"
 version = "0.2.0"
 description = "Python URL Library"
@@ -1551,4 +1582,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "bb53a9fa493aaaa7f068f4b888dd3189c3a8fd10e736042776a6c4ab4ce43821"
+content-hash = "8040b142bba24bdcc641bca833240dff9adc20cd52687573843d1202f2364c1e"

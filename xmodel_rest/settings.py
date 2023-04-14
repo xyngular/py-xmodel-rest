@@ -1,8 +1,8 @@
-from xyn_types import Default
+from xsentinels import Default
 
-from xyn_resource import Resource
-from xyn_url import URLStr, URLMutable, URL
-from xyn_settings import Settings, SettingsField
+from xinject import Dependency
+from xurls import URLStr, URLMutable, URL
+from xsettings import Settings, SettingsField
 import dataclasses
 from copy import deepcopy
 from typing import TypeVar
@@ -10,7 +10,7 @@ from typing import TypeVar
 T = TypeVar("T")
 
 
-class RestSettings(Resource):
+class RestSettings(Dependency):
     """
     A basic ConfigType subclass with a few basic features that are useful.
 
@@ -29,15 +29,15 @@ class RestSettings(Resource):
     For more details see
     [Use of Type Hints for Changing Type Used](./api.html#use-of-type-hints-for-changing-used-type)
 
-    ## Details when using `xyn_settings.Settings` with RestSettings
+    ## Details when using `xsettings.Settings` with RestSettings
 
-    You can use a `xyn_settings.Settings` as part of your subclass,
+    You can use a `xsettings.Settings` as part of your subclass,
     just re-define the `root_url` and `base_api_url` as type-hints,
     and add any others you need.
 
 
-    .. todo:: I want to have this inherit from `xyn_settings.Settings`, but I need to
-        add support for inheritance from another `xyn_settings.Settings` class.
+    .. todo:: I want to have this inherit from `xsettings.Settings`, but I need to
+        add support for inheritance from another `xsettings.Settings` class.
         Should be easy to add in, just need to do it sometime.
         Don't have time right now, so leaving this todo here for now.
         It would allow us to remove the properties below,
@@ -73,7 +73,7 @@ class RestSettings(Resource):
 
     # Must put value here so pdoc3 will see the docs for it,
     # so using a property to do that and still get ability to raise an exception if not found.
-    # I would have LOVED to use `xyn_settings.Settings` field
+    # I would have LOVED to use `xsettings.Settings` field
     # instead, but I can't until a upgrade it with an ability to use a parent Settings.
     # I have a todo (see class doc-comment above) to do that.
     @property
@@ -87,7 +87,7 @@ class RestSettings(Resource):
 
         `base_api_url` = `ConfigVar`("ENV_OR_CONFIG_VAR_NAME")
 
-        >>> from xyn_settings import Settings
+        >>> from xsettings import Settings
         >>> class MySettings(Settings, RestSettings):
         ...     # Tip: Settings will auto-convert str to URL if needed!
         ...     base_api_url: URL

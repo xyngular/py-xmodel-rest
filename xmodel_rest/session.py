@@ -1,8 +1,8 @@
 import requests
-from xyn_resource import Resource
+from xinject import DependencyPerThread
 
 
-class Session(Resource):
+class Session(DependencyPerThread, attributes_to_skip_while_copying=['_requests_session']):
     """ Simple resource to keep track of a common requests session.
         For unit-tests, if they use the `xynlib.fixtures.context` fixture, they will get
         a blank-context, and so a new `Session` object  will be created each time;
@@ -22,16 +22,6 @@ class Session(Resource):
         session is needed.  Therefore, requests is given an opportunity to reuse an
         already open http-connection to an API.
     """
-
-    # Instead of inheriting from `ThreadUnsafeResource`, we set flag directly ourselves.
-    # This allows us to be compatible with both v2 and v3 of xyn_resource.
-    resource_thread_safe = False
-
-    # If/when we get copied, we flag _requests_session as something not to copy,
-    # as you can't copy a session obj (it represents a network connection).
-    # We should generate a new session in the new copied object.
-    attributes_to_skip_while_copying = {'_requests_session'}
-
     # So we know if we lazily created the session yet or not.
     _requests_session = None
 

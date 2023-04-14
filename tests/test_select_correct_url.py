@@ -4,7 +4,7 @@ import pytest
 import requests_mock
 import math
 from .test_models import TestModel
-from xyn_url import URL, HTTPPut, HTTPPost
+from xurls import URL, HTTPPut, HTTPPost
 
 
 class UpdateCreateModel(

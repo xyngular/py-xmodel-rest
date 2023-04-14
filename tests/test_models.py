@@ -4,11 +4,11 @@ from requests import PreparedRequest
 from dataclasses import dataclass
 from xmodel import Field
 from xmodel.common.types import FieldNames, JsonDict
-from xyn_types import Default
-from xyn_types.default import DefaultType
+from xsentinels import Default
+from xsentinels.default import DefaultType
 
 from xmodel_rest import RestModel, RestSettings, RestAuth, RestClient, RestApi
-from xyn_url import URLStr, URL, URLMutable
+from xurls import URLStr, URL, URLMutable
 from typing import TypeVar, Dict, Sequence, Tuple, Union
 
 T = TypeVar('T')
@@ -143,7 +143,7 @@ class TestFormatBodyClient(RestClient):
 
 class TestAuth(RestAuth):
     def __call__(self, request: PreparedRequest):
-        config = TestRestSettings.resource()
+        config = TestRestSettings.grab()
         auth_dict = dict(APIKey=config.api_key, APISecret=config.api_secret)
         request.prepare_url(request.url, auth_dict)
         return request

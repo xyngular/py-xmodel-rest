@@ -1,4 +1,4 @@
-from xyn_url import HTTPGet, HTTPPatch, HTTPDelete, URL
+from xurls import HTTPGet, HTTPPatch, HTTPDelete, URL
 
 
 DefaultModelURLs = [
