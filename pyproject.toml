@@ -3,7 +3,7 @@ name = "xmodel_rest"
 version = "0.1.0"
 description = "Builds on xmodel, adds ability to get/send/update objects to/from rest API; especially if api uses JSON as it’s request/response body format."
 authors = ["Josh Orr <josh@orr.blue>"]
-packages = [{include = "xmodel-rest"}]
+packages = [{include = "xmodel_rest"}]
 readme = "README.md"
 license = "The Unlicense (Unlicense)"
 repository = "https://github.com/xyngular/py-xmodel-rest"
