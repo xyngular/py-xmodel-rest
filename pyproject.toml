@@ -5,20 +5,14 @@ description = "Builds on xmodel, adds ability to get/send/update objects to/from
 authors = ["Josh Orr <josh@orr.blue>"]
 packages = [{include = "xmodel_rest"}]
 readme = "README.md"
-license = "The Unlicense (Unlicense)"
 repository = "https://github.com/xyngular/py-xmodel-rest"
+classifiers = [
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: OSI Approved :: The Unlicense (Unlicense)"
+]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-
-# Right now, we are compatiable with both v2 and v3 of xyn-resource.
-#xyn-model = "^1.1.0"
-#xyn-resource = ">=2.1.2,<4"
-#xyn-types = "^1.1.0"
-#xyn-url = "^1.1.0"
-#xyn-dateutils = "^1.1.0"
-#xyn-settings = "^1.4.0"
-
 requests = "^2.26.0"
 requests-mock = "^1.9.3"
 xmodel = "^0.2.0"
