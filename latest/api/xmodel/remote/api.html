@@ -1,0 +1,2579 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>xmodel.remote.api API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>xmodel.remote.api</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import dataclasses
+from logging import getLogger
+from typing import (
+    TypeVar, Type, get_type_hints, Union, List, Dict, Iterable, Set, Optional, Generic, Mapping,
+    Any
+)
+
+import typing_inspect
+
+from xinject import Dependency
+from xsentinels import Default
+from xurls.url import Query
+from xloop import xloop as loop
+
+from xmodel.errors import XModelError
+from xmodel.base.api import BaseApi
+from xmodel.remote.model import RemoteModel
+from xmodel.common.types import FieldNames, JsonDict
+from xmodel.remote.client import RemoteClient
+from xmodel.remote.response_state import ResponseState
+from .options import ApiOptions, ApiOptionsGroup
+from .structure import RemoteStructure
+from xmodel import Field
+
+log = getLogger(__name__)
+M = TypeVar(&#34;M&#34;, bound=RemoteModel)
+
+
+class RemoteApi(BaseApi[M]):
+
+    # The type-hints inform this class what type of objects to create
+    # when `client` and `structure` are needed/asked-for.
+    #
+    # You can override the type by making your own type-hint on a sub-class.
+    # See xmodel.base.api.BaseApi&#39;s for its various special type-hinted attributes
+    # for more details, it has more detailed comments/documentation on it.
+    client: RemoteClient[M]
+    structure: RemoteStructure[Field]
+
+    # This type-hint is only for IDE, `RemoteApi` does not use it
+    # (self.model_type value is passed in when RemoteApi is allocated, in __init__ method).
+    model: RemoteModel[M]
+
+    @property
+    def _client(self):
+        &#34;&#34;&#34; Returns an appropriate concrete `xmodel.remote.client.RemoteClient` subclass.
+            We figure out the proper client object to use based on the type-hint for &#34;client&#34;
+            property on the sub-class.
+
+            Example:
+
+                &gt;&gt;&gt; from typing import TypeVar
+                &gt;&gt;&gt; from xmodel import RestApi, RestClient
+                &gt;&gt;&gt; M = TypeVar(&#34;M&#34;)  # &lt;-- This allows IDE to do better code completion.
+                &gt;&gt;&gt;
+                &gt;&gt;&gt; class MyClient(RestClient[M]):
+                &gt;&gt;&gt;     pass
+                &gt;&gt;&gt;
+                &gt;&gt;&gt; class MyApi(RestApi[M])
+                &gt;&gt;&gt;     client: MyClient[M]  # &lt;-- Type hint on &#39;client&#39; property.
+
+            This is enough for `xmodel.base.BaseModel` subclasses that have this set as their
+            api type-hint:
+
+                &gt;&gt;&gt; from xmodel.remote.model import RemoteModel
+                &gt;&gt;&gt;
+                &gt;&gt;&gt; # The [&#34;MyModel&#34;] part allows IDE to do better code-completion.
+                &gt;&gt;&gt; class MyModel(RemoteModel[&#34;MyModel&#34;]):
+                &gt;&gt;&gt;     api: MyApi
+
+            When you get MyModel&#39;s api like below, it will return a MyApi instance,
+            MyApi will in turn return a MyClient:
+
+                &gt;&gt;&gt; print(MyModel.api)
+                MyApi(...)
+                &gt;&gt;&gt; print(MyModel.api.client)
+                MyClient(...)
+
+            For a more concreate use/example, see `xmodel_rest.RestModel`;
+            it&#39;s a RemoteModel subclass that implments a RestClient that can be used with it.
+        &#34;&#34;&#34;
+        client = self.structure.internal_shared_api_values.get(&#39;client&#39;)
+        if client:
+            return client
+
+        client_type = get_type_hints(type(self)).get(&#39;client&#39;, None)
+        if client_type is None:
+            raise XModelError(
+                f&#34;RemoteClient subclass type is undefined for model class ({self.model_type}), &#34;
+                f&#34;a type-hint for &#39;client&#39; on BaseApi class must be in place for me to know what &#34;
+                f&#34;type to get.&#34;
+            )
+
+        client = client_type(api=self.model_type.api)
+        self.structure.internal_shared_api_values[&#39;client&#39;] = client
+        return client
+
+    # PyCharm has some sort of issue, if I provide property type-hint and then a property function
+    # that implements it. For some reason, this makes it ignore the type-hint in subclasses
+    # but NOT in the current class.  It&#39;s some sort of bug. This gets around it since pycharm
+    # can&#39;t figure out what&#39;s going on here.
+    client = _client
+
+    _auth_type = None
+    &#34;&#34;&#34; See `RelationApi.auth`.
+    &#34;&#34;&#34;
+
+    _client = None
+    &#34;&#34;&#34; See `RemoteApi.client`.
+    &#34;&#34;&#34;
+
+    # ------------------------------
+    # --------- Properties ---------
+
+    @property
+    def response_state(self) -&gt; ResponseState[M]:
+        &#34;&#34;&#34;
+        Returns the HTTP/Communication state of the api object.
+
+        This will include if the last time it was sent [patch/post/whatever], if it had an error.
+        It also lets you mark the object as needing to be retried.
+        You can also discover if an attempt to send it was even made, and so on.
+        &#34;&#34;&#34;
+        response_state = self._response_state
+        if not response_state:
+            self._generate_state_if_needed()
+            response_state = self._response_state
+        return response_state
+
+    # @property
+    # def cache_by_id(self) -&gt; bool:
+    #     &#34;&#34;&#34; Look self.structure options, and current context options on self, to determine if
+    #         we should cache by id for this particular api/model-class combo....
+    #
+    #         todo: I am thinking perhaps I just simple return the current ApiOptions, filled out
+    #            by merging it with everything instead of having seperate methods like this...
+    #     &#34;&#34;&#34;
+    #     # todo: Josh: Finish this, see doc-comment above; I am not 100% sure what I want
+    #     #   to do with this right now,
+    #     raise NotImplementedError()
+
+    # ---------------------------
+    # --------- Methods ---------
+
+    # noinspection PyShadowingBuiltins
+    def get_via_id(
+            self,
+            id: Union[
+                Union[int, str],
+                List[Union[int, str]],
+                Dict[str, Union[str, int]],
+                List[Dict[str, Union[str, int]]],
+            ],
+            fields: FieldNames = Default,
+            id_field: str = None,
+            aux_query: Query = None
+    ) -&gt; Union[Iterable[M], M, None]:
+        &#34;&#34;&#34;
+        This method would have probably been better named `get_via_key`.
+
+        The idea with this method is you pass in an value that can be queried against and
+        id/key type of field that should always and ONLY identify zero or one objects.
+        We will be using this fact to assume we can cache/map the id to a value we get so
+        future requests will just return the existing object.
+
+        If you give us a list for `id` then we will return a list/generator.
+        Important: Right now we return a list in this case.
+        But it might be just a generator in the future,
+        treat the return type as a true Iterable, something you can&#39;t call &#39;len(...)&#39; on.
+
+        Get object via it&#39;s ID or a composite-key from API.
+        If you pass in a list instead of an int/str for id, then this will return a list
+        for all objects for objects found for passed in id&#39;s.
+        We will automatically split up the requests in this case so they don&#39;t get too big and
+        combine the results later and return a list (or a generator in the future).
+
+        If you pass in a dictionary it will formulate the query to include all fields and values
+        included in the dict.
+
+        If you pass in a list of Dict&#39;s it will process all of the dictionaries and group
+        them together where the keys in the dictionary match each other such as:
+        [{key: 1}, {key:2}, {key:3, value:1}]
+        would be grouped into queries:
+        query 1 = {key: [1,2]}
+        query 2 = {key: [3], value: [1]}
+        and then process each query individually.
+
+        .. attention:: If we ever have an API that can&#39;t accept multiple values for a key
+            like we show in the above example; we would need to send each item in the list
+            in individual requests.  Need to add support for that when we need it.
+
+        This method is nice to use vs doing a generic query with the id/key, due to the fact
+        we will look for cached object if the sub-class has the cache ny id enabled.
+        This will also chunk queries so that no url will be too long for an api to handle.
+
+        See `RelationApi.get` for a description of how &#39;fields` param works.
+
+        Args:
+            id: The identifier(s) of object to get.
+            fields: See `RelationApi.get` for more info on how fields work.
+                Summary: Try to only retrieve named fields (by default, we get all fields).
+            id_field: If None, uses default &#39;id&#39; field name, otherwise uses one provided.
+            aux_query: If not None: Adds these to the query that is sent to API.
+
+                Whatever is in this `aux_query` is added to each request for each of the
+                identifiers provided in the &#39;id&#39; parameter.
+
+                Sometimes we can query for several identifiers per-request, sometimes not.
+                Regardless of how we decide to breakup multiple &#39;id&#39; values we will always
+                add this `aux_query` to it.
+
+                Used to provide additional filtering criteria in addition to the &#39;id&#39;.
+
+                You might want to get a set of objects by id, that also have (as an example)
+                their &#39;first_name&#39; attribute set to &#39;Josh&#39;, for example.
+                Consider that we could pass thousands up ID&#39;s into a request,
+                this could be a much faster way to get specific objects back then grabbing
+                all of them and checking the `first_name` attribute yourself if you expect
+                only a few of these objects to actually match.
+
+                These won&#39;t be split up into segments [to keep URL/Request smaller] like the
+                id/keys are.
+                We are not able to use the id-cache if these are provided, we may always have
+                to go to the API. This may change at some point in the future [by executing the
+                query ourselves and not via the API against the cached objects]. But for now
+                that&#39;s not the case.
+
+            .. important:: aux_query is also only currently used if you pass in a `list`
+                as the `id`. At some point we support non-id-list based aux_query.
+
+            .. todo:: Consider using &#39;aux_query&#39; against previously cached items.
+        &#34;&#34;&#34;
+
+        # todo: Thinking of moving the  functionality of splitting the get into
+        #  multiple requests based on
+        #  an identifier field, allow it to be a general feature of the `RemoteClient` class,
+        #  so it&#39;s more generally available. That way it&#39;s more of an automatic feature.
+
+        if id is None:
+            return None
+
+        structure = self.structure
+
+        max_query_by_id = structure.max_query_by_id
+
+        # todo: Someday, adjust this to only iterate on id as needed, ie: get the first
+        #  100 or so, and then query the client for that, and then get the next 100, etc.
+        #  this allows us to make better use of id if it&#39;s a generator, especially if we
+        #  return a real generator someday in the future [limits memory use that way].
+
+        disable_all_caching = bool(aux_query)
+        id_cache_is_enabled = self.option_for_name(&#39;cache_by_id&#39;)
+        if disable_all_caching:
+            id_cache_is_enabled = False
+
+        if id_field and id_field != &#39;id&#39;:
+            # For now, don&#39;t cache by an alternate id keys.
+            id_cache_is_enabled = False
+        else:
+            id_field = &#34;id&#34;
+
+        # ||| NEW START |||
+
+        # `field` may be None, if the BaseModel has no id field.
+        # Some models have a concept of an `id` that is not a field
+        # in the table/api (ie: a &#39;virtual&#39; id).
+        field = self.structure.get_field(id_field)
+        # If field not defined, default to str.
+        field_type = field.type_hint if field else str
+
+        # Only deal with str/int types for the field-type for id/key-types.
+        # If it&#39;s something else, lets not support that for now.
+        if field_type not in (int, str):
+            raise XModelError(
+                f&#34;Field ({id_field}) for model type ({self.model_type}) needs to be a str or int &#34;
+                f&#34;in order to currently be used in `get_via_id` method at the moment.&#34;
+            )
+
+        value_type = type(id)
+        result_is_list = False
+
+        if typing_inspect.is_union_type(field_type):
+            raise XModelError(
+                f&#34;Field `{id_field}` for model type {self.model_type} can&#39;t be a union-type&#34;
+                f&#34;({field_type}), it needs to be a specific type like `int`, `str`, etc.&#34;
+            )
+
+        result_is_list = value_type not in (int, str, dict)
+
+        # ^^^ NEW END ^^^
+
+        if not result_is_list and aux_query:
+            raise NotImplementedError(&#34;Must use a List with aux_query for the moment.&#34;)
+
+        client = self.client
+
+        # todo: Josh Comment: I wish we just always returned a list/generator....
+        #   consider making a separate method for most of the rest of the method
+        #   and doing this in this one, followed by calling the new one [when returning list].
+        key_dicts = []
+        for key_values in loop(id):
+            if isinstance(key_values, dict):
+                key_dicts.append(key_values)
+            else:
+                key_dicts.append({id_field: key_values})
+
+        if not result_is_list:
+            if not disable_all_caching:
+                obj = client.cache_weak_get(structure.id_cache_key({id_field: id}))
+                if obj:
+                    return obj
+
+            if id_cache_is_enabled:
+                # When this/these object(s) are updated via update_from_json the cache will be set
+                # automatically if the sub-class has the cache_by_id ApiOption on it.
+                obj = client.cache_get(structure.id_cache_key(id))
+                if obj is not None:
+                    return obj
+
+            # todo: raise_on_404
+            if key_dicts:
+                return client.get_first(query=key_dicts[0], fields=fields)
+            else:
+                return None
+
+        # We can assume at this point a list of ID&#39;s to get and a list of objects to return.
+        # We only want to do about 100 at a time [due to URL length limits in production].
+
+        results = []
+        id_list = []
+        objs_with_no_id_field = []
+        objs_with_id_field = []
+
+        # Check weak cache for objs and remove them by index
+        indexes_to_remove_in_key_dicts = set()
+        cached_results = set()
+        for index, key_dict in enumerate(key_dicts):
+            if disable_all_caching:
+                # We are not doing any cache lookups for now, this may change in the future
+                # as we make this more sophisticated.
+                continue
+
+            cached_obj = client.cache_weak_get(structure.id_cache_key(key_dict))
+            if cached_obj:
+                cached_results.add(cached_obj)
+                indexes_to_remove_in_key_dicts.add(index)
+            if len(key_dict.keys()) == 1:
+                # We want to check if there is only one key in key dict and then check if that
+                # key is &#34;id&#34;
+                obj_id: Union[list, int, str] = key_dict.get(&#34;id&#34;)
+                if obj_id and type(obj_id) is int:
+                    cached_obj = client.cache_get(structure.id_cache_key(obj_id))
+                    if cached_obj:
+                        cached_results.add(cached_obj)
+                        indexes_to_remove_in_key_dicts.add(index)
+                elif obj_id and type(obj_id) is str:
+                    #   I think we can assume people using our method will NOT pass in comma
+                    #   separated values, if there is a comma they would want it to be part
+                    #   of the ID [ie: they are passing us lists/dicts here, and we let the URL
+                    #   formatter deal with how to encode that into the URL [ie: by comma, etc]...
+                    #
+                    # todo: Talk to Kaden, see why he put this in here originally.
+                    #   Probably remove the comma splitting...
+
+                    # If obj_id is a str then there is the possibility that there were multiple
+                    # ids in that string separated by a comma
+                    obj_id_set: Union[Set[str], str] = set(obj_id.split(&#34;,&#34;))
+                    if len(obj_id) &gt; 0:
+                        for _id in obj_id_set:
+                            _id = _id.strip()
+                            cached_obj = client.cache_get(structure.id_cache_key(_id))
+                            if cached_obj:
+                                cached_results.add(cached_obj)
+                                obj_id_set.remove(_id)
+                        if len(obj_id_set) &gt; 0:
+                            obj_ids = &#34;&#34;
+                            for _id in obj_id_set:
+                                obj_ids += _id + &#34;,&#34;
+                            obj_ids = obj_ids[:-1]
+                            key_dict[&#34;id&#34;] = obj_ids
+                        else:
+                            indexes_to_remove_in_key_dicts.add(index)
+                    else:
+                        cached_obj = client.cache_get(structure.id_cache_key(obj_id))
+                        if cached_obj:
+                            cached_results.add(cached_obj)
+                            indexes_to_remove_in_key_dicts.add(index)
+
+        for index in sorted(indexes_to_remove_in_key_dicts, reverse=True):
+            del key_dicts[index]
+
+        # Add objects found in cache to results
+        for cached_obj in cached_results:
+            results.append(cached_obj)
+
+        # Check the rest of the objects in key_dicts after removing the ones found in the cache
+        for obj in key_dicts:
+            if obj.get(id_field) is not None:
+                objs_with_id_field.append(obj)
+            else:
+                objs_with_no_id_field.append(obj)
+
+        if id_cache_is_enabled:
+            # If caching enabled, go though each id and check for cached version.
+            indexes_to_remove = []
+            for index, obj_with_id in enumerate(objs_with_id_field):
+                # More Info: See previous comment for ctx.cache_get, just above ^ [in this method].
+                #
+                # But to summarize:
+                # When this/these object(s) are updated via update_from_json, the cache will be set
+                # automatically if the sub-class has the cache_by_id ApiOption set to True.
+                obj = client.cache_get(structure.id_cache_key(obj_with_id.get(id_field)))
+                if obj is not None:
+                    results.append(obj)
+                    indexes_to_remove.append(index)
+                    continue
+
+            # Remove any objects that were found in cache.
+            for index in sorted(indexes_to_remove, reverse=True):
+                del objs_with_id_field[index]
+
+        log.info(
+            f&#34;Getting ({len(objs_with_id_field) + len(objs_with_no_id_field)}) objects via &#34;
+            f&#34;endpoint ({structure.endpoint_description}) from API.&#34;
+        )
+
+        # Combine keys-groups that use the same combination of keys, we can get
+        # them in one query....
+        query_groups = {}
+        for obj in loop(objs_with_id_field, objs_with_no_id_field):
+            obj_keys = frozenset(obj.keys())
+            obj_group = query_groups.setdefault(obj_keys, [])
+            obj_group.append(obj)
+
+        results = []
+        for key in query_groups:
+            obj_group = query_groups[key]
+            query = {}
+            items_in_query_fields_count = 0
+            while len(obj_group) &gt; 0:
+                obj = obj_group.pop()
+                obj_keys = obj.keys()
+                if items_in_query_fields_count + len(obj_keys) &gt; max_query_by_id:
+                    obj_group.append(obj)
+                    items_in_query_fields_count = max_query_by_id + 1
+                else:
+                    for obj_key in obj_keys:
+                        query_field_group = query.setdefault(obj_key, [])
+                        query_field_group.append(obj.get(obj_key))
+                        items_in_query_fields_count += 1
+
+                if (
+                    items_in_query_fields_count &gt;= max_query_by_id or
+                    len(obj_group) == 0
+                ):
+                    # Apply any extra query user provided.
+                    if aux_query:
+                        query.update(aux_query)
+
+                    # Execute query and append results.
+                    results.append(self.get(query, fields=fields))
+                    query = {}
+                    items_in_query_fields_count = 0
+
+        return loop(*results)
+
+    def get(
+            self,
+            query: Query = None,
+            *,
+            top: int = None,
+            fields: Optional[FieldNames] = Default,
+    ) -&gt; Optional[Iterable[M]]:
+        &#34;&#34;&#34;
+        Important: Right now we return a list, but it might be just a generator in the future,
+        treat the return type as a true Iterable, something you can&#39;t call &#39;len(...)&#39; on.
+
+        Gets and instance of the proper subclass for the class you call this on for the passed in
+        date_range, api_type, and account id for context.
+
+        In the future, we may make what&#39;s returned a generator, so it would allow us
+        to make page requests as whatever calls me iterates though the results.
+
+        :param fields:
+            You can pass in a list of fields, which will be the only ones returned in the objects.
+            The field &#39;id&#39; will always be included, no need to add that one your self.
+
+            If Default or Empty List: [Default] Then all fields will be retrieved except
+            the ones ignored by default.
+
+            If None: Nothing about what fields to include/exclude will be passed to API. It should
+            grab everything.
+
+        :param query: Other custom queries to pass on.
+        :param top: First number of objects to get, defaults to None, which means get everything.
+
+        :return: A list of accounts.
+        &#34;&#34;&#34;
+        return self.client.get(query, top=top, fields=fields)
+
+    # ----------------------------------------------------
+    # --------- Things REQUIRING an Associated BaseModel -----
+
+    def json(
+            self, only_include_changes: bool = False, log_output: bool = False
+    ) -&gt; Optional[JsonDict]:
+        &#34;&#34;&#34;
+        `xmodel.base.api.BaseApi.json` to see superclass&#39;s documentation for this method.
+
+        The changes for RemoteApi are to always include everything if we have no ID value for the
+        associated model regardless of the value of only_include_changes.
+        &#34;&#34;&#34;
+
+        model = self.model
+        have_id_value = model.id is not None
+
+        # Negate only include changes if we do not have an id value as it has not been created in
+        # the remote.
+        if only_include_changes and not have_id_value:
+            only_include_changes = False
+
+        json = super().json(only_include_changes, log_output)
+
+        if have_id_value and json:
+            # todo: Check to see if we have &#39;id&#39; already?  Also, use the &#39;id&#39; field&#39;s converter!
+            #       for now just leaving it as-is (normally this is a basic int/str value anyway).
+            json[&#39;id&#39;] = model.id
+
+        if only_include_changes and json:
+            fields_to_pop = self.fields_to_pop_for_json(json, self.structure.fields, log_output)
+
+            have_usable_id = self.structure.has_id_field()
+            id_is_same = False
+            for f in fields_to_pop:
+                if have_usable_id and f == &#39;id&#39;:
+                    id_is_same = True
+                else:
+                    del json[f]
+
+            if have_usable_id and id_is_same is True:
+                if len(json) == 1 and json.get(&#39;id&#39;) is not None:
+                    return None
+
+        return json
+
+    def update_from_json(self, json: Union[JsonDict, Mapping]):
+        &#34;&#34;&#34;
+        `xmodel.base.api.BaseApi.update_from_json` to see superclass&#39;s documentation
+        for this method.
+
+        The changes for RemoteApi are to cache by id. This will automatically create a weak cache
+        but will only create a hard cache if the option of `cache_by_id` is set to True.
+        &#34;&#34;&#34;
+        super().update_from_json(json)
+
+        structure = self.structure
+        model = self.model
+
+        have_id_field = structure.has_id_field()
+
+        if have_id_field:
+            # ID is special, get it before anything else
+            # [if there is a problem, object can print out it&#39;s primary key, useful for debugging]
+            id_value = json.get(&#39;id&#39;)
+            model.id = id_value
+
+            if id_value:
+                self.client.cache_weak_set(structure.id_cache_key(id_value), model)
+
+            if self.option_for_name(&#39;cache_by_id&#39;):
+                if id_value is None and model.id:
+                    self.client.cache_remove(structure.id_cache_key(model.id))
+                elif id_value:
+                    self.client.cache_set(structure.id_cache_key(id_value), model)
+
+    def list_of_attrs_to_repr(self) -&gt; List[str]:
+        names = set(super().list_of_attrs_to_repr())
+
+        if self.structure.has_id_field() and self.model.id is not None:
+            names.add(&#39;id&#39;)
+
+        return list(names)
+
+    def did_send(self):
+        &#34;&#34;&#34; self.client will call us here after someone attempts to send us (a specific model),
+            you and use `RelationApi.model` to grab the model that it happened with.
+
+            Keep in mind, that this will be called after any attempt to send the object,
+            even if there were no changes to send.
+
+            In the future, I may pass in a flag to this method that says if it was actually
+            updated or not.
+
+            Right now, this does nothing. It&#39;s here more for subclasses to easily know when
+            they are sent.
+
+            This works even if multiple objects were sent at once, the client should call
+            this method on each model independently.
+        &#34;&#34;&#34;
+        # Nothing to do by default.
+        pass
+
+    def send(self):
+        &#34;&#34;&#34; REQUIRES associated model object [see self.model].
+
+        Convenience method to send this single object to API, it simply calls
+        `self.client.send_objs()` with a single object in the list [via self.model].
+
+        If you want to send multiple objects, call self.client.send_objs().
+        &#34;&#34;&#34;
+        self.client.send_objs([self.model])
+
+    def delete(self):
+        &#34;&#34;&#34; REQUIRES associated model object [see self.model].
+
+        Convenience method to delete this single object in API.
+        &#34;&#34;&#34;
+        model = self.model
+        if model.id is None:
+            raise XModelError(
+                f&#34;A deleted was requested for an object that had no id for ({model}).&#34;
+            )
+
+        self.client.delete_obj(model)
+
+    @property
+    def options(self) -&gt; ApiOptions[M]:
+        &#34;&#34;&#34;
+        A set of options you can modify for the current context. If a particular option
+        inside the options object is not set, Options object may look at the parent context
+        and grab that options value.
+
+        Moving to using this name `options` instead of the more verbose `self.options_for_context`.
+        &#34;&#34;&#34;
+        return ApiOptionsGroup.grab().get(api=self)
+
+    def option_for_name(self, option_attribute_name) -&gt; Any:
+        &#34;&#34;&#34; Returns the first option returned from self.option_all_for_name for the
+            `option_attribute_name` that is passed in; otherwise None.
+
+            See `BaseApi.option_all_for_name` for more details.
+        &#34;&#34;&#34;
+        values = self.option_all_for_name(option_attribute_name=option_attribute_name)
+        return values[0] if values else None
+
+    def option_all_for_name(self, option_attribute_name) -&gt; List[Any]:
+        &#34;&#34;&#34;
+        Gets a particular option attribute by name in a particular prioritized order.
+
+        It first looks in self.options to see if anything was explicitly set and uses
+        that first in returned list.
+
+        Next, we will add the value that was passed to `options=` during BaseModel class
+        construction.
+
+        .. todo::  At some point in the near future I want to revamp these options and put them
+            in some sort of public resource, a resource that&#39;s behaviors sort of like
+            how `xcon.config.Config` or `xmodel.fields.Field` works... in that you
+            can set various options/attributes and ones that are unset are &#39;inherited&#39; from any
+            parent Config / Field. This would make it simpler to use in a temporary fashion
+            Perhaps do something like this when we get to splitting the orm into separate library.
+        &#34;&#34;&#34;
+
+        values = []
+        # This gets the the context, and all parent context&#39;s options in order.
+        context_option_list = self.context.dependency_chain(ApiOptionsGroup)
+
+        options_to_check = []
+        structure = self.structure
+        for option_group in context_option_list:
+            # Only grather options that have been previously created.
+            options = option_group.get(api=self, create_if_needed=False)
+            if options:
+                options_to_check.append(options)
+
+        options_to_check.append(structure.api_options)
+
+        # If the option has been explicitly set on object, it&#39;s the first one.
+        #
+        # todo: See todo above xmodel.utils.SetUnsetValues: I may use a special &#39;Default&#39;
+        #       sentinel value in the future instead of looking directly in `__dict__`.
+        #       |||
+        #       Update (2021-03-26): Yes, want to change this; Look at `Field` class for better
+        #       example of how to inhert values from parents.
+        for options in options_to_check:
+            if option_attribute_name in options.__dict__:
+                values.append(getattr(options, option_attribute_name, None))
+
+        # todo: Add values from options in parent context(s) somehow.
+        #       Comments in our doc-comment [above].
+
+        # If we have no values at this point, get what the default value is [ie: the one set
+        # on the class and not directly on object] and if it&#39;s not None, put that into list.
+        if not values:
+            default_value = getattr(self.options, option_attribute_name, None)
+            if default_value is not None:
+                values.append(default_value)
+
+        return values
+
+    # ----------------------------
+    # --------- Private ----------
+
+    _response_state: ResponseState = None
+    &#34;&#34;&#34; Contains details on what happened during the last http request. &#34;&#34;&#34;
+
+    _client_type: Type[RemoteClient] = None
+
+    def _generate_state_if_needed(self):
+        if not self._response_state:
+            self._response_state = ResponseState()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="xmodel.remote.api.RemoteApi"><code class="flex name class">
+<span>class <span class="ident">RemoteApi</span></span>
+<span>(</span><span>*, api: BaseApi[M] = None, model: <a title="xmodel.base.model.BaseModel" href="../base/model.html#xmodel.base.model.BaseModel">BaseModel</a> = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This class is a sort of "Central Hub" that ties all intrested parties together.</p>
+<p>You can get the correct instance via <code><a title="xmodel.base.model.BaseModel" href="../base/model.html#xmodel.base.model.BaseModel">BaseModel</a></code>.</p>
+<p>In order to reduce any name-collisions for other normal Model attributes, everything
+related to the BaseApi that the <code><a title="xmodel.base.model.BaseModel" href="../base/model.html#xmodel.base.model.BaseModel">BaseModel</a></code> needs is gotten though via
+this class.</p>
+<p>You can get the BaseApi instance related to the model via
+<code><a title="xmodel.base.model.BaseModel.api" href="../base/model.html#xmodel.base.model.BaseModel.api">BaseModel.api</a></code>.</p>
+<p>Example:</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; obj = BaseModel.api.get_via_id(1)
+</code></pre>
+<p>For more information see <a href="#api-class-overview">BaseApi Class Overview</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning:&ensp;You can probably skip the rest (below)</p>
+<p>Most of the time you don't create <code>BaseApi</code> objects your self, and so for most people
+you can skip the following unless you want to know more about internal details.</p>
+</div>
+<h1 id="init-method-specifics">Init Method Specifics</h1>
+<p>Normally you would not create an <code>BaseApi</code> object directly your self.
+<code><a title="xmodel.base.model.BaseModel" href="../base/model.html#xmodel.base.model.BaseModel">BaseModel</a></code>'s know how to do this automatically.
+It happens in <code><a title="xmodel.base.model.BaseModel.__init_subclass__" href="../base/model.html#xmodel.base.model.BaseModel.__init_subclass__">BaseModel.__init_subclass__()</a></code>.</p>
+<p>Details about how the arguments you can pass are below.</p>
+<h2 id="basemodel-class-construction">BaseModel Class Construction:</h2>
+<p>If you provide an <code>api</code> arg without a <code>model</code> arg; we will copy the <code>BaseApi.structure</code>
+into new object, resetting the error status, and internal <code>BaseApi._state</code> to None.
+This <code>api</code> object is supposed to be the parent BaseModel's class api object.</p>
+<p>If both <code>api</code> arg + <code>model</code> arg are <code>None</code>, the BaseModel is the root/generic BaseModel
+(ie: it has no parent BaseModel).</p>
+<p>This is what is done by BaseModel classes while the class is lazily loading and
+creating/configuring the BaseModel class and it's associated <code>BaseApi</code> object
+(accessible via <code><a title="xmodel.base.model.BaseModel.api" href="../base/model.html#xmodel.base.model.BaseModel.api">BaseModel.api</a></code>)</p>
+<h2 id="basemodel-instance-creation">BaseModel Instance Creation:</h2>
+<p>If you also pass in a <code>model</code> arg; this get you a special copy of the api you passed in
+for use just with that BaseModel instance. The model <code>BaseApi._state</code> will be allocated
+internally in the init'd BaseApi object. This is how a <code><a title="xmodel.base.model.BaseModel" href="../base/model.html#xmodel.base.model.BaseModel">BaseModel</a></code>
+instance get's it's own associated <code>BaseApi</code> object
+(that's a different instance vs the one set on BaseModel class when the BaseModel class
+was originally constructed).</p>
+<p>All params are optional.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>api</code></strong></dt>
+<dd>
+<p>The "parent" BaseApi obj to copy the basic structure from as a starting point,
+etc.
+The superclasses BaseApi class is passed via this arg.
+This is only used when allocating a new <code>BaseApi</code> object for a new
+<code><a title="xmodel.base.model.BaseModel" href="../base/model.html#xmodel.base.model.BaseModel">BaseModel</a></code> class (not an instance, a model class/type).
+This BaseApi object is used for the class-level BaseModel api object;
+ie: via "ModelClass.api"</p>
+<p>See above "BaseModel Class Construction" for more details.</p>
+</dd>
+<dt><strong><code>model</code></strong></dt>
+<dd>
+<p>BaseModel to associate new BaseApi obj with.
+This is only used to create a new BaseApi object for a
+<code><a title="xmodel.base.model.BaseModel" href="../base/model.html#xmodel.base.model.BaseModel">BaseModel</a></code>
+instance for an already-existing type. ie: for BaseModel object instances.</p>
+<p>See above "BaseModel Instance Creation" for more details.</p>
+</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class RemoteApi(BaseApi[M]):
+
+    # The type-hints inform this class what type of objects to create
+    # when `client` and `structure` are needed/asked-for.
+    #
+    # You can override the type by making your own type-hint on a sub-class.
+    # See xmodel.base.api.BaseApi&#39;s for its various special type-hinted attributes
+    # for more details, it has more detailed comments/documentation on it.
+    client: RemoteClient[M]
+    structure: RemoteStructure[Field]
+
+    # This type-hint is only for IDE, `RemoteApi` does not use it
+    # (self.model_type value is passed in when RemoteApi is allocated, in __init__ method).
+    model: RemoteModel[M]
+
+    @property
+    def _client(self):
+        &#34;&#34;&#34; Returns an appropriate concrete `xmodel.remote.client.RemoteClient` subclass.
+            We figure out the proper client object to use based on the type-hint for &#34;client&#34;
+            property on the sub-class.
+
+            Example:
+
+                &gt;&gt;&gt; from typing import TypeVar
+                &gt;&gt;&gt; from xmodel import RestApi, RestClient
+                &gt;&gt;&gt; M = TypeVar(&#34;M&#34;)  # &lt;-- This allows IDE to do better code completion.
+                &gt;&gt;&gt;
+                &gt;&gt;&gt; class MyClient(RestClient[M]):
+                &gt;&gt;&gt;     pass
+                &gt;&gt;&gt;
+                &gt;&gt;&gt; class MyApi(RestApi[M])
+                &gt;&gt;&gt;     client: MyClient[M]  # &lt;-- Type hint on &#39;client&#39; property.
+
+            This is enough for `xmodel.base.BaseModel` subclasses that have this set as their
+            api type-hint:
+
+                &gt;&gt;&gt; from xmodel.remote.model import RemoteModel
+                &gt;&gt;&gt;
+                &gt;&gt;&gt; # The [&#34;MyModel&#34;] part allows IDE to do better code-completion.
+                &gt;&gt;&gt; class MyModel(RemoteModel[&#34;MyModel&#34;]):
+                &gt;&gt;&gt;     api: MyApi
+
+            When you get MyModel&#39;s api like below, it will return a MyApi instance,
+            MyApi will in turn return a MyClient:
+
+                &gt;&gt;&gt; print(MyModel.api)
+                MyApi(...)
+                &gt;&gt;&gt; print(MyModel.api.client)
+                MyClient(...)
+
+            For a more concreate use/example, see `xmodel_rest.RestModel`;
+            it&#39;s a RemoteModel subclass that implments a RestClient that can be used with it.
+        &#34;&#34;&#34;
+        client = self.structure.internal_shared_api_values.get(&#39;client&#39;)
+        if client:
+            return client
+
+        client_type = get_type_hints(type(self)).get(&#39;client&#39;, None)
+        if client_type is None:
+            raise XModelError(
+                f&#34;RemoteClient subclass type is undefined for model class ({self.model_type}), &#34;
+                f&#34;a type-hint for &#39;client&#39; on BaseApi class must be in place for me to know what &#34;
+                f&#34;type to get.&#34;
+            )
+
+        client = client_type(api=self.model_type.api)
+        self.structure.internal_shared_api_values[&#39;client&#39;] = client
+        return client
+
+    # PyCharm has some sort of issue, if I provide property type-hint and then a property function
+    # that implements it. For some reason, this makes it ignore the type-hint in subclasses
+    # but NOT in the current class.  It&#39;s some sort of bug. This gets around it since pycharm
+    # can&#39;t figure out what&#39;s going on here.
+    client = _client
+
+    _auth_type = None
+    &#34;&#34;&#34; See `RelationApi.auth`.
+    &#34;&#34;&#34;
+
+    _client = None
+    &#34;&#34;&#34; See `RemoteApi.client`.
+    &#34;&#34;&#34;
+
+    # ------------------------------
+    # --------- Properties ---------
+
+    @property
+    def response_state(self) -&gt; ResponseState[M]:
+        &#34;&#34;&#34;
+        Returns the HTTP/Communication state of the api object.
+
+        This will include if the last time it was sent [patch/post/whatever], if it had an error.
+        It also lets you mark the object as needing to be retried.
+        You can also discover if an attempt to send it was even made, and so on.
+        &#34;&#34;&#34;
+        response_state = self._response_state
+        if not response_state:
+            self._generate_state_if_needed()
+            response_state = self._response_state
+        return response_state
+
+    # @property
+    # def cache_by_id(self) -&gt; bool:
+    #     &#34;&#34;&#34; Look self.structure options, and current context options on self, to determine if
+    #         we should cache by id for this particular api/model-class combo....
+    #
+    #         todo: I am thinking perhaps I just simple return the current ApiOptions, filled out
+    #            by merging it with everything instead of having seperate methods like this...
+    #     &#34;&#34;&#34;
+    #     # todo: Josh: Finish this, see doc-comment above; I am not 100% sure what I want
+    #     #   to do with this right now,
+    #     raise NotImplementedError()
+
+    # ---------------------------
+    # --------- Methods ---------
+
+    # noinspection PyShadowingBuiltins
+    def get_via_id(
+            self,
+            id: Union[
+                Union[int, str],
+                List[Union[int, str]],
+                Dict[str, Union[str, int]],
+                List[Dict[str, Union[str, int]]],
+            ],
+            fields: FieldNames = Default,
+            id_field: str = None,
+            aux_query: Query = None
+    ) -&gt; Union[Iterable[M], M, None]:
+        &#34;&#34;&#34;
+        This method would have probably been better named `get_via_key`.
+
+        The idea with this method is you pass in an value that can be queried against and
+        id/key type of field that should always and ONLY identify zero or one objects.
+        We will be using this fact to assume we can cache/map the id to a value we get so
+        future requests will just return the existing object.
+
+        If you give us a list for `id` then we will return a list/generator.
+        Important: Right now we return a list in this case.
+        But it might be just a generator in the future,
+        treat the return type as a true Iterable, something you can&#39;t call &#39;len(...)&#39; on.
+
+        Get object via it&#39;s ID or a composite-key from API.
+        If you pass in a list instead of an int/str for id, then this will return a list
+        for all objects for objects found for passed in id&#39;s.
+        We will automatically split up the requests in this case so they don&#39;t get too big and
+        combine the results later and return a list (or a generator in the future).
+
+        If you pass in a dictionary it will formulate the query to include all fields and values
+        included in the dict.
+
+        If you pass in a list of Dict&#39;s it will process all of the dictionaries and group
+        them together where the keys in the dictionary match each other such as:
+        [{key: 1}, {key:2}, {key:3, value:1}]
+        would be grouped into queries:
+        query 1 = {key: [1,2]}
+        query 2 = {key: [3], value: [1]}
+        and then process each query individually.
+
+        .. attention:: If we ever have an API that can&#39;t accept multiple values for a key
+            like we show in the above example; we would need to send each item in the list
+            in individual requests.  Need to add support for that when we need it.
+
+        This method is nice to use vs doing a generic query with the id/key, due to the fact
+        we will look for cached object if the sub-class has the cache ny id enabled.
+        This will also chunk queries so that no url will be too long for an api to handle.
+
+        See `RelationApi.get` for a description of how &#39;fields` param works.
+
+        Args:
+            id: The identifier(s) of object to get.
+            fields: See `RelationApi.get` for more info on how fields work.
+                Summary: Try to only retrieve named fields (by default, we get all fields).
+            id_field: If None, uses default &#39;id&#39; field name, otherwise uses one provided.
+            aux_query: If not None: Adds these to the query that is sent to API.
+
+                Whatever is in this `aux_query` is added to each request for each of the
+                identifiers provided in the &#39;id&#39; parameter.
+
+                Sometimes we can query for several identifiers per-request, sometimes not.
+                Regardless of how we decide to breakup multiple &#39;id&#39; values we will always
+                add this `aux_query` to it.
+
+                Used to provide additional filtering criteria in addition to the &#39;id&#39;.
+
+                You might want to get a set of objects by id, that also have (as an example)
+                their &#39;first_name&#39; attribute set to &#39;Josh&#39;, for example.
+                Consider that we could pass thousands up ID&#39;s into a request,
+                this could be a much faster way to get specific objects back then grabbing
+                all of them and checking the `first_name` attribute yourself if you expect
+                only a few of these objects to actually match.
+
+                These won&#39;t be split up into segments [to keep URL/Request smaller] like the
+                id/keys are.
+                We are not able to use the id-cache if these are provided, we may always have
+                to go to the API. This may change at some point in the future [by executing the
+                query ourselves and not via the API against the cached objects]. But for now
+                that&#39;s not the case.
+
+            .. important:: aux_query is also only currently used if you pass in a `list`
+                as the `id`. At some point we support non-id-list based aux_query.
+
+            .. todo:: Consider using &#39;aux_query&#39; against previously cached items.
+        &#34;&#34;&#34;
+
+        # todo: Thinking of moving the  functionality of splitting the get into
+        #  multiple requests based on
+        #  an identifier field, allow it to be a general feature of the `RemoteClient` class,
+        #  so it&#39;s more generally available. That way it&#39;s more of an automatic feature.
+
+        if id is None:
+            return None
+
+        structure = self.structure
+
+        max_query_by_id = structure.max_query_by_id
+
+        # todo: Someday, adjust this to only iterate on id as needed, ie: get the first
+        #  100 or so, and then query the client for that, and then get the next 100, etc.
+        #  this allows us to make better use of id if it&#39;s a generator, especially if we
+        #  return a real generator someday in the future [limits memory use that way].
+
+        disable_all_caching = bool(aux_query)
+        id_cache_is_enabled = self.option_for_name(&#39;cache_by_id&#39;)
+        if disable_all_caching:
+            id_cache_is_enabled = False
+
+        if id_field and id_field != &#39;id&#39;:
+            # For now, don&#39;t cache by an alternate id keys.
+            id_cache_is_enabled = False
+        else:
+            id_field = &#34;id&#34;
+
+        # ||| NEW START |||
+
+        # `field` may be None, if the BaseModel has no id field.
+        # Some models have a concept of an `id` that is not a field
+        # in the table/api (ie: a &#39;virtual&#39; id).
+        field = self.structure.get_field(id_field)
+        # If field not defined, default to str.
+        field_type = field.type_hint if field else str
+
+        # Only deal with str/int types for the field-type for id/key-types.
+        # If it&#39;s something else, lets not support that for now.
+        if field_type not in (int, str):
+            raise XModelError(
+                f&#34;Field ({id_field}) for model type ({self.model_type}) needs to be a str or int &#34;
+                f&#34;in order to currently be used in `get_via_id` method at the moment.&#34;
+            )
+
+        value_type = type(id)
+        result_is_list = False
+
+        if typing_inspect.is_union_type(field_type):
+            raise XModelError(
+                f&#34;Field `{id_field}` for model type {self.model_type} can&#39;t be a union-type&#34;
+                f&#34;({field_type}), it needs to be a specific type like `int`, `str`, etc.&#34;
+            )
+
+        result_is_list = value_type not in (int, str, dict)
+
+        # ^^^ NEW END ^^^
+
+        if not result_is_list and aux_query:
+            raise NotImplementedError(&#34;Must use a List with aux_query for the moment.&#34;)
+
+        client = self.client
+
+        # todo: Josh Comment: I wish we just always returned a list/generator....
+        #   consider making a separate method for most of the rest of the method
+        #   and doing this in this one, followed by calling the new one [when returning list].
+        key_dicts = []
+        for key_values in loop(id):
+            if isinstance(key_values, dict):
+                key_dicts.append(key_values)
+            else:
+                key_dicts.append({id_field: key_values})
+
+        if not result_is_list:
+            if not disable_all_caching:
+                obj = client.cache_weak_get(structure.id_cache_key({id_field: id}))
+                if obj:
+                    return obj
+
+            if id_cache_is_enabled:
+                # When this/these object(s) are updated via update_from_json the cache will be set
+                # automatically if the sub-class has the cache_by_id ApiOption on it.
+                obj = client.cache_get(structure.id_cache_key(id))
+                if obj is not None:
+                    return obj
+
+            # todo: raise_on_404
+            if key_dicts:
+                return client.get_first(query=key_dicts[0], fields=fields)
+            else:
+                return None
+
+        # We can assume at this point a list of ID&#39;s to get and a list of objects to return.
+        # We only want to do about 100 at a time [due to URL length limits in production].
+
+        results = []
+        id_list = []
+        objs_with_no_id_field = []
+        objs_with_id_field = []
+
+        # Check weak cache for objs and remove them by index
+        indexes_to_remove_in_key_dicts = set()
+        cached_results = set()
+        for index, key_dict in enumerate(key_dicts):
+            if disable_all_caching:
+                # We are not doing any cache lookups for now, this may change in the future
+                # as we make this more sophisticated.
+                continue
+
+            cached_obj = client.cache_weak_get(structure.id_cache_key(key_dict))
+            if cached_obj:
+                cached_results.add(cached_obj)
+                indexes_to_remove_in_key_dicts.add(index)
+            if len(key_dict.keys()) == 1:
+                # We want to check if there is only one key in key dict and then check if that
+                # key is &#34;id&#34;
+                obj_id: Union[list, int, str] = key_dict.get(&#34;id&#34;)
+                if obj_id and type(obj_id) is int:
+                    cached_obj = client.cache_get(structure.id_cache_key(obj_id))
+                    if cached_obj:
+                        cached_results.add(cached_obj)
+                        indexes_to_remove_in_key_dicts.add(index)
+                elif obj_id and type(obj_id) is str:
+                    #   I think we can assume people using our method will NOT pass in comma
+                    #   separated values, if there is a comma they would want it to be part
+                    #   of the ID [ie: they are passing us lists/dicts here, and we let the URL
+                    #   formatter deal with how to encode that into the URL [ie: by comma, etc]...
+                    #
+                    # todo: Talk to Kaden, see why he put this in here originally.
+                    #   Probably remove the comma splitting...
+
+                    # If obj_id is a str then there is the possibility that there were multiple
+                    # ids in that string separated by a comma
+                    obj_id_set: Union[Set[str], str] = set(obj_id.split(&#34;,&#34;))
+                    if len(obj_id) &gt; 0:
+                        for _id in obj_id_set:
+                            _id = _id.strip()
+                            cached_obj = client.cache_get(structure.id_cache_key(_id))
+                            if cached_obj:
+                                cached_results.add(cached_obj)
+                                obj_id_set.remove(_id)
+                        if len(obj_id_set) &gt; 0:
+                            obj_ids = &#34;&#34;
+                            for _id in obj_id_set:
+                                obj_ids += _id + &#34;,&#34;
+                            obj_ids = obj_ids[:-1]
+                            key_dict[&#34;id&#34;] = obj_ids
+                        else:
+                            indexes_to_remove_in_key_dicts.add(index)
+                    else:
+                        cached_obj = client.cache_get(structure.id_cache_key(obj_id))
+                        if cached_obj:
+                            cached_results.add(cached_obj)
+                            indexes_to_remove_in_key_dicts.add(index)
+
+        for index in sorted(indexes_to_remove_in_key_dicts, reverse=True):
+            del key_dicts[index]
+
+        # Add objects found in cache to results
+        for cached_obj in cached_results:
+            results.append(cached_obj)
+
+        # Check the rest of the objects in key_dicts after removing the ones found in the cache
+        for obj in key_dicts:
+            if obj.get(id_field) is not None:
+                objs_with_id_field.append(obj)
+            else:
+                objs_with_no_id_field.append(obj)
+
+        if id_cache_is_enabled:
+            # If caching enabled, go though each id and check for cached version.
+            indexes_to_remove = []
+            for index, obj_with_id in enumerate(objs_with_id_field):
+                # More Info: See previous comment for ctx.cache_get, just above ^ [in this method].
+                #
+                # But to summarize:
+                # When this/these object(s) are updated via update_from_json, the cache will be set
+                # automatically if the sub-class has the cache_by_id ApiOption set to True.
+                obj = client.cache_get(structure.id_cache_key(obj_with_id.get(id_field)))
+                if obj is not None:
+                    results.append(obj)
+                    indexes_to_remove.append(index)
+                    continue
+
+            # Remove any objects that were found in cache.
+            for index in sorted(indexes_to_remove, reverse=True):
+                del objs_with_id_field[index]
+
+        log.info(
+            f&#34;Getting ({len(objs_with_id_field) + len(objs_with_no_id_field)}) objects via &#34;
+            f&#34;endpoint ({structure.endpoint_description}) from API.&#34;
+        )
+
+        # Combine keys-groups that use the same combination of keys, we can get
+        # them in one query....
+        query_groups = {}
+        for obj in loop(objs_with_id_field, objs_with_no_id_field):
+            obj_keys = frozenset(obj.keys())
+            obj_group = query_groups.setdefault(obj_keys, [])
+            obj_group.append(obj)
+
+        results = []
+        for key in query_groups:
+            obj_group = query_groups[key]
+            query = {}
+            items_in_query_fields_count = 0
+            while len(obj_group) &gt; 0:
+                obj = obj_group.pop()
+                obj_keys = obj.keys()
+                if items_in_query_fields_count + len(obj_keys) &gt; max_query_by_id:
+                    obj_group.append(obj)
+                    items_in_query_fields_count = max_query_by_id + 1
+                else:
+                    for obj_key in obj_keys:
+                        query_field_group = query.setdefault(obj_key, [])
+                        query_field_group.append(obj.get(obj_key))
+                        items_in_query_fields_count += 1
+
+                if (
+                    items_in_query_fields_count &gt;= max_query_by_id or
+                    len(obj_group) == 0
+                ):
+                    # Apply any extra query user provided.
+                    if aux_query:
+                        query.update(aux_query)
+
+                    # Execute query and append results.
+                    results.append(self.get(query, fields=fields))
+                    query = {}
+                    items_in_query_fields_count = 0
+
+        return loop(*results)
+
+    def get(
+            self,
+            query: Query = None,
+            *,
+            top: int = None,
+            fields: Optional[FieldNames] = Default,
+    ) -&gt; Optional[Iterable[M]]:
+        &#34;&#34;&#34;
+        Important: Right now we return a list, but it might be just a generator in the future,
+        treat the return type as a true Iterable, something you can&#39;t call &#39;len(...)&#39; on.
+
+        Gets and instance of the proper subclass for the class you call this on for the passed in
+        date_range, api_type, and account id for context.
+
+        In the future, we may make what&#39;s returned a generator, so it would allow us
+        to make page requests as whatever calls me iterates though the results.
+
+        :param fields:
+            You can pass in a list of fields, which will be the only ones returned in the objects.
+            The field &#39;id&#39; will always be included, no need to add that one your self.
+
+            If Default or Empty List: [Default] Then all fields will be retrieved except
+            the ones ignored by default.
+
+            If None: Nothing about what fields to include/exclude will be passed to API. It should
+            grab everything.
+
+        :param query: Other custom queries to pass on.
+        :param top: First number of objects to get, defaults to None, which means get everything.
+
+        :return: A list of accounts.
+        &#34;&#34;&#34;
+        return self.client.get(query, top=top, fields=fields)
+
+    # ----------------------------------------------------
+    # --------- Things REQUIRING an Associated BaseModel -----
+
+    def json(
+            self, only_include_changes: bool = False, log_output: bool = False
+    ) -&gt; Optional[JsonDict]:
+        &#34;&#34;&#34;
+        `xmodel.base.api.BaseApi.json` to see superclass&#39;s documentation for this method.
+
+        The changes for RemoteApi are to always include everything if we have no ID value for the
+        associated model regardless of the value of only_include_changes.
+        &#34;&#34;&#34;
+
+        model = self.model
+        have_id_value = model.id is not None
+
+        # Negate only include changes if we do not have an id value as it has not been created in
+        # the remote.
+        if only_include_changes and not have_id_value:
+            only_include_changes = False
+
+        json = super().json(only_include_changes, log_output)
+
+        if have_id_value and json:
+            # todo: Check to see if we have &#39;id&#39; already?  Also, use the &#39;id&#39; field&#39;s converter!
+            #       for now just leaving it as-is (normally this is a basic int/str value anyway).
+            json[&#39;id&#39;] = model.id
+
+        if only_include_changes and json:
+            fields_to_pop = self.fields_to_pop_for_json(json, self.structure.fields, log_output)
+
+            have_usable_id = self.structure.has_id_field()
+            id_is_same = False
+            for f in fields_to_pop:
+                if have_usable_id and f == &#39;id&#39;:
+                    id_is_same = True
+                else:
+                    del json[f]
+
+            if have_usable_id and id_is_same is True:
+                if len(json) == 1 and json.get(&#39;id&#39;) is not None:
+                    return None
+
+        return json
+
+    def update_from_json(self, json: Union[JsonDict, Mapping]):
+        &#34;&#34;&#34;
+        `xmodel.base.api.BaseApi.update_from_json` to see superclass&#39;s documentation
+        for this method.
+
+        The changes for RemoteApi are to cache by id. This will automatically create a weak cache
+        but will only create a hard cache if the option of `cache_by_id` is set to True.
+        &#34;&#34;&#34;
+        super().update_from_json(json)
+
+        structure = self.structure
+        model = self.model
+
+        have_id_field = structure.has_id_field()
+
+        if have_id_field:
+            # ID is special, get it before anything else
+            # [if there is a problem, object can print out it&#39;s primary key, useful for debugging]
+            id_value = json.get(&#39;id&#39;)
+            model.id = id_value
+
+            if id_value:
+                self.client.cache_weak_set(structure.id_cache_key(id_value), model)
+
+            if self.option_for_name(&#39;cache_by_id&#39;):
+                if id_value is None and model.id:
+                    self.client.cache_remove(structure.id_cache_key(model.id))
+                elif id_value:
+                    self.client.cache_set(structure.id_cache_key(id_value), model)
+
+    def list_of_attrs_to_repr(self) -&gt; List[str]:
+        names = set(super().list_of_attrs_to_repr())
+
+        if self.structure.has_id_field() and self.model.id is not None:
+            names.add(&#39;id&#39;)
+
+        return list(names)
+
+    def did_send(self):
+        &#34;&#34;&#34; self.client will call us here after someone attempts to send us (a specific model),
+            you and use `RelationApi.model` to grab the model that it happened with.
+
+            Keep in mind, that this will be called after any attempt to send the object,
+            even if there were no changes to send.
+
+            In the future, I may pass in a flag to this method that says if it was actually
+            updated or not.
+
+            Right now, this does nothing. It&#39;s here more for subclasses to easily know when
+            they are sent.
+
+            This works even if multiple objects were sent at once, the client should call
+            this method on each model independently.
+        &#34;&#34;&#34;
+        # Nothing to do by default.
+        pass
+
+    def send(self):
+        &#34;&#34;&#34; REQUIRES associated model object [see self.model].
+
+        Convenience method to send this single object to API, it simply calls
+        `self.client.send_objs()` with a single object in the list [via self.model].
+
+        If you want to send multiple objects, call self.client.send_objs().
+        &#34;&#34;&#34;
+        self.client.send_objs([self.model])
+
+    def delete(self):
+        &#34;&#34;&#34; REQUIRES associated model object [see self.model].
+
+        Convenience method to delete this single object in API.
+        &#34;&#34;&#34;
+        model = self.model
+        if model.id is None:
+            raise XModelError(
+                f&#34;A deleted was requested for an object that had no id for ({model}).&#34;
+            )
+
+        self.client.delete_obj(model)
+
+    @property
+    def options(self) -&gt; ApiOptions[M]:
+        &#34;&#34;&#34;
+        A set of options you can modify for the current context. If a particular option
+        inside the options object is not set, Options object may look at the parent context
+        and grab that options value.
+
+        Moving to using this name `options` instead of the more verbose `self.options_for_context`.
+        &#34;&#34;&#34;
+        return ApiOptionsGroup.grab().get(api=self)
+
+    def option_for_name(self, option_attribute_name) -&gt; Any:
+        &#34;&#34;&#34; Returns the first option returned from self.option_all_for_name for the
+            `option_attribute_name` that is passed in; otherwise None.
+
+            See `BaseApi.option_all_for_name` for more details.
+        &#34;&#34;&#34;
+        values = self.option_all_for_name(option_attribute_name=option_attribute_name)
+        return values[0] if values else None
+
+    def option_all_for_name(self, option_attribute_name) -&gt; List[Any]:
+        &#34;&#34;&#34;
+        Gets a particular option attribute by name in a particular prioritized order.
+
+        It first looks in self.options to see if anything was explicitly set and uses
+        that first in returned list.
+
+        Next, we will add the value that was passed to `options=` during BaseModel class
+        construction.
+
+        .. todo::  At some point in the near future I want to revamp these options and put them
+            in some sort of public resource, a resource that&#39;s behaviors sort of like
+            how `xcon.config.Config` or `xmodel.fields.Field` works... in that you
+            can set various options/attributes and ones that are unset are &#39;inherited&#39; from any
+            parent Config / Field. This would make it simpler to use in a temporary fashion
+            Perhaps do something like this when we get to splitting the orm into separate library.
+        &#34;&#34;&#34;
+
+        values = []
+        # This gets the the context, and all parent context&#39;s options in order.
+        context_option_list = self.context.dependency_chain(ApiOptionsGroup)
+
+        options_to_check = []
+        structure = self.structure
+        for option_group in context_option_list:
+            # Only grather options that have been previously created.
+            options = option_group.get(api=self, create_if_needed=False)
+            if options:
+                options_to_check.append(options)
+
+        options_to_check.append(structure.api_options)
+
+        # If the option has been explicitly set on object, it&#39;s the first one.
+        #
+        # todo: See todo above xmodel.utils.SetUnsetValues: I may use a special &#39;Default&#39;
+        #       sentinel value in the future instead of looking directly in `__dict__`.
+        #       |||
+        #       Update (2021-03-26): Yes, want to change this; Look at `Field` class for better
+        #       example of how to inhert values from parents.
+        for options in options_to_check:
+            if option_attribute_name in options.__dict__:
+                values.append(getattr(options, option_attribute_name, None))
+
+        # todo: Add values from options in parent context(s) somehow.
+        #       Comments in our doc-comment [above].
+
+        # If we have no values at this point, get what the default value is [ie: the one set
+        # on the class and not directly on object] and if it&#39;s not None, put that into list.
+        if not values:
+            default_value = getattr(self.options, option_attribute_name, None)
+            if default_value is not None:
+                values.append(default_value)
+
+        return values
+
+    # ----------------------------
+    # --------- Private ----------
+
+    _response_state: ResponseState = None
+    &#34;&#34;&#34; Contains details on what happened during the last http request. &#34;&#34;&#34;
+
+    _client_type: Type[RemoteClient] = None
+
+    def _generate_state_if_needed(self):
+        if not self._response_state:
+            self._response_state = ResponseState()</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="xmodel.base.api.BaseApi" href="../base/api.html#xmodel.base.api.BaseApi">BaseApi</a></li>
+<li>typing.Generic</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="xmodel_rest.api.RestApi" href="../../xmodel_rest/api.html#xmodel_rest.api.RestApi">RestApi</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="xmodel.remote.api.RemoteApi.default_converters"><code class="name">var <span class="ident">default_converters</span> : Dict[Type[Any], <a title="xmodel.base.fields.Converter" href="../base/fields.html#xmodel.base.fields.Converter">Converter</a>]</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xmodel.base.api.BaseApi" href="../base/api.html#xmodel.base.api.BaseApi">BaseApi</a></code>.<code><a title="xmodel.base.api.BaseApi.default_converters" href="../base/api.html#xmodel.base.api.BaseApi.default_converters">default_converters</a></code>
+</p>
+<div class="desc inherited"><p>For an overview of type-converts, see
+<a href="./#type-converters">Type Converters Overview</a> …</p></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="xmodel.remote.api.RemoteApi.client"><code class="name">var <span class="ident">client</span> : <a title="xmodel.remote.client.RemoteClient" href="client.html#xmodel.remote.client.RemoteClient">RemoteClient</a>[~M]</code></dt>
+<dd>
+<div class="desc"><p>Returns an appropriate concrete <code><a title="xmodel.remote.client.RemoteClient" href="client.html#xmodel.remote.client.RemoteClient">RemoteClient</a></code> subclass.
+We figure out the proper client object to use based on the type-hint for "client"
+property on the sub-class.</p>
+<h2 id="example">Example</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; from typing import TypeVar
+&gt;&gt;&gt; from xmodel import RestApi, RestClient
+&gt;&gt;&gt; M = TypeVar(&quot;M&quot;)  # &lt;-- This allows IDE to do better code completion.
+&gt;&gt;&gt;
+&gt;&gt;&gt; class MyClient(RestClient[M]):
+&gt;&gt;&gt;     pass
+&gt;&gt;&gt;
+&gt;&gt;&gt; class MyApi(RestApi[M])
+&gt;&gt;&gt;     client: MyClient[M]  # &lt;-- Type hint on 'client' property.
+</code></pre>
+<p>This is enough for <code><a title="xmodel.base.BaseModel" href="../base/index.html#xmodel.base.BaseModel">BaseModel</a></code> subclasses that have this set as their
+api type-hint:</p>
+<pre><code>&gt;&gt;&gt; from xmodel.remote.model import RemoteModel
+&gt;&gt;&gt;
+&gt;&gt;&gt; # The ["MyModel"] part allows IDE to do better code-completion.
+&gt;&gt;&gt; class MyModel(RemoteModel["MyModel"]):
+&gt;&gt;&gt;     api: MyApi
+</code></pre>
+<p>When you get MyModel's api like below, it will return a MyApi instance,
+MyApi will in turn return a MyClient:</p>
+<pre><code>&gt;&gt;&gt; print(MyModel.api)
+MyApi(...)
+&gt;&gt;&gt; print(MyModel.api.client)
+MyClient(...)
+</code></pre>
+<p>For a more concreate use/example, see <code><a title="xmodel_rest.RestModel" href="../../xmodel_rest/index.html#xmodel_rest.RestModel">RestModel</a></code>;
+it's a RemoteModel subclass that implments a RestClient that can be used with it.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def _client(self):
+    &#34;&#34;&#34; Returns an appropriate concrete `xmodel.remote.client.RemoteClient` subclass.
+        We figure out the proper client object to use based on the type-hint for &#34;client&#34;
+        property on the sub-class.
+
+        Example:
+
+            &gt;&gt;&gt; from typing import TypeVar
+            &gt;&gt;&gt; from xmodel import RestApi, RestClient
+            &gt;&gt;&gt; M = TypeVar(&#34;M&#34;)  # &lt;-- This allows IDE to do better code completion.
+            &gt;&gt;&gt;
+            &gt;&gt;&gt; class MyClient(RestClient[M]):
+            &gt;&gt;&gt;     pass
+            &gt;&gt;&gt;
+            &gt;&gt;&gt; class MyApi(RestApi[M])
+            &gt;&gt;&gt;     client: MyClient[M]  # &lt;-- Type hint on &#39;client&#39; property.
+
+        This is enough for `xmodel.base.BaseModel` subclasses that have this set as their
+        api type-hint:
+
+            &gt;&gt;&gt; from xmodel.remote.model import RemoteModel
+            &gt;&gt;&gt;
+            &gt;&gt;&gt; # The [&#34;MyModel&#34;] part allows IDE to do better code-completion.
+            &gt;&gt;&gt; class MyModel(RemoteModel[&#34;MyModel&#34;]):
+            &gt;&gt;&gt;     api: MyApi
+
+        When you get MyModel&#39;s api like below, it will return a MyApi instance,
+        MyApi will in turn return a MyClient:
+
+            &gt;&gt;&gt; print(MyModel.api)
+            MyApi(...)
+            &gt;&gt;&gt; print(MyModel.api.client)
+            MyClient(...)
+
+        For a more concreate use/example, see `xmodel_rest.RestModel`;
+        it&#39;s a RemoteModel subclass that implments a RestClient that can be used with it.
+    &#34;&#34;&#34;
+    client = self.structure.internal_shared_api_values.get(&#39;client&#39;)
+    if client:
+        return client
+
+    client_type = get_type_hints(type(self)).get(&#39;client&#39;, None)
+    if client_type is None:
+        raise XModelError(
+            f&#34;RemoteClient subclass type is undefined for model class ({self.model_type}), &#34;
+            f&#34;a type-hint for &#39;client&#39; on BaseApi class must be in place for me to know what &#34;
+            f&#34;type to get.&#34;
+        )
+
+    client = client_type(api=self.model_type.api)
+    self.structure.internal_shared_api_values[&#39;client&#39;] = client
+    return client</code></pre>
+</details>
+</dd>
+<dt id="xmodel.remote.api.RemoteApi.context"><code class="name">var <span class="ident">context</span> : <a title="xinject.context.XContext" href="../../xinject/context.html#xinject.context.XContext">XContext</a></code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xmodel.base.api.BaseApi" href="../base/api.html#xmodel.base.api.BaseApi">BaseApi</a></code>.<code><a title="xmodel.base.api.BaseApi.context" href="../base/api.html#xmodel.base.api.BaseApi.context">context</a></code>
+</p>
+<div class="desc inherited"><p>BaseApi context to use when asking this object to send/delete/etc its self to/from
+service …</p></div>
+</dd>
+<dt id="xmodel.remote.api.RemoteApi.have_changes"><code class="name">var <span class="ident">have_changes</span> : bool</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xmodel.base.api.BaseApi" href="../base/api.html#xmodel.base.api.BaseApi">BaseApi</a></code>.<code><a title="xmodel.base.api.BaseApi.have_changes" href="../base/api.html#xmodel.base.api.BaseApi.have_changes">have_changes</a></code>
+</p>
+<div class="desc inherited"><p>Is True if <code>self.json(only_include_changes=True)</code> is not None;
+see json() method for more details.</p></div>
+</dd>
+<dt id="xmodel.remote.api.RemoteApi.model"><code class="name">var <span class="ident">model</span> : <a title="xmodel.base.model.BaseModel" href="../base/model.html#xmodel.base.model.BaseModel">BaseModel</a>[~M]</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xmodel.base.api.BaseApi" href="../base/api.html#xmodel.base.api.BaseApi">BaseApi</a></code>.<code><a title="xmodel.base.api.BaseApi.model" href="../base/api.html#xmodel.base.api.BaseApi.model">model</a></code>
+</p>
+<div class="desc inherited"><p>REQUIRES associated model object [see doc text below] …</p></div>
+</dd>
+<dt id="xmodel.remote.api.RemoteApi.model_type"><code class="name">var <span class="ident">model_type</span> : Type[~M]</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xmodel.base.api.BaseApi" href="../base/api.html#xmodel.base.api.BaseApi">BaseApi</a></code>.<code><a title="xmodel.base.api.BaseApi.model_type" href="../base/api.html#xmodel.base.api.BaseApi.model_type">model_type</a></code>
+</p>
+<div class="desc inherited"><p>The same BaseApi class is meant to be re-used for any number of Models,
+and so a BaseModel specifies it's BaseApi type as generic <code>BaseApi[M]</code>. In …</p></div>
+</dd>
+<dt id="xmodel.remote.api.RemoteApi.options"><code class="name">var <span class="ident">options</span> : <a title="xmodel.remote.options.ApiOptions" href="options.html#xmodel.remote.options.ApiOptions">ApiOptions</a>[~M]</code></dt>
+<dd>
+<div class="desc"><p>A set of options you can modify for the current context. If a particular option
+inside the options object is not set, Options object may look at the parent context
+and grab that options value.</p>
+<p>Moving to using this name <code>options</code> instead of the more verbose <code>self.options_for_context</code>.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def options(self) -&gt; ApiOptions[M]:
+    &#34;&#34;&#34;
+    A set of options you can modify for the current context. If a particular option
+    inside the options object is not set, Options object may look at the parent context
+    and grab that options value.
+
+    Moving to using this name `options` instead of the more verbose `self.options_for_context`.
+    &#34;&#34;&#34;
+    return ApiOptionsGroup.grab().get(api=self)</code></pre>
+</details>
+</dd>
+<dt id="xmodel.remote.api.RemoteApi.response_state"><code class="name">var <span class="ident">response_state</span> : <a title="xmodel.remote.response_state.ResponseState" href="response_state.html#xmodel.remote.response_state.ResponseState">ResponseState</a>[~M]</code></dt>
+<dd>
+<div class="desc"><p>Returns the HTTP/Communication state of the api object.</p>
+<p>This will include if the last time it was sent [patch/post/whatever], if it had an error.
+It also lets you mark the object as needing to be retried.
+You can also discover if an attempt to send it was even made, and so on.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def response_state(self) -&gt; ResponseState[M]:
+    &#34;&#34;&#34;
+    Returns the HTTP/Communication state of the api object.
+
+    This will include if the last time it was sent [patch/post/whatever], if it had an error.
+    It also lets you mark the object as needing to be retried.
+    You can also discover if an attempt to send it was even made, and so on.
+    &#34;&#34;&#34;
+    response_state = self._response_state
+    if not response_state:
+        self._generate_state_if_needed()
+        response_state = self._response_state
+    return response_state</code></pre>
+</details>
+</dd>
+<dt id="xmodel.remote.api.RemoteApi.structure"><code class="name">var <span class="ident">structure</span> : <a title="xmodel.remote.structure.RemoteStructure" href="structure.html#xmodel.remote.structure.RemoteStructure">RemoteStructure</a>[<a title="xmodel.base.fields.Field" href="../base/fields.html#xmodel.base.fields.Field">Field</a>]</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xmodel.base.api.BaseApi" href="../base/api.html#xmodel.base.api.BaseApi">BaseApi</a></code>.<code><a title="xmodel.base.api.BaseApi.structure" href="../base/api.html#xmodel.base.api.BaseApi.structure">structure</a></code>
+</p>
+<div class="desc inherited"><p>Contain things that don't vary among the model instances;
+ie: This is the same object and applies to all instances of a particular BaseModel class …</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="xmodel.remote.api.RemoteApi.delete"><code class="name flex">
+<span>def <span class="ident">delete</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>REQUIRES associated model object [see self.model].</p>
+<p>Convenience method to delete this single object in API.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def delete(self):
+    &#34;&#34;&#34; REQUIRES associated model object [see self.model].
+
+    Convenience method to delete this single object in API.
+    &#34;&#34;&#34;
+    model = self.model
+    if model.id is None:
+        raise XModelError(
+            f&#34;A deleted was requested for an object that had no id for ({model}).&#34;
+        )
+
+    self.client.delete_obj(model)</code></pre>
+</details>
+</dd>
+<dt id="xmodel.remote.api.RemoteApi.did_send"><code class="name flex">
+<span>def <span class="ident">did_send</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>self.client will call us here after someone attempts to send us (a specific model),
+you and use <code>RelationApi.model</code> to grab the model that it happened with.</p>
+<p>Keep in mind, that this will be called after any attempt to send the object,
+even if there were no changes to send.</p>
+<p>In the future, I may pass in a flag to this method that says if it was actually
+updated or not.</p>
+<p>Right now, this does nothing. It's here more for subclasses to easily know when
+they are sent.</p>
+<p>This works even if multiple objects were sent at once, the client should call
+this method on each model independently.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def did_send(self):
+    &#34;&#34;&#34; self.client will call us here after someone attempts to send us (a specific model),
+        you and use `RelationApi.model` to grab the model that it happened with.
+
+        Keep in mind, that this will be called after any attempt to send the object,
+        even if there were no changes to send.
+
+        In the future, I may pass in a flag to this method that says if it was actually
+        updated or not.
+
+        Right now, this does nothing. It&#39;s here more for subclasses to easily know when
+        they are sent.
+
+        This works even if multiple objects were sent at once, the client should call
+        this method on each model independently.
+    &#34;&#34;&#34;
+    # Nothing to do by default.
+    pass</code></pre>
+</details>
+</dd>
+<dt id="xmodel.remote.api.RemoteApi.fields_to_pop_for_json"><code class="name flex">
+<span>def <span class="ident">fields_to_pop_for_json</span></span>(<span>self, json: dict, field_objs: List[<a title="xmodel.base.fields.Field" href="../base/fields.html#xmodel.base.fields.Field">Field</a>], log_output: bool) ‑> Set[Any]</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xmodel.base.api.BaseApi" href="../base/api.html#xmodel.base.api.BaseApi">BaseApi</a></code>.<code><a title="xmodel.base.api.BaseApi.fields_to_pop_for_json" href="../base/api.html#xmodel.base.api.BaseApi.fields_to_pop_for_json">fields_to_pop_for_json</a></code>
+</p>
+<div class="desc inherited"><p>Goes through the list of fields (field_objs) to determine which ones have not changed in
+order to pop them out of the json representation. This method …</p></div>
+</dd>
+<dt id="xmodel.remote.api.RemoteApi.forget_original_json_state"><code class="name flex">
+<span>def <span class="ident">forget_original_json_state</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xmodel.base.api.BaseApi" href="../base/api.html#xmodel.base.api.BaseApi">BaseApi</a></code>.<code><a title="xmodel.base.api.BaseApi.forget_original_json_state" href="../base/api.html#xmodel.base.api.BaseApi.forget_original_json_state">forget_original_json_state</a></code>
+</p>
+<div class="desc inherited"><p>If called, we forget/reset the orginal json state, which is a combination
+of all the json that this object has been updated with over it's lifetime …</p></div>
+</dd>
+<dt id="xmodel.remote.api.RemoteApi.get"><code class="name flex">
+<span>def <span class="ident">get</span></span>(<span>self, query: Dict[str, Union[str, int, datetime.date, xurls.url._FormattedQueryValue, None, Iterable[Union[str, int, datetime.date, xurls.url._FormattedQueryValue]]]] = None, *, top: int = None, fields: Optional[Sequence[str]] = Default) ‑> Optional[Iterable[~M]]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Important: Right now we return a list, but it might be just a generator in the future,
+treat the return type as a true Iterable, something you can't call 'len(&hellip;)' on.</p>
+<p>Gets and instance of the proper subclass for the class you call this on for the passed in
+date_range, api_type, and account id for context.</p>
+<p>In the future, we may make what's returned a generator, so it would allow us
+to make page requests as whatever calls me iterates though the results.</p>
+<p>:param fields:
+You can pass in a list of fields, which will be the only ones returned in the objects.
+The field 'id' will always be included, no need to add that one your self.</p>
+<pre><code>If Default or Empty List: [Default] Then all fields will be retrieved except
+the ones ignored by default.
+
+If None: Nothing about what fields to include/exclude will be passed to API. It should
+grab everything.
+</code></pre>
+<p>:param query: Other custom queries to pass on.
+:param top: First number of objects to get, defaults to None, which means get everything.</p>
+<p>:return: A list of accounts.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get(
+        self,
+        query: Query = None,
+        *,
+        top: int = None,
+        fields: Optional[FieldNames] = Default,
+) -&gt; Optional[Iterable[M]]:
+    &#34;&#34;&#34;
+    Important: Right now we return a list, but it might be just a generator in the future,
+    treat the return type as a true Iterable, something you can&#39;t call &#39;len(...)&#39; on.
+
+    Gets and instance of the proper subclass for the class you call this on for the passed in
+    date_range, api_type, and account id for context.
+
+    In the future, we may make what&#39;s returned a generator, so it would allow us
+    to make page requests as whatever calls me iterates though the results.
+
+    :param fields:
+        You can pass in a list of fields, which will be the only ones returned in the objects.
+        The field &#39;id&#39; will always be included, no need to add that one your self.
+
+        If Default or Empty List: [Default] Then all fields will be retrieved except
+        the ones ignored by default.
+
+        If None: Nothing about what fields to include/exclude will be passed to API. It should
+        grab everything.
+
+    :param query: Other custom queries to pass on.
+    :param top: First number of objects to get, defaults to None, which means get everything.
+
+    :return: A list of accounts.
+    &#34;&#34;&#34;
+    return self.client.get(query, top=top, fields=fields)</code></pre>
+</details>
+</dd>
+<dt id="xmodel.remote.api.RemoteApi.get_child_without_lazy_lookup"><code class="name flex">
+<span>def <span class="ident">get_child_without_lazy_lookup</span></span>(<span>self, child_field_name, *, false_if_not_set=False) ‑> Union[<a title="xmodel.base.model.BaseModel" href="../base/model.html#xmodel.base.model.BaseModel">BaseModel</a>[~M], None, bool, <a title="xsentinels.null.NullType" href="../../xsentinels/null.html#xsentinels.null.NullType">NullType</a>]</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xmodel.base.api.BaseApi" href="../base/api.html#xmodel.base.api.BaseApi">BaseApi</a></code>.<code><a title="xmodel.base.api.BaseApi.get_child_without_lazy_lookup" href="../base/api.html#xmodel.base.api.BaseApi.get_child_without_lazy_lookup">get_child_without_lazy_lookup</a></code>
+</p>
+<div class="desc inherited"><p>REQUIRES associated model object [see self.model] …</p></div>
+</dd>
+<dt id="xmodel.remote.api.RemoteApi.get_via_id"><code class="name flex">
+<span>def <span class="ident">get_via_id</span></span>(<span>self, id: Union[int, str, List[Union[int, str]], Dict[str, Union[str, int]], List[Dict[str, Union[str, int]]]], fields: Sequence[str] = Default, id_field: str = None, aux_query: Dict[str, Union[str, int, datetime.date, xurls.url._FormattedQueryValue, None, Iterable[Union[str, int, datetime.date, xurls.url._FormattedQueryValue]]]] = None) ‑> Union[Iterable[~M], ~M, None]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method would have probably been better named <code>get_via_key</code>.</p>
+<p>The idea with this method is you pass in an value that can be queried against and
+id/key type of field that should always and ONLY identify zero or one objects.
+We will be using this fact to assume we can cache/map the id to a value we get so
+future requests will just return the existing object.</p>
+<p>If you give us a list for <code>id</code> then we will return a list/generator.
+Important: Right now we return a list in this case.
+But it might be just a generator in the future,
+treat the return type as a true Iterable, something you can't call 'len(&hellip;)' on.</p>
+<p>Get object via it's ID or a composite-key from API.
+If you pass in a list instead of an int/str for id, then this will return a list
+for all objects for objects found for passed in id's.
+We will automatically split up the requests in this case so they don't get too big and
+combine the results later and return a list (or a generator in the future).</p>
+<p>If you pass in a dictionary it will formulate the query to include all fields and values
+included in the dict.</p>
+<p>If you pass in a list of Dict's it will process all of the dictionaries and group
+them together where the keys in the dictionary match each other such as:
+[{key: 1}, {key:2}, {key:3, value:1}]
+would be grouped into queries:
+query 1 = {key: [1,2]}
+query 2 = {key: [3], value: [1]}
+and then process each query individually.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention:&ensp;If we ever have an API that can't accept multiple values for a key</p>
+<p>like we show in the above example; we would need to send each item in the list
+in individual requests.
+Need to add support for that when we need it.</p>
+</div>
+<p>This method is nice to use vs doing a generic query with the id/key, due to the fact
+we will look for cached object if the sub-class has the cache ny id enabled.
+This will also chunk queries so that no url will be too long for an api to handle.</p>
+<p>See <code>RelationApi.get</code> for a description of how 'fields` param works.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>id</code></strong></dt>
+<dd>The identifier(s) of object to get.</dd>
+<dt><strong><code>fields</code></strong></dt>
+<dd>See <code>RelationApi.get</code> for more info on how fields work.
+Summary: Try to only retrieve named fields (by default, we get all fields).</dd>
+<dt><strong><code>id_field</code></strong></dt>
+<dd>If None, uses default 'id' field name, otherwise uses one provided.</dd>
+<dt><strong><code>aux_query</code></strong></dt>
+<dd>
+<p>If not None: Adds these to the query that is sent to API.</p>
+<p>Whatever is in this <code>aux_query</code> is added to each request for each of the
+identifiers provided in the 'id' parameter.</p>
+<p>Sometimes we can query for several identifiers per-request, sometimes not.
+Regardless of how we decide to breakup multiple 'id' values we will always
+add this <code>aux_query</code> to it.</p>
+<p>Used to provide additional filtering criteria in addition to the 'id'.</p>
+<p>You might want to get a set of objects by id, that also have (as an example)
+their 'first_name' attribute set to 'Josh', for example.
+Consider that we could pass thousands up ID's into a request,
+this could be a much faster way to get specific objects back then grabbing
+all of them and checking the <code>first_name</code> attribute yourself if you expect
+only a few of these objects to actually match.</p>
+<p>These won't be split up into segments [to keep URL/Request smaller] like the
+id/keys are.
+We are not able to use the id-cache if these are provided, we may always have
+to go to the API. This may change at some point in the future [by executing the
+query ourselves and not via the API against the cached objects]. But for now
+that's not the case.</p>
+</dd>
+</dl>
+<div class="admonition important">
+<p class="admonition-title">Important:&ensp;aux_query is also only currently used if you pass in a <code>list</code></p>
+<p>as the <code>id</code>. At some point we support non-id-list based aux_query.</p>
+</div>
+<div class="admonition todo">
+<p class="admonition-title">TODO</p>
+<p>Consider using 'aux_query' against previously cached items.</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_via_id(
+        self,
+        id: Union[
+            Union[int, str],
+            List[Union[int, str]],
+            Dict[str, Union[str, int]],
+            List[Dict[str, Union[str, int]]],
+        ],
+        fields: FieldNames = Default,
+        id_field: str = None,
+        aux_query: Query = None
+) -&gt; Union[Iterable[M], M, None]:
+    &#34;&#34;&#34;
+    This method would have probably been better named `get_via_key`.
+
+    The idea with this method is you pass in an value that can be queried against and
+    id/key type of field that should always and ONLY identify zero or one objects.
+    We will be using this fact to assume we can cache/map the id to a value we get so
+    future requests will just return the existing object.
+
+    If you give us a list for `id` then we will return a list/generator.
+    Important: Right now we return a list in this case.
+    But it might be just a generator in the future,
+    treat the return type as a true Iterable, something you can&#39;t call &#39;len(...)&#39; on.
+
+    Get object via it&#39;s ID or a composite-key from API.
+    If you pass in a list instead of an int/str for id, then this will return a list
+    for all objects for objects found for passed in id&#39;s.
+    We will automatically split up the requests in this case so they don&#39;t get too big and
+    combine the results later and return a list (or a generator in the future).
+
+    If you pass in a dictionary it will formulate the query to include all fields and values
+    included in the dict.
+
+    If you pass in a list of Dict&#39;s it will process all of the dictionaries and group
+    them together where the keys in the dictionary match each other such as:
+    [{key: 1}, {key:2}, {key:3, value:1}]
+    would be grouped into queries:
+    query 1 = {key: [1,2]}
+    query 2 = {key: [3], value: [1]}
+    and then process each query individually.
+
+    .. attention:: If we ever have an API that can&#39;t accept multiple values for a key
+        like we show in the above example; we would need to send each item in the list
+        in individual requests.  Need to add support for that when we need it.
+
+    This method is nice to use vs doing a generic query with the id/key, due to the fact
+    we will look for cached object if the sub-class has the cache ny id enabled.
+    This will also chunk queries so that no url will be too long for an api to handle.
+
+    See `RelationApi.get` for a description of how &#39;fields` param works.
+
+    Args:
+        id: The identifier(s) of object to get.
+        fields: See `RelationApi.get` for more info on how fields work.
+            Summary: Try to only retrieve named fields (by default, we get all fields).
+        id_field: If None, uses default &#39;id&#39; field name, otherwise uses one provided.
+        aux_query: If not None: Adds these to the query that is sent to API.
+
+            Whatever is in this `aux_query` is added to each request for each of the
+            identifiers provided in the &#39;id&#39; parameter.
+
+            Sometimes we can query for several identifiers per-request, sometimes not.
+            Regardless of how we decide to breakup multiple &#39;id&#39; values we will always
+            add this `aux_query` to it.
+
+            Used to provide additional filtering criteria in addition to the &#39;id&#39;.
+
+            You might want to get a set of objects by id, that also have (as an example)
+            their &#39;first_name&#39; attribute set to &#39;Josh&#39;, for example.
+            Consider that we could pass thousands up ID&#39;s into a request,
+            this could be a much faster way to get specific objects back then grabbing
+            all of them and checking the `first_name` attribute yourself if you expect
+            only a few of these objects to actually match.
+
+            These won&#39;t be split up into segments [to keep URL/Request smaller] like the
+            id/keys are.
+            We are not able to use the id-cache if these are provided, we may always have
+            to go to the API. This may change at some point in the future [by executing the
+            query ourselves and not via the API against the cached objects]. But for now
+            that&#39;s not the case.
+
+        .. important:: aux_query is also only currently used if you pass in a `list`
+            as the `id`. At some point we support non-id-list based aux_query.
+
+        .. todo:: Consider using &#39;aux_query&#39; against previously cached items.
+    &#34;&#34;&#34;
+
+    # todo: Thinking of moving the  functionality of splitting the get into
+    #  multiple requests based on
+    #  an identifier field, allow it to be a general feature of the `RemoteClient` class,
+    #  so it&#39;s more generally available. That way it&#39;s more of an automatic feature.
+
+    if id is None:
+        return None
+
+    structure = self.structure
+
+    max_query_by_id = structure.max_query_by_id
+
+    # todo: Someday, adjust this to only iterate on id as needed, ie: get the first
+    #  100 or so, and then query the client for that, and then get the next 100, etc.
+    #  this allows us to make better use of id if it&#39;s a generator, especially if we
+    #  return a real generator someday in the future [limits memory use that way].
+
+    disable_all_caching = bool(aux_query)
+    id_cache_is_enabled = self.option_for_name(&#39;cache_by_id&#39;)
+    if disable_all_caching:
+        id_cache_is_enabled = False
+
+    if id_field and id_field != &#39;id&#39;:
+        # For now, don&#39;t cache by an alternate id keys.
+        id_cache_is_enabled = False
+    else:
+        id_field = &#34;id&#34;
+
+    # ||| NEW START |||
+
+    # `field` may be None, if the BaseModel has no id field.
+    # Some models have a concept of an `id` that is not a field
+    # in the table/api (ie: a &#39;virtual&#39; id).
+    field = self.structure.get_field(id_field)
+    # If field not defined, default to str.
+    field_type = field.type_hint if field else str
+
+    # Only deal with str/int types for the field-type for id/key-types.
+    # If it&#39;s something else, lets not support that for now.
+    if field_type not in (int, str):
+        raise XModelError(
+            f&#34;Field ({id_field}) for model type ({self.model_type}) needs to be a str or int &#34;
+            f&#34;in order to currently be used in `get_via_id` method at the moment.&#34;
+        )
+
+    value_type = type(id)
+    result_is_list = False
+
+    if typing_inspect.is_union_type(field_type):
+        raise XModelError(
+            f&#34;Field `{id_field}` for model type {self.model_type} can&#39;t be a union-type&#34;
+            f&#34;({field_type}), it needs to be a specific type like `int`, `str`, etc.&#34;
+        )
+
+    result_is_list = value_type not in (int, str, dict)
+
+    # ^^^ NEW END ^^^
+
+    if not result_is_list and aux_query:
+        raise NotImplementedError(&#34;Must use a List with aux_query for the moment.&#34;)
+
+    client = self.client
+
+    # todo: Josh Comment: I wish we just always returned a list/generator....
+    #   consider making a separate method for most of the rest of the method
+    #   and doing this in this one, followed by calling the new one [when returning list].
+    key_dicts = []
+    for key_values in loop(id):
+        if isinstance(key_values, dict):
+            key_dicts.append(key_values)
+        else:
+            key_dicts.append({id_field: key_values})
+
+    if not result_is_list:
+        if not disable_all_caching:
+            obj = client.cache_weak_get(structure.id_cache_key({id_field: id}))
+            if obj:
+                return obj
+
+        if id_cache_is_enabled:
+            # When this/these object(s) are updated via update_from_json the cache will be set
+            # automatically if the sub-class has the cache_by_id ApiOption on it.
+            obj = client.cache_get(structure.id_cache_key(id))
+            if obj is not None:
+                return obj
+
+        # todo: raise_on_404
+        if key_dicts:
+            return client.get_first(query=key_dicts[0], fields=fields)
+        else:
+            return None
+
+    # We can assume at this point a list of ID&#39;s to get and a list of objects to return.
+    # We only want to do about 100 at a time [due to URL length limits in production].
+
+    results = []
+    id_list = []
+    objs_with_no_id_field = []
+    objs_with_id_field = []
+
+    # Check weak cache for objs and remove them by index
+    indexes_to_remove_in_key_dicts = set()
+    cached_results = set()
+    for index, key_dict in enumerate(key_dicts):
+        if disable_all_caching:
+            # We are not doing any cache lookups for now, this may change in the future
+            # as we make this more sophisticated.
+            continue
+
+        cached_obj = client.cache_weak_get(structure.id_cache_key(key_dict))
+        if cached_obj:
+            cached_results.add(cached_obj)
+            indexes_to_remove_in_key_dicts.add(index)
+        if len(key_dict.keys()) == 1:
+            # We want to check if there is only one key in key dict and then check if that
+            # key is &#34;id&#34;
+            obj_id: Union[list, int, str] = key_dict.get(&#34;id&#34;)
+            if obj_id and type(obj_id) is int:
+                cached_obj = client.cache_get(structure.id_cache_key(obj_id))
+                if cached_obj:
+                    cached_results.add(cached_obj)
+                    indexes_to_remove_in_key_dicts.add(index)
+            elif obj_id and type(obj_id) is str:
+                #   I think we can assume people using our method will NOT pass in comma
+                #   separated values, if there is a comma they would want it to be part
+                #   of the ID [ie: they are passing us lists/dicts here, and we let the URL
+                #   formatter deal with how to encode that into the URL [ie: by comma, etc]...
+                #
+                # todo: Talk to Kaden, see why he put this in here originally.
+                #   Probably remove the comma splitting...
+
+                # If obj_id is a str then there is the possibility that there were multiple
+                # ids in that string separated by a comma
+                obj_id_set: Union[Set[str], str] = set(obj_id.split(&#34;,&#34;))
+                if len(obj_id) &gt; 0:
+                    for _id in obj_id_set:
+                        _id = _id.strip()
+                        cached_obj = client.cache_get(structure.id_cache_key(_id))
+                        if cached_obj:
+                            cached_results.add(cached_obj)
+                            obj_id_set.remove(_id)
+                    if len(obj_id_set) &gt; 0:
+                        obj_ids = &#34;&#34;
+                        for _id in obj_id_set:
+                            obj_ids += _id + &#34;,&#34;
+                        obj_ids = obj_ids[:-1]
+                        key_dict[&#34;id&#34;] = obj_ids
+                    else:
+                        indexes_to_remove_in_key_dicts.add(index)
+                else:
+                    cached_obj = client.cache_get(structure.id_cache_key(obj_id))
+                    if cached_obj:
+                        cached_results.add(cached_obj)
+                        indexes_to_remove_in_key_dicts.add(index)
+
+    for index in sorted(indexes_to_remove_in_key_dicts, reverse=True):
+        del key_dicts[index]
+
+    # Add objects found in cache to results
+    for cached_obj in cached_results:
+        results.append(cached_obj)
+
+    # Check the rest of the objects in key_dicts after removing the ones found in the cache
+    for obj in key_dicts:
+        if obj.get(id_field) is not None:
+            objs_with_id_field.append(obj)
+        else:
+            objs_with_no_id_field.append(obj)
+
+    if id_cache_is_enabled:
+        # If caching enabled, go though each id and check for cached version.
+        indexes_to_remove = []
+        for index, obj_with_id in enumerate(objs_with_id_field):
+            # More Info: See previous comment for ctx.cache_get, just above ^ [in this method].
+            #
+            # But to summarize:
+            # When this/these object(s) are updated via update_from_json, the cache will be set
+            # automatically if the sub-class has the cache_by_id ApiOption set to True.
+            obj = client.cache_get(structure.id_cache_key(obj_with_id.get(id_field)))
+            if obj is not None:
+                results.append(obj)
+                indexes_to_remove.append(index)
+                continue
+
+        # Remove any objects that were found in cache.
+        for index in sorted(indexes_to_remove, reverse=True):
+            del objs_with_id_field[index]
+
+    log.info(
+        f&#34;Getting ({len(objs_with_id_field) + len(objs_with_no_id_field)}) objects via &#34;
+        f&#34;endpoint ({structure.endpoint_description}) from API.&#34;
+    )
+
+    # Combine keys-groups that use the same combination of keys, we can get
+    # them in one query....
+    query_groups = {}
+    for obj in loop(objs_with_id_field, objs_with_no_id_field):
+        obj_keys = frozenset(obj.keys())
+        obj_group = query_groups.setdefault(obj_keys, [])
+        obj_group.append(obj)
+
+    results = []
+    for key in query_groups:
+        obj_group = query_groups[key]
+        query = {}
+        items_in_query_fields_count = 0
+        while len(obj_group) &gt; 0:
+            obj = obj_group.pop()
+            obj_keys = obj.keys()
+            if items_in_query_fields_count + len(obj_keys) &gt; max_query_by_id:
+                obj_group.append(obj)
+                items_in_query_fields_count = max_query_by_id + 1
+            else:
+                for obj_key in obj_keys:
+                    query_field_group = query.setdefault(obj_key, [])
+                    query_field_group.append(obj.get(obj_key))
+                    items_in_query_fields_count += 1
+
+            if (
+                items_in_query_fields_count &gt;= max_query_by_id or
+                len(obj_group) == 0
+            ):
+                # Apply any extra query user provided.
+                if aux_query:
+                    query.update(aux_query)
+
+                # Execute query and append results.
+                results.append(self.get(query, fields=fields))
+                query = {}
+                items_in_query_fields_count = 0
+
+    return loop(*results)</code></pre>
+</details>
+</dd>
+<dt id="xmodel.remote.api.RemoteApi.json"><code class="name flex">
+<span>def <span class="ident">json</span></span>(<span>self, only_include_changes: bool = False, log_output: bool = False) ‑> Optional[Dict[str, Any]]</span>
+</code></dt>
+<dd>
+<div class="desc"><p><code><a title="xmodel.base.api.BaseApi.json" href="../base/api.html#xmodel.base.api.BaseApi.json">BaseApi.json()</a></code> to see superclass's documentation for this method.</p>
+<p>The changes for RemoteApi are to always include everything if we have no ID value for the
+associated model regardless of the value of only_include_changes.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def json(
+        self, only_include_changes: bool = False, log_output: bool = False
+) -&gt; Optional[JsonDict]:
+    &#34;&#34;&#34;
+    `xmodel.base.api.BaseApi.json` to see superclass&#39;s documentation for this method.
+
+    The changes for RemoteApi are to always include everything if we have no ID value for the
+    associated model regardless of the value of only_include_changes.
+    &#34;&#34;&#34;
+
+    model = self.model
+    have_id_value = model.id is not None
+
+    # Negate only include changes if we do not have an id value as it has not been created in
+    # the remote.
+    if only_include_changes and not have_id_value:
+        only_include_changes = False
+
+    json = super().json(only_include_changes, log_output)
+
+    if have_id_value and json:
+        # todo: Check to see if we have &#39;id&#39; already?  Also, use the &#39;id&#39; field&#39;s converter!
+        #       for now just leaving it as-is (normally this is a basic int/str value anyway).
+        json[&#39;id&#39;] = model.id
+
+    if only_include_changes and json:
+        fields_to_pop = self.fields_to_pop_for_json(json, self.structure.fields, log_output)
+
+        have_usable_id = self.structure.has_id_field()
+        id_is_same = False
+        for f in fields_to_pop:
+            if have_usable_id and f == &#39;id&#39;:
+                id_is_same = True
+            else:
+                del json[f]
+
+        if have_usable_id and id_is_same is True:
+            if len(json) == 1 and json.get(&#39;id&#39;) is not None:
+                return None
+
+    return json</code></pre>
+</details>
+</dd>
+<dt id="xmodel.remote.api.RemoteApi.list_of_attrs_to_repr"><code class="name flex">
+<span>def <span class="ident">list_of_attrs_to_repr</span></span>(<span>self) ‑> List[str]</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xmodel.base.api.BaseApi" href="../base/api.html#xmodel.base.api.BaseApi">BaseApi</a></code>.<code><a title="xmodel.base.api.BaseApi.list_of_attrs_to_repr" href="../base/api.html#xmodel.base.api.BaseApi.list_of_attrs_to_repr">list_of_attrs_to_repr</a></code>
+</p>
+<div class="desc inherited"><p>" REQUIRES associated model object [see self.model] …</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def list_of_attrs_to_repr(self) -&gt; List[str]:
+    names = set(super().list_of_attrs_to_repr())
+
+    if self.structure.has_id_field() and self.model.id is not None:
+        names.add(&#39;id&#39;)
+
+    return list(names)</code></pre>
+</details>
+</dd>
+<dt id="xmodel.remote.api.RemoteApi.option_all_for_name"><code class="name flex">
+<span>def <span class="ident">option_all_for_name</span></span>(<span>self, option_attribute_name) ‑> List[Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Gets a particular option attribute by name in a particular prioritized order.</p>
+<p>It first looks in self.options to see if anything was explicitly set and uses
+that first in returned list.</p>
+<p>Next, we will add the value that was passed to <code>options=</code> during BaseModel class
+construction.</p>
+<div class="admonition todo">
+<p class="admonition-title">TODO</p>
+<p>At some point in the near future I want to revamp these options and put them
+in some sort of public resource, a resource that's behaviors sort of like
+how <code>xcon.config.Config</code> or <code>xmodel.fields.Field</code> works&hellip; in that you
+can set various options/attributes and ones that are unset are 'inherited' from any
+parent Config / Field. This would make it simpler to use in a temporary fashion
+Perhaps do something like this when we get to splitting the orm into separate library.</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def option_all_for_name(self, option_attribute_name) -&gt; List[Any]:
+    &#34;&#34;&#34;
+    Gets a particular option attribute by name in a particular prioritized order.
+
+    It first looks in self.options to see if anything was explicitly set and uses
+    that first in returned list.
+
+    Next, we will add the value that was passed to `options=` during BaseModel class
+    construction.
+
+    .. todo::  At some point in the near future I want to revamp these options and put them
+        in some sort of public resource, a resource that&#39;s behaviors sort of like
+        how `xcon.config.Config` or `xmodel.fields.Field` works... in that you
+        can set various options/attributes and ones that are unset are &#39;inherited&#39; from any
+        parent Config / Field. This would make it simpler to use in a temporary fashion
+        Perhaps do something like this when we get to splitting the orm into separate library.
+    &#34;&#34;&#34;
+
+    values = []
+    # This gets the the context, and all parent context&#39;s options in order.
+    context_option_list = self.context.dependency_chain(ApiOptionsGroup)
+
+    options_to_check = []
+    structure = self.structure
+    for option_group in context_option_list:
+        # Only grather options that have been previously created.
+        options = option_group.get(api=self, create_if_needed=False)
+        if options:
+            options_to_check.append(options)
+
+    options_to_check.append(structure.api_options)
+
+    # If the option has been explicitly set on object, it&#39;s the first one.
+    #
+    # todo: See todo above xmodel.utils.SetUnsetValues: I may use a special &#39;Default&#39;
+    #       sentinel value in the future instead of looking directly in `__dict__`.
+    #       |||
+    #       Update (2021-03-26): Yes, want to change this; Look at `Field` class for better
+    #       example of how to inhert values from parents.
+    for options in options_to_check:
+        if option_attribute_name in options.__dict__:
+            values.append(getattr(options, option_attribute_name, None))
+
+    # todo: Add values from options in parent context(s) somehow.
+    #       Comments in our doc-comment [above].
+
+    # If we have no values at this point, get what the default value is [ie: the one set
+    # on the class and not directly on object] and if it&#39;s not None, put that into list.
+    if not values:
+        default_value = getattr(self.options, option_attribute_name, None)
+        if default_value is not None:
+            values.append(default_value)
+
+    return values</code></pre>
+</details>
+</dd>
+<dt id="xmodel.remote.api.RemoteApi.option_for_name"><code class="name flex">
+<span>def <span class="ident">option_for_name</span></span>(<span>self, option_attribute_name) ‑> Any</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the first option returned from self.option_all_for_name for the
+<code>option_attribute_name</code> that is passed in; otherwise None.</p>
+<p>See <code>BaseApi.option_all_for_name</code> for more details.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def option_for_name(self, option_attribute_name) -&gt; Any:
+    &#34;&#34;&#34; Returns the first option returned from self.option_all_for_name for the
+        `option_attribute_name` that is passed in; otherwise None.
+
+        See `BaseApi.option_all_for_name` for more details.
+    &#34;&#34;&#34;
+    values = self.option_all_for_name(option_attribute_name=option_attribute_name)
+    return values[0] if values else None</code></pre>
+</details>
+</dd>
+<dt id="xmodel.remote.api.RemoteApi.send"><code class="name flex">
+<span>def <span class="ident">send</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>REQUIRES associated model object [see self.model].</p>
+<p>Convenience method to send this single object to API, it simply calls
+<code>self.client.send_objs()</code> with a single object in the list [via self.model].</p>
+<p>If you want to send multiple objects, call self.client.send_objs().</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def send(self):
+    &#34;&#34;&#34; REQUIRES associated model object [see self.model].
+
+    Convenience method to send this single object to API, it simply calls
+    `self.client.send_objs()` with a single object in the list [via self.model].
+
+    If you want to send multiple objects, call self.client.send_objs().
+    &#34;&#34;&#34;
+    self.client.send_objs([self.model])</code></pre>
+</details>
+</dd>
+<dt id="xmodel.remote.api.RemoteApi.should_include_field_in_json"><code class="name flex">
+<span>def <span class="ident">should_include_field_in_json</span></span>(<span>self, new_value: Any, old_value: Any, field: str) ‑> bool</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xmodel.base.api.BaseApi" href="../base/api.html#xmodel.base.api.BaseApi">BaseApi</a></code>.<code><a title="xmodel.base.api.BaseApi.should_include_field_in_json" href="../base/api.html#xmodel.base.api.BaseApi.should_include_field_in_json">should_include_field_in_json</a></code>
+</p>
+<div class="desc inherited"><p>Returns True if the the value for field should be included in the JSON.
+This only gets called if only_include_changes is True when passed to …</p></div>
+</dd>
+<dt id="xmodel.remote.api.RemoteApi.update_from_json"><code class="name flex">
+<span>def <span class="ident">update_from_json</span></span>(<span>self, json: Union[Dict[str, Any], Mapping[~KT, +VT_co]])</span>
+</code></dt>
+<dd>
+<div class="desc"><p><code><a title="xmodel.base.api.BaseApi.update_from_json" href="../base/api.html#xmodel.base.api.BaseApi.update_from_json">BaseApi.update_from_json()</a></code> to see superclass's documentation
+for this method.</p>
+<p>The changes for RemoteApi are to cache by id. This will automatically create a weak cache
+but will only create a hard cache if the option of <code>cache_by_id</code> is set to True.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_from_json(self, json: Union[JsonDict, Mapping]):
+    &#34;&#34;&#34;
+    `xmodel.base.api.BaseApi.update_from_json` to see superclass&#39;s documentation
+    for this method.
+
+    The changes for RemoteApi are to cache by id. This will automatically create a weak cache
+    but will only create a hard cache if the option of `cache_by_id` is set to True.
+    &#34;&#34;&#34;
+    super().update_from_json(json)
+
+    structure = self.structure
+    model = self.model
+
+    have_id_field = structure.has_id_field()
+
+    if have_id_field:
+        # ID is special, get it before anything else
+        # [if there is a problem, object can print out it&#39;s primary key, useful for debugging]
+        id_value = json.get(&#39;id&#39;)
+        model.id = id_value
+
+        if id_value:
+            self.client.cache_weak_set(structure.id_cache_key(id_value), model)
+
+        if self.option_for_name(&#39;cache_by_id&#39;):
+            if id_value is None and model.id:
+                self.client.cache_remove(structure.id_cache_key(model.id))
+            elif id_value:
+                self.client.cache_set(structure.id_cache_key(id_value), model)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="xmodel.remote" href="index.html">xmodel.remote</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="xmodel.remote.api.RemoteApi" href="#xmodel.remote.api.RemoteApi">RemoteApi</a></code></h4>
+<ul class="">
+<li><code><a title="xmodel.remote.api.RemoteApi.client" href="#xmodel.remote.api.RemoteApi.client">client</a></code></li>
+<li><code><a title="xmodel.remote.api.RemoteApi.context" href="../base/api.html#xmodel.remote.api.RemoteApi.context">context</a></code></li>
+<li><code><a title="xmodel.remote.api.RemoteApi.default_converters" href="../base/api.html#xmodel.remote.api.RemoteApi.default_converters">default_converters</a></code></li>
+<li><code><a title="xmodel.remote.api.RemoteApi.delete" href="#xmodel.remote.api.RemoteApi.delete">delete</a></code></li>
+<li><code><a title="xmodel.remote.api.RemoteApi.did_send" href="#xmodel.remote.api.RemoteApi.did_send">did_send</a></code></li>
+<li><code><a title="xmodel.remote.api.RemoteApi.fields_to_pop_for_json" href="../base/api.html#xmodel.remote.api.RemoteApi.fields_to_pop_for_json">fields_to_pop_for_json</a></code></li>
+<li><code><a title="xmodel.remote.api.RemoteApi.forget_original_json_state" href="../base/api.html#xmodel.remote.api.RemoteApi.forget_original_json_state">forget_original_json_state</a></code></li>
+<li><code><a title="xmodel.remote.api.RemoteApi.get" href="#xmodel.remote.api.RemoteApi.get">get</a></code></li>
+<li><code><a title="xmodel.remote.api.RemoteApi.get_child_without_lazy_lookup" href="../base/api.html#xmodel.remote.api.RemoteApi.get_child_without_lazy_lookup">get_child_without_lazy_lookup</a></code></li>
+<li><code><a title="xmodel.remote.api.RemoteApi.get_via_id" href="#xmodel.remote.api.RemoteApi.get_via_id">get_via_id</a></code></li>
+<li><code><a title="xmodel.remote.api.RemoteApi.have_changes" href="../base/api.html#xmodel.remote.api.RemoteApi.have_changes">have_changes</a></code></li>
+<li><code><a title="xmodel.remote.api.RemoteApi.json" href="#xmodel.remote.api.RemoteApi.json">json</a></code></li>
+<li><code><a title="xmodel.remote.api.RemoteApi.list_of_attrs_to_repr" href="#xmodel.remote.api.RemoteApi.list_of_attrs_to_repr">list_of_attrs_to_repr</a></code></li>
+<li><code><a title="xmodel.remote.api.RemoteApi.model" href="#xmodel.remote.api.RemoteApi.model">model</a></code></li>
+<li><code><a title="xmodel.remote.api.RemoteApi.model_type" href="../base/api.html#xmodel.remote.api.RemoteApi.model_type">model_type</a></code></li>
+<li><code><a title="xmodel.remote.api.RemoteApi.option_all_for_name" href="#xmodel.remote.api.RemoteApi.option_all_for_name">option_all_for_name</a></code></li>
+<li><code><a title="xmodel.remote.api.RemoteApi.option_for_name" href="#xmodel.remote.api.RemoteApi.option_for_name">option_for_name</a></code></li>
+<li><code><a title="xmodel.remote.api.RemoteApi.options" href="#xmodel.remote.api.RemoteApi.options">options</a></code></li>
+<li><code><a title="xmodel.remote.api.RemoteApi.response_state" href="#xmodel.remote.api.RemoteApi.response_state">response_state</a></code></li>
+<li><code><a title="xmodel.remote.api.RemoteApi.send" href="#xmodel.remote.api.RemoteApi.send">send</a></code></li>
+<li><code><a title="xmodel.remote.api.RemoteApi.should_include_field_in_json" href="../base/api.html#xmodel.remote.api.RemoteApi.should_include_field_in_json">should_include_field_in_json</a></code></li>
+<li><code><a title="xmodel.remote.api.RemoteApi.structure" href="#xmodel.remote.api.RemoteApi.structure">structure</a></code></li>
+<li><code><a title="xmodel.remote.api.RemoteApi.update_from_json" href="#xmodel.remote.api.RemoteApi.update_from_json">update_from_json</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

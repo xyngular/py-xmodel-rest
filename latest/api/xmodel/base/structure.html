@@ -1,0 +1,1535 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>xmodel.base.structure API documentation</title>
+<meta name="description" content="See `BaseStructure` for more details; This lets you discover/kee-track/find structural details
+of a `xmodel.base.model.BaseModel.api`." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>xmodel.base.structure</code></h1>
+</header>
+<section id="section-intro">
+<p>See <code><a title="xmodel.base.structure.BaseStructure" href="#xmodel.base.structure.BaseStructure">BaseStructure</a></code> for more details; This lets you discover/kee-track/find structural details
+of a <code><a title="xmodel.base.model.BaseModel.api" href="model.html#xmodel.base.model.BaseModel.api">BaseModel.api</a></code>.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+See `BaseStructure` for more details; This lets you discover/kee-track/find structural details
+of a `xmodel.base.model.BaseModel.api`.
+&#34;&#34;&#34;
+
+from xmodel.common.types import JsonDict
+from xmodel.errors import XModelError
+from xmodel.base.fields import Field
+from xsentinels.default import Default
+from typing import TypeVar, Optional, Dict, List, Type, Any, Generic
+from typing import TYPE_CHECKING
+import typing_inspect
+import inspect
+from types import MappingProxyType
+from typing import Mapping
+
+F = TypeVar(&#34;F&#34;, bound=Field)
+
+supported_basic_types = {str, int, JsonDict, bool, float, list, dict}
+
+if TYPE_CHECKING:
+    from xmodel import BaseModel
+
+
+class BaseStructure(Generic[F]):
+
+    &#34;&#34;&#34;
+    BaseStructure class is meant to keep track of things that apply for all
+    `xmodel.base.model.BaseModel`&#39;s at the class-level.
+
+    You can use `BaseStructure.fields` to get all fields for a particular
+    `xmodel.base.model.BaseModel`
+    as an example of the sort of information on the `BaseStructure` object.
+
+    BaseStructure is lazily configured for a particular BaseModel the first time something
+    attempts to get `xmodel.base.model.BaseModel.api` off the particular BaseModel subclass.
+
+    You can get it via first getting api attribute for BaseModel via
+    `xmodel.base.model.BaseModel.api` and then getting the structure attribute on that via
+    `xmodel.base.api.BaseApi.structure`.
+
+    Example getting the structure object for the Account model/api:
+
+    &gt;&gt;&gt; from some_lib.account import Account
+    &gt;&gt;&gt; structure = Account.api.structure
+    &#34;&#34;&#34;
+
+    def __init__(
+            self,
+            *,
+            parent: Optional[&#39;BaseStructure&#39;],
+            field_type: Type[F]
+    ):
+        super().__init__()
+
+        # Set specific ones so I have my own &#39;instance&#39; of them.
+        self._name_to_type_hint_map = {}
+        self._get_fields_cache = None
+
+        # Copy all my attributes over from parent, for use as &#39;default&#39; values.
+        if parent:
+            self.__dict__.update(parent.__dict__)
+            # noinspection PyProtectedMember
+            # This parent is my own type/class, so I am fine accessing it&#39;s private member.
+            self._name_to_type_hint_map = parent._name_to_type_hint_map.copy()
+
+        self._get_fields_cache = None
+        self.field_type = field_type
+        self.internal_shared_api_values = {}
+
+    def configure_for_model_type(
+            self,
+            *,  # &lt;-- means we don&#39;t support positional arguments
+            model_type: Type[&#39;BaseModel&#39;],
+            type_hints: Dict[str, Any],
+    ):
+        &#34;&#34;&#34;
+        This EXPECTS to have passed-in the type-hints for my `BaseStructure.;
+        see code inside `xmodel.base.model.BaseModel.__init_subclass__` for more details.
+        There is no need to get the type-hints twice [it can be a bit expensive, trying to
+        limit how may times I grab them]....
+
+        See `xmodel.base.model.BaseModel` for more details on how Models work...
+        This describes the options you
+        can pass into a `xmodel.base.model.BaseModel` subclass at class-construction time.
+        It allows you to customize how the Model class will work.
+
+        This method will remember the options passed to it, but won&#39;t finish constructing the class
+        until someone asks for it&#39;s `xmodel.base.model.BaseModel.api` attribute for the first
+        time. This allows you
+        to dynamically add more Field classes if needed. It also makes things import faster as
+        we won&#39;t have to fully setup the class unless something tries to use it.
+
+        Args:
+            model_type (Type[xmodel.base.model.BaseModel]): The model we are associated with,
+                this is what we are configuring ourselves against.
+            type_hints (Dict[str, Any]): List of typehints via Python&#39;s `get_type_hints` method;
+                Be aware that `get_type_hints` will try and resolve all type-hints, including
+                ones that are forward references. Make sure these types are available at
+                the module-level by the time `get_type_hints` runs.
+        &#34;&#34;&#34;
+        # Prep model class, remove any class Field objects...
+        # These objects have been &#34;moved&#34; into me via `self.fields`.
+        self._name_to_type_hint_map = type_hints
+        self.model_cls = model_type
+        for field_obj in self.fields:
+            field_name = field_obj.name
+
+            # The default values are inside `field_obj.default` now.
+            # We delete the class-vars, so that `__getattr__` is called when someone attempts
+            # to grab a value from a BaseModel for an attribute that does not directly exist
+            # on the BaseModel subclass so we can do our normal field_obj.default resolution.
+            # If the class keeps the value, it prevents `__getattr__` from being called for
+            # attributes that don&#39;t exist directly on the model instance/object;
+            # Python will instead grab and return the value set on the class for that attribute.
+            #
+            # todo/thoughts/brain-storm:
+            #    Consider just using __getattribute__ for BaseModel instead of __getattr_...
+            #    It&#39;s slightly slower but then I could have more flexablity around this...
+            #    Thinking of returning the associated field-object if you do
+            #    `BaseModelSubClass.some_attr_field` for various purposes....
+            #    Using `__getattribute__` would allow for this....
+            #    just something I have been thinking about...
+            #    For example: you could use that field object as a query-key instead of a string
+            #    with the field-name...
+            #    might be nicer, and get auto-completion that way... not sure, thinking about it.
+            #
+            if field_name in self.model_cls.__dict__:
+                delattr(self.model_cls, field_name)
+
+    # --------------------------------------
+    # --------- Environmental Properties ---------
+
+    model_cls: &#34;Type[BaseModel]&#34;
+    &#34;&#34;&#34;
+    The model&#39;s class we are defining the structure for.
+    This is typed as some sort of `xmodel.base.model.BaseModel`
+    .
+    This is NOT generically typed anymore, to get much better generically typed
+    version you should use `xmodel.base.api.BaseApi.model_type` to get the BaseModel outside
+    of the `xmodel.structure` module.
+    Using that will give the IDE the correctly typed BaseModel class!
+     &#34;&#34;&#34;
+
+    # --------------------------------------
+    # --------- General Properties ---------
+    #
+    # Most of these will be set inside __init_subclass__() via associated BaseModel Class.
+
+    field_type: Type[F]
+    &#34;&#34;&#34;
+    Field type that this structure will use when auto-generating `xmodel.fields.Field`&#39;s.
+    User defined Fields on a model-class will keep whatever type the user used.
+    When `xmodel.base.model.BaseModel` class is constructed, and the `BaseStructure` is
+    created, we will check to ensure all user-defined fields inherit from this field_type.
+
+    That way you can assume any fields you get off this structure object inherit from
+    field_type.
+    &#34;&#34;&#34;
+
+    internal_shared_api_values: Dict[Any, Any] = None
+    &#34;&#34;&#34;
+    A place an `xmodel.base.api.BaseApi` object can use to share values BaseModel-class wide
+    (ie: for all BaseModel&#39;s of a specific type).
+
+    This should NOT be used outside of the BaseApi class.
+    For example, ``xmodel.base.api.BaseApi.client` stores it&#39;s object lazily here.
+    Users outside of BaseApi class should simply ask it for the client and not try
+    to go behind it&#39;s back and get it here.
+
+    Code/Users outside of `xmodel.base.api.BaseApi` and it&#39;s subclasses can&#39;t assume
+    anything about what&#39;s in this dictionary.  This exists for pure-convenience of the
+    `xmodel.base.api.BaseApi` class.
+    &#34;&#34;&#34;
+
+    _name_to_type_hint_map: Dict[str, Any]
+    &#34;&#34;&#34;
+        .. deprecated:: v0.2.33 Use `BaseStructure.fields` instead to get a list of
+            the real fields to use. And `xmodel.fields.Field.type_hint` to get the type-hint
+            [don&#39;t get it here, keeping this temporary for backwards compatibility].
+
+        A map of  attribute-name to type-hint type.
+
+        .. important:: This WILL NOT take into account field-names where the `Field.name` is
+            different then the name of the field on BaseModel the type-hint was assigned to.
+    &#34;&#34;&#34;
+
+    _get_fields_cache: Dict[str, F] = None
+
+    @property
+    def have_api_endpoint(self) -&gt; bool:
+        &#34;&#34;&#34; Right now, a ready-only property that tells you if this BaseModel has an API endpoint.
+            That&#39;s determined right now via seeing if `BaseStructure.has_id_field_set()` is True.
+        &#34;&#34;&#34;
+        if not self.has_id_field():
+            return False
+        else:
+            return True
+
+    def __copy__(self):
+        obj = type(self)(parent=self, field_type=self.field_type)
+        obj.__dict__.update(self.__dict__)
+        obj._name_to_type_hint_map = self._name_to_type_hint_map.copy()
+        obj._get_fields_cache = None
+        return obj
+
+    def field_exists(self, name: str) -&gt; bool:
+        &#34;&#34;&#34; Return `True` if the field with `name` exists on the model, otherwise `False`. &#34;&#34;&#34;
+        return name in self.field_map
+
+    def has_id_field(self):
+        &#34;&#34;&#34; Defaults to False, returns True for RemoteStructure,
+            What this property is really saying is if you can do a foreign-key to the related
+            object/model.
+
+            It may be better at some point in the long-run to rename this field to more indicate
+            that; perhaps the next time we have a breaking-change we need to do for xmodel.
+
+            For now, we are leaving the name along and hard-coding this to
+            return False in BaseStructure, and to return True in RemoteStructure.
+        &#34;&#34;&#34;
+        return False
+
+    def get_field(self, name: str) -&gt; Optional[F]:
+        &#34;&#34;&#34;
+        Args:
+            name (str): Field name to query on.
+        Returns:
+            xmodel.fields.Field: If field object exists with `name`.
+
+            None: If not field with `name` exists
+        &#34;&#34;&#34;
+        if name is None:
+            return None
+        return self.field_map.get(name)
+
+    @property
+    def fields(self) -&gt; List[F]:
+        &#34;&#34;&#34; Returns:
+                List[xmodel.fields.Field]: list of field objects.
+        &#34;&#34;&#34;
+        return list(self.field_map.values())
+
+    @property
+    def field_map(self) -&gt; Mapping[str, F]:
+        &#34;&#34;&#34;
+
+        Returns:
+           Dict[str, xmodel.fields.Field]: Map of `xmodel.fields.Field.name` to
+                `xmodel.fields.Field` objects.
+        &#34;&#34;&#34;
+        cached_content = self._get_fields_cache
+        if cached_content is not None:
+            # Mapping proxy is a read-only view of the passed in dict.
+            # This will LIVE update the mapping if underlying dict changed.
+            return MappingProxyType(cached_content)
+
+        generated_fields = self._generate_fields()
+        self._get_fields_cache = generated_fields
+        return MappingProxyType(generated_fields)
+
+    def excluded_field_map(self) -&gt; Dict[str, F]:
+        &#34;&#34;&#34;
+        Returns:
+            Dict[str, xmodel.fields.Field]: Mapping of `xmodel.fields.Field.name` to
+                field objects that are excluded (`xmodel.fields.Field.exclude` == `True`).
+        &#34;&#34;&#34;
+        return {f.name: f for f in self.fields if f.exclude}
+
+    def _generate_fields(self) -&gt; Dict[str, F]:
+        &#34;&#34;&#34; Goes though object and grabs/generated Field objects and caches them in self.
+            Gives back the definitive list of Field objects.
+
+            For now keeping this private, but may open it up in the future if sub-classes
+            need to customize how fields are generated.
+        &#34;&#34;&#34;
+        full_field_map = {}
+
+        default_field_type: Type[Field] = self.field_type
+        type_hint_map = self._name_to_type_hint_map
+        model_cls = self.model_cls
+
+        # todo: Figure out how to put this into/consolidate into
+        #  `xmodel.base.api.BaseApi`; and simplify stuff!!!
+        default_converters = getattr(self.model_cls.api, &#39;default_converters&#39;)
+
+        # todo:  default_con ^^^^ make sure we are using it!!!!
+
+        # Lazy-import BaseModel, we need to check to see if we have a sub-class or not...
+        from xmodel import BaseModel
+
+        # This will be a collection of any Fields that exist on the parent(s), merged together...
+        base_fields: Dict[str, Field] = {}
+
+        # go though parent and find any Field objects, grab latest version
+        # which is the one closest to child on a per-field basis...
+        # we exclude it&#39;s self [the model we are currently working with].
+        for base in reversed(model_cls.__mro__[1:]):
+            base: Type[BaseModel]
+            if not inspect.isclass(base):
+                continue
+            if not issubclass(base, BaseModel):
+                continue
+            if not base.api:
+                # `base` is likely xmodel.base.model.BaseModel; and that has no API allocated
+                # to it
+                # at the moment [mostly because the __init_subclasses is only executed on sub&#39;s].
+                # todo: BaseModel is an abstract class... do we really need structure/fields on it?
+                continue
+            # todo:  ensure we later on use these and make a new field if needed...
+            base_fields.update(base.api.structure.field_map)
+
+        for name, type_hint in type_hint_map.items():
+            # Ignore the &#39;api&#39; attribute, it&#39;s special.
+            if name == &#39;api&#39;:
+                continue
+
+            # Ignore anything the starts with &#39;_&#39;.
+            if name.startswith(&#34;_&#34;):
+                continue
+
+            # todo:
+            #   1. Get Parent Field&#39;s, merge values.
+            #   2. Map all type&#39;s and if not map then raise error.
+
+            # noinspection PyArgumentList
+            field_obj: Field
+            field_value: Field = getattr(model_cls, name, Default)
+            if isinstance(field_value, Field):
+                field_obj = field_value
+                field_value = Default
+            elif field_value is not Default:
+                if not inspect.isclass(field_value) and isinstance(field_value, property):
+                    field_obj = default_field_type(fget=field_value.fget, fset=field_value.fset)
+                else:
+                    # noinspection PyArgumentList
+                    field_obj = default_field_type(default=field_value)
+            else:
+                # noinspection PyArgumentList
+                field_obj = default_field_type()
+
+            # Name can be overridden, we want to use it to lookup parent field name....
+            if field_obj.name:
+                name = field_obj.name
+
+            field_obj.resolve_defaults(
+                name=name,
+                type_hint=type_hint_map.get(name, None),
+                default_converter_map=default_converters,
+                parent_field=base_fields.get(name)
+            )
+
+            # Ensure all fields that still have `Default` as their value are resolved to None.
+            field_obj.resolve_remaining_defaults_to_none()
+
+            # field-object will unwrap the type-hint for us.
+            type_hint = field_obj.type_hint
+
+            # Name can be overridden, we want to use whatever it says we should be using.
+            name = field_obj.name
+            full_field_map[field_obj.name] = field_obj
+
+            # If we have a converter, we can assume that will take care of things correctly
+            # for whatever type we have.  If we don&#39;t have a converter, we only support specific
+            # types; We check here for type-compatibility.
+            from xmodel import BaseModel
+            if (
+                not field_obj.converter and
+                type_hint not in supported_basic_types and
+                (not inspect.isclass(type_hint) or not issubclass(type_hint, BaseModel)) and
+                typing_inspect.get_origin(type_hint) not in (list, set)
+            ):
+                raise XModelError(
+                    f&#34;Unsupported type ({type_hint}) with field-name ({name}) &#34;
+                    f&#34;for model-class ({model_cls}) in field-obj ({field_obj}).&#34;
+                )
+
+            if (
+                field_obj.json_path and
+                field_obj.json_path != field_obj.name and
+                field_obj.related_type
+            ):
+                XModelError(
+                    &#34;Right now obj-relationships can&#39;t use the &#39;json_path&#39; option &#34;
+                    &#34;while at the same time being obj-relationships. Must use basic field &#34;
+                    &#34;with api_path. &#34;
+
+                    # Copy/Paste from `BaseApi.json`:
+                    f&#34;Can&#39;t have xmodel.Field on BaseModel with related-type and a json_path &#34;
+                    f&#34;that differ at the moment, for field ({field_obj}). &#34;
+                    f&#34;It is something I want to support someday; the support is mostly in place &#34;
+                    f&#34;already, but it needs some more careful thought, attention and testing &#34;
+                    f&#34;before we should allow it. &#34;
+                    &#34;Workaround:  Make an `{field.name}_id` field next to related field on the &#34;
+                    &#34;model. Then, set `json_path` for that `{field.name}_id` field, set it to &#34;
+                    &#34;what you want it to be. Finally, set the `{related_field.name}` to &#34;
+                    &#34;read_only=True. This allows you to rename the `_id` field used to/from api &#34;
+                    &#34;in the JSON input/output, but the Model can have an alternate name for the &#34;
+                    &#34;related field. You can see a real-example of this at &#34;
+                    &#34;`bigcommerce.api.orders._BcCommonOrderMetafield.order&#34;
+                )
+
+        # todo: Provide a &#39;remove&#39; option in the Field config class.
+        if &#39;id&#39; not in full_field_map:
+
+            # Go though and populate the `Field.field_for_foreign_key_related_field` as needed...
+            for k, f in full_field_map.items():
+                # If there is a relate field name, and we have a field defined for it...
+                # Set it&#39;s field_for_foreign_key_related_field so the correct field...
+                # Otherwise generate a field object for this key-field.
+                #
+                # FYI: The `resolve_defaults` call above will always set
+                #      field_for_foreign_key_related_field to None.
+                #      We then set it to something here if needed.
+                if f.related_field_name_for_id:
+                    related_field = full_field_map.get(f.related_field_name_for_id)
+                    if related_field:
+                        related_field.field_for_foreign_key_related_field = f
+
+        return full_field_map
+
+    def id_cache_key(self, _id):
+        &#34;&#34;&#34; Returns a proper key to use for `xmodel.base.client.BaseClient.cache_get`
+            and other caching methods for id-based lookup of an object.
+        &#34;&#34;&#34;
+        if type(_id) is dict:
+            # todo: Put module name in this key.
+            key = f&#34;{self.model_cls.__name__}&#34;
+            try:
+                sorted_keys = sorted(_id.keys())
+            except TypeError:
+                sorted_keys = _id.keys()
+            for key_name in sorted_keys:
+                key += f&#34;-{key_name}-{_id[key_name]}&#34;
+            return key
+        else:
+            return f&#34;{self.model_cls.__name__}-id-{_id}&#34;
+
+    # todo: Get rid of this [only used by Dynamo right now]. Need to use Field instead...
+    def get_unwraped_typehint(self, field_name: str):
+        &#34;&#34;&#34;
+        This is now done for you on `xmodel.fields.Field.type_hint`, so you can just grab it
+        directly your self now.
+
+        Gets typehint for field_name and calls `xmodel.types.unwrap_optional_type`
+        on it to try and get the plain type-hint as best as we can.
+        &#34;&#34;&#34;
+        field = self.get_field(field_name)
+        if field is None:
+            return None
+
+        return field.type_hint
+
+    def is_field_a_child(self, child_field_name, *, and_has_id=False):
+        &#34;&#34;&#34;
+        True if the field is a child, otherwise False.  Will still return `False` if
+        `and_has_id` argument is `True` and the related type is configured to not use id via class
+        argument `has_id_field=False` (see `BaseStructure.configure_for_model_type` for more
+        details on class arguments).
+
+        Won&#39;t raise an exception if field does not exist.
+
+        Args:
+            child_field_name (str): Name of field to check.
+            and_has_id (bool): If True, then return False if related type is not configured to
+                use id.
+        Returns:
+            bool: `True` if this field is a child field, otherwise `False`.
+        &#34;&#34;&#34;
+        field = self.get_field(child_field_name)
+        if not field:
+            return False
+
+        related_type = field.related_type
+        if not related_type:
+            return False
+
+        related_structure = related_type.api.structure
+        if and_has_id and not related_structure.has_id_field():
+            return False
+
+        return True
+
+    @property
+    def endpoint_description(self):
+        &#34;&#34;&#34; Gives some sort of basic descriptive string that contains the path/table-name/etc
+            that basically indicates the api endpoint being used.
+
+            This is meant for logging and other human readability/debugging purposes.
+            Feel free to change the string to whatever is most useful to know.
+
+            I expect this to be overridden by the concrete implementation, see examples here:
+
+            - `xmodel.rest.RestStructure.endpoint_description`
+            - `xmodel.dynamo.DynStructure.endpoint_description`
+        &#34;&#34;&#34;
+        return &#34;?&#34;</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="xmodel.base.structure.BaseStructure"><code class="flex name class">
+<span>class <span class="ident">BaseStructure</span></span>
+<span>(</span><span>*, parent: Optional[ForwardRef('<a title="xmodel.base.structure.BaseStructure" href="#xmodel.base.structure.BaseStructure">BaseStructure</a>')], field_type: Type[~F])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>BaseStructure class is meant to keep track of things that apply for all
+<code><a title="xmodel.base.model.BaseModel" href="model.html#xmodel.base.model.BaseModel">BaseModel</a></code>'s at the class-level.</p>
+<p>You can use <code><a title="xmodel.base.structure.BaseStructure.fields" href="#xmodel.base.structure.BaseStructure.fields">BaseStructure.fields</a></code> to get all fields for a particular
+<code><a title="xmodel.base.model.BaseModel" href="model.html#xmodel.base.model.BaseModel">BaseModel</a></code>
+as an example of the sort of information on the <code><a title="xmodel.base.structure.BaseStructure" href="#xmodel.base.structure.BaseStructure">BaseStructure</a></code> object.</p>
+<p>BaseStructure is lazily configured for a particular BaseModel the first time something
+attempts to get <code><a title="xmodel.base.model.BaseModel.api" href="model.html#xmodel.base.model.BaseModel.api">BaseModel.api</a></code> off the particular BaseModel subclass.</p>
+<p>You can get it via first getting api attribute for BaseModel via
+<code><a title="xmodel.base.model.BaseModel.api" href="model.html#xmodel.base.model.BaseModel.api">BaseModel.api</a></code> and then getting the structure attribute on that via
+<code><a title="xmodel.base.api.BaseApi.structure" href="api.html#xmodel.base.api.BaseApi.structure">BaseApi.structure</a></code>.</p>
+<p>Example getting the structure object for the Account model/api:</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; from some_lib.account import Account
+&gt;&gt;&gt; structure = Account.api.structure
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BaseStructure(Generic[F]):
+
+    &#34;&#34;&#34;
+    BaseStructure class is meant to keep track of things that apply for all
+    `xmodel.base.model.BaseModel`&#39;s at the class-level.
+
+    You can use `BaseStructure.fields` to get all fields for a particular
+    `xmodel.base.model.BaseModel`
+    as an example of the sort of information on the `BaseStructure` object.
+
+    BaseStructure is lazily configured for a particular BaseModel the first time something
+    attempts to get `xmodel.base.model.BaseModel.api` off the particular BaseModel subclass.
+
+    You can get it via first getting api attribute for BaseModel via
+    `xmodel.base.model.BaseModel.api` and then getting the structure attribute on that via
+    `xmodel.base.api.BaseApi.structure`.
+
+    Example getting the structure object for the Account model/api:
+
+    &gt;&gt;&gt; from some_lib.account import Account
+    &gt;&gt;&gt; structure = Account.api.structure
+    &#34;&#34;&#34;
+
+    def __init__(
+            self,
+            *,
+            parent: Optional[&#39;BaseStructure&#39;],
+            field_type: Type[F]
+    ):
+        super().__init__()
+
+        # Set specific ones so I have my own &#39;instance&#39; of them.
+        self._name_to_type_hint_map = {}
+        self._get_fields_cache = None
+
+        # Copy all my attributes over from parent, for use as &#39;default&#39; values.
+        if parent:
+            self.__dict__.update(parent.__dict__)
+            # noinspection PyProtectedMember
+            # This parent is my own type/class, so I am fine accessing it&#39;s private member.
+            self._name_to_type_hint_map = parent._name_to_type_hint_map.copy()
+
+        self._get_fields_cache = None
+        self.field_type = field_type
+        self.internal_shared_api_values = {}
+
+    def configure_for_model_type(
+            self,
+            *,  # &lt;-- means we don&#39;t support positional arguments
+            model_type: Type[&#39;BaseModel&#39;],
+            type_hints: Dict[str, Any],
+    ):
+        &#34;&#34;&#34;
+        This EXPECTS to have passed-in the type-hints for my `BaseStructure.;
+        see code inside `xmodel.base.model.BaseModel.__init_subclass__` for more details.
+        There is no need to get the type-hints twice [it can be a bit expensive, trying to
+        limit how may times I grab them]....
+
+        See `xmodel.base.model.BaseModel` for more details on how Models work...
+        This describes the options you
+        can pass into a `xmodel.base.model.BaseModel` subclass at class-construction time.
+        It allows you to customize how the Model class will work.
+
+        This method will remember the options passed to it, but won&#39;t finish constructing the class
+        until someone asks for it&#39;s `xmodel.base.model.BaseModel.api` attribute for the first
+        time. This allows you
+        to dynamically add more Field classes if needed. It also makes things import faster as
+        we won&#39;t have to fully setup the class unless something tries to use it.
+
+        Args:
+            model_type (Type[xmodel.base.model.BaseModel]): The model we are associated with,
+                this is what we are configuring ourselves against.
+            type_hints (Dict[str, Any]): List of typehints via Python&#39;s `get_type_hints` method;
+                Be aware that `get_type_hints` will try and resolve all type-hints, including
+                ones that are forward references. Make sure these types are available at
+                the module-level by the time `get_type_hints` runs.
+        &#34;&#34;&#34;
+        # Prep model class, remove any class Field objects...
+        # These objects have been &#34;moved&#34; into me via `self.fields`.
+        self._name_to_type_hint_map = type_hints
+        self.model_cls = model_type
+        for field_obj in self.fields:
+            field_name = field_obj.name
+
+            # The default values are inside `field_obj.default` now.
+            # We delete the class-vars, so that `__getattr__` is called when someone attempts
+            # to grab a value from a BaseModel for an attribute that does not directly exist
+            # on the BaseModel subclass so we can do our normal field_obj.default resolution.
+            # If the class keeps the value, it prevents `__getattr__` from being called for
+            # attributes that don&#39;t exist directly on the model instance/object;
+            # Python will instead grab and return the value set on the class for that attribute.
+            #
+            # todo/thoughts/brain-storm:
+            #    Consider just using __getattribute__ for BaseModel instead of __getattr_...
+            #    It&#39;s slightly slower but then I could have more flexablity around this...
+            #    Thinking of returning the associated field-object if you do
+            #    `BaseModelSubClass.some_attr_field` for various purposes....
+            #    Using `__getattribute__` would allow for this....
+            #    just something I have been thinking about...
+            #    For example: you could use that field object as a query-key instead of a string
+            #    with the field-name...
+            #    might be nicer, and get auto-completion that way... not sure, thinking about it.
+            #
+            if field_name in self.model_cls.__dict__:
+                delattr(self.model_cls, field_name)
+
+    # --------------------------------------
+    # --------- Environmental Properties ---------
+
+    model_cls: &#34;Type[BaseModel]&#34;
+    &#34;&#34;&#34;
+    The model&#39;s class we are defining the structure for.
+    This is typed as some sort of `xmodel.base.model.BaseModel`
+    .
+    This is NOT generically typed anymore, to get much better generically typed
+    version you should use `xmodel.base.api.BaseApi.model_type` to get the BaseModel outside
+    of the `xmodel.structure` module.
+    Using that will give the IDE the correctly typed BaseModel class!
+     &#34;&#34;&#34;
+
+    # --------------------------------------
+    # --------- General Properties ---------
+    #
+    # Most of these will be set inside __init_subclass__() via associated BaseModel Class.
+
+    field_type: Type[F]
+    &#34;&#34;&#34;
+    Field type that this structure will use when auto-generating `xmodel.fields.Field`&#39;s.
+    User defined Fields on a model-class will keep whatever type the user used.
+    When `xmodel.base.model.BaseModel` class is constructed, and the `BaseStructure` is
+    created, we will check to ensure all user-defined fields inherit from this field_type.
+
+    That way you can assume any fields you get off this structure object inherit from
+    field_type.
+    &#34;&#34;&#34;
+
+    internal_shared_api_values: Dict[Any, Any] = None
+    &#34;&#34;&#34;
+    A place an `xmodel.base.api.BaseApi` object can use to share values BaseModel-class wide
+    (ie: for all BaseModel&#39;s of a specific type).
+
+    This should NOT be used outside of the BaseApi class.
+    For example, ``xmodel.base.api.BaseApi.client` stores it&#39;s object lazily here.
+    Users outside of BaseApi class should simply ask it for the client and not try
+    to go behind it&#39;s back and get it here.
+
+    Code/Users outside of `xmodel.base.api.BaseApi` and it&#39;s subclasses can&#39;t assume
+    anything about what&#39;s in this dictionary.  This exists for pure-convenience of the
+    `xmodel.base.api.BaseApi` class.
+    &#34;&#34;&#34;
+
+    _name_to_type_hint_map: Dict[str, Any]
+    &#34;&#34;&#34;
+        .. deprecated:: v0.2.33 Use `BaseStructure.fields` instead to get a list of
+            the real fields to use. And `xmodel.fields.Field.type_hint` to get the type-hint
+            [don&#39;t get it here, keeping this temporary for backwards compatibility].
+
+        A map of  attribute-name to type-hint type.
+
+        .. important:: This WILL NOT take into account field-names where the `Field.name` is
+            different then the name of the field on BaseModel the type-hint was assigned to.
+    &#34;&#34;&#34;
+
+    _get_fields_cache: Dict[str, F] = None
+
+    @property
+    def have_api_endpoint(self) -&gt; bool:
+        &#34;&#34;&#34; Right now, a ready-only property that tells you if this BaseModel has an API endpoint.
+            That&#39;s determined right now via seeing if `BaseStructure.has_id_field_set()` is True.
+        &#34;&#34;&#34;
+        if not self.has_id_field():
+            return False
+        else:
+            return True
+
+    def __copy__(self):
+        obj = type(self)(parent=self, field_type=self.field_type)
+        obj.__dict__.update(self.__dict__)
+        obj._name_to_type_hint_map = self._name_to_type_hint_map.copy()
+        obj._get_fields_cache = None
+        return obj
+
+    def field_exists(self, name: str) -&gt; bool:
+        &#34;&#34;&#34; Return `True` if the field with `name` exists on the model, otherwise `False`. &#34;&#34;&#34;
+        return name in self.field_map
+
+    def has_id_field(self):
+        &#34;&#34;&#34; Defaults to False, returns True for RemoteStructure,
+            What this property is really saying is if you can do a foreign-key to the related
+            object/model.
+
+            It may be better at some point in the long-run to rename this field to more indicate
+            that; perhaps the next time we have a breaking-change we need to do for xmodel.
+
+            For now, we are leaving the name along and hard-coding this to
+            return False in BaseStructure, and to return True in RemoteStructure.
+        &#34;&#34;&#34;
+        return False
+
+    def get_field(self, name: str) -&gt; Optional[F]:
+        &#34;&#34;&#34;
+        Args:
+            name (str): Field name to query on.
+        Returns:
+            xmodel.fields.Field: If field object exists with `name`.
+
+            None: If not field with `name` exists
+        &#34;&#34;&#34;
+        if name is None:
+            return None
+        return self.field_map.get(name)
+
+    @property
+    def fields(self) -&gt; List[F]:
+        &#34;&#34;&#34; Returns:
+                List[xmodel.fields.Field]: list of field objects.
+        &#34;&#34;&#34;
+        return list(self.field_map.values())
+
+    @property
+    def field_map(self) -&gt; Mapping[str, F]:
+        &#34;&#34;&#34;
+
+        Returns:
+           Dict[str, xmodel.fields.Field]: Map of `xmodel.fields.Field.name` to
+                `xmodel.fields.Field` objects.
+        &#34;&#34;&#34;
+        cached_content = self._get_fields_cache
+        if cached_content is not None:
+            # Mapping proxy is a read-only view of the passed in dict.
+            # This will LIVE update the mapping if underlying dict changed.
+            return MappingProxyType(cached_content)
+
+        generated_fields = self._generate_fields()
+        self._get_fields_cache = generated_fields
+        return MappingProxyType(generated_fields)
+
+    def excluded_field_map(self) -&gt; Dict[str, F]:
+        &#34;&#34;&#34;
+        Returns:
+            Dict[str, xmodel.fields.Field]: Mapping of `xmodel.fields.Field.name` to
+                field objects that are excluded (`xmodel.fields.Field.exclude` == `True`).
+        &#34;&#34;&#34;
+        return {f.name: f for f in self.fields if f.exclude}
+
+    def _generate_fields(self) -&gt; Dict[str, F]:
+        &#34;&#34;&#34; Goes though object and grabs/generated Field objects and caches them in self.
+            Gives back the definitive list of Field objects.
+
+            For now keeping this private, but may open it up in the future if sub-classes
+            need to customize how fields are generated.
+        &#34;&#34;&#34;
+        full_field_map = {}
+
+        default_field_type: Type[Field] = self.field_type
+        type_hint_map = self._name_to_type_hint_map
+        model_cls = self.model_cls
+
+        # todo: Figure out how to put this into/consolidate into
+        #  `xmodel.base.api.BaseApi`; and simplify stuff!!!
+        default_converters = getattr(self.model_cls.api, &#39;default_converters&#39;)
+
+        # todo:  default_con ^^^^ make sure we are using it!!!!
+
+        # Lazy-import BaseModel, we need to check to see if we have a sub-class or not...
+        from xmodel import BaseModel
+
+        # This will be a collection of any Fields that exist on the parent(s), merged together...
+        base_fields: Dict[str, Field] = {}
+
+        # go though parent and find any Field objects, grab latest version
+        # which is the one closest to child on a per-field basis...
+        # we exclude it&#39;s self [the model we are currently working with].
+        for base in reversed(model_cls.__mro__[1:]):
+            base: Type[BaseModel]
+            if not inspect.isclass(base):
+                continue
+            if not issubclass(base, BaseModel):
+                continue
+            if not base.api:
+                # `base` is likely xmodel.base.model.BaseModel; and that has no API allocated
+                # to it
+                # at the moment [mostly because the __init_subclasses is only executed on sub&#39;s].
+                # todo: BaseModel is an abstract class... do we really need structure/fields on it?
+                continue
+            # todo:  ensure we later on use these and make a new field if needed...
+            base_fields.update(base.api.structure.field_map)
+
+        for name, type_hint in type_hint_map.items():
+            # Ignore the &#39;api&#39; attribute, it&#39;s special.
+            if name == &#39;api&#39;:
+                continue
+
+            # Ignore anything the starts with &#39;_&#39;.
+            if name.startswith(&#34;_&#34;):
+                continue
+
+            # todo:
+            #   1. Get Parent Field&#39;s, merge values.
+            #   2. Map all type&#39;s and if not map then raise error.
+
+            # noinspection PyArgumentList
+            field_obj: Field
+            field_value: Field = getattr(model_cls, name, Default)
+            if isinstance(field_value, Field):
+                field_obj = field_value
+                field_value = Default
+            elif field_value is not Default:
+                if not inspect.isclass(field_value) and isinstance(field_value, property):
+                    field_obj = default_field_type(fget=field_value.fget, fset=field_value.fset)
+                else:
+                    # noinspection PyArgumentList
+                    field_obj = default_field_type(default=field_value)
+            else:
+                # noinspection PyArgumentList
+                field_obj = default_field_type()
+
+            # Name can be overridden, we want to use it to lookup parent field name....
+            if field_obj.name:
+                name = field_obj.name
+
+            field_obj.resolve_defaults(
+                name=name,
+                type_hint=type_hint_map.get(name, None),
+                default_converter_map=default_converters,
+                parent_field=base_fields.get(name)
+            )
+
+            # Ensure all fields that still have `Default` as their value are resolved to None.
+            field_obj.resolve_remaining_defaults_to_none()
+
+            # field-object will unwrap the type-hint for us.
+            type_hint = field_obj.type_hint
+
+            # Name can be overridden, we want to use whatever it says we should be using.
+            name = field_obj.name
+            full_field_map[field_obj.name] = field_obj
+
+            # If we have a converter, we can assume that will take care of things correctly
+            # for whatever type we have.  If we don&#39;t have a converter, we only support specific
+            # types; We check here for type-compatibility.
+            from xmodel import BaseModel
+            if (
+                not field_obj.converter and
+                type_hint not in supported_basic_types and
+                (not inspect.isclass(type_hint) or not issubclass(type_hint, BaseModel)) and
+                typing_inspect.get_origin(type_hint) not in (list, set)
+            ):
+                raise XModelError(
+                    f&#34;Unsupported type ({type_hint}) with field-name ({name}) &#34;
+                    f&#34;for model-class ({model_cls}) in field-obj ({field_obj}).&#34;
+                )
+
+            if (
+                field_obj.json_path and
+                field_obj.json_path != field_obj.name and
+                field_obj.related_type
+            ):
+                XModelError(
+                    &#34;Right now obj-relationships can&#39;t use the &#39;json_path&#39; option &#34;
+                    &#34;while at the same time being obj-relationships. Must use basic field &#34;
+                    &#34;with api_path. &#34;
+
+                    # Copy/Paste from `BaseApi.json`:
+                    f&#34;Can&#39;t have xmodel.Field on BaseModel with related-type and a json_path &#34;
+                    f&#34;that differ at the moment, for field ({field_obj}). &#34;
+                    f&#34;It is something I want to support someday; the support is mostly in place &#34;
+                    f&#34;already, but it needs some more careful thought, attention and testing &#34;
+                    f&#34;before we should allow it. &#34;
+                    &#34;Workaround:  Make an `{field.name}_id` field next to related field on the &#34;
+                    &#34;model. Then, set `json_path` for that `{field.name}_id` field, set it to &#34;
+                    &#34;what you want it to be. Finally, set the `{related_field.name}` to &#34;
+                    &#34;read_only=True. This allows you to rename the `_id` field used to/from api &#34;
+                    &#34;in the JSON input/output, but the Model can have an alternate name for the &#34;
+                    &#34;related field. You can see a real-example of this at &#34;
+                    &#34;`bigcommerce.api.orders._BcCommonOrderMetafield.order&#34;
+                )
+
+        # todo: Provide a &#39;remove&#39; option in the Field config class.
+        if &#39;id&#39; not in full_field_map:
+
+            # Go though and populate the `Field.field_for_foreign_key_related_field` as needed...
+            for k, f in full_field_map.items():
+                # If there is a relate field name, and we have a field defined for it...
+                # Set it&#39;s field_for_foreign_key_related_field so the correct field...
+                # Otherwise generate a field object for this key-field.
+                #
+                # FYI: The `resolve_defaults` call above will always set
+                #      field_for_foreign_key_related_field to None.
+                #      We then set it to something here if needed.
+                if f.related_field_name_for_id:
+                    related_field = full_field_map.get(f.related_field_name_for_id)
+                    if related_field:
+                        related_field.field_for_foreign_key_related_field = f
+
+        return full_field_map
+
+    def id_cache_key(self, _id):
+        &#34;&#34;&#34; Returns a proper key to use for `xmodel.base.client.BaseClient.cache_get`
+            and other caching methods for id-based lookup of an object.
+        &#34;&#34;&#34;
+        if type(_id) is dict:
+            # todo: Put module name in this key.
+            key = f&#34;{self.model_cls.__name__}&#34;
+            try:
+                sorted_keys = sorted(_id.keys())
+            except TypeError:
+                sorted_keys = _id.keys()
+            for key_name in sorted_keys:
+                key += f&#34;-{key_name}-{_id[key_name]}&#34;
+            return key
+        else:
+            return f&#34;{self.model_cls.__name__}-id-{_id}&#34;
+
+    # todo: Get rid of this [only used by Dynamo right now]. Need to use Field instead...
+    def get_unwraped_typehint(self, field_name: str):
+        &#34;&#34;&#34;
+        This is now done for you on `xmodel.fields.Field.type_hint`, so you can just grab it
+        directly your self now.
+
+        Gets typehint for field_name and calls `xmodel.types.unwrap_optional_type`
+        on it to try and get the plain type-hint as best as we can.
+        &#34;&#34;&#34;
+        field = self.get_field(field_name)
+        if field is None:
+            return None
+
+        return field.type_hint
+
+    def is_field_a_child(self, child_field_name, *, and_has_id=False):
+        &#34;&#34;&#34;
+        True if the field is a child, otherwise False.  Will still return `False` if
+        `and_has_id` argument is `True` and the related type is configured to not use id via class
+        argument `has_id_field=False` (see `BaseStructure.configure_for_model_type` for more
+        details on class arguments).
+
+        Won&#39;t raise an exception if field does not exist.
+
+        Args:
+            child_field_name (str): Name of field to check.
+            and_has_id (bool): If True, then return False if related type is not configured to
+                use id.
+        Returns:
+            bool: `True` if this field is a child field, otherwise `False`.
+        &#34;&#34;&#34;
+        field = self.get_field(child_field_name)
+        if not field:
+            return False
+
+        related_type = field.related_type
+        if not related_type:
+            return False
+
+        related_structure = related_type.api.structure
+        if and_has_id and not related_structure.has_id_field():
+            return False
+
+        return True
+
+    @property
+    def endpoint_description(self):
+        &#34;&#34;&#34; Gives some sort of basic descriptive string that contains the path/table-name/etc
+            that basically indicates the api endpoint being used.
+
+            This is meant for logging and other human readability/debugging purposes.
+            Feel free to change the string to whatever is most useful to know.
+
+            I expect this to be overridden by the concrete implementation, see examples here:
+
+            - `xmodel.rest.RestStructure.endpoint_description`
+            - `xmodel.dynamo.DynStructure.endpoint_description`
+        &#34;&#34;&#34;
+        return &#34;?&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>typing.Generic</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="xmodel.remote.structure.RemoteStructure" href="../remote/structure.html#xmodel.remote.structure.RemoteStructure">RemoteStructure</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="xmodel.base.structure.BaseStructure.field_type"><code class="name">var <span class="ident">field_type</span> : Type[~F]</code></dt>
+<dd>
+<div class="desc"><p>Field type that this structure will use when auto-generating <code>xmodel.fields.Field</code>'s.
+User defined Fields on a model-class will keep whatever type the user used.
+When <code><a title="xmodel.base.model.BaseModel" href="model.html#xmodel.base.model.BaseModel">BaseModel</a></code> class is constructed, and the <code><a title="xmodel.base.structure.BaseStructure" href="#xmodel.base.structure.BaseStructure">BaseStructure</a></code> is
+created, we will check to ensure all user-defined fields inherit from this field_type.</p>
+<p>That way you can assume any fields you get off this structure object inherit from
+field_type.</p></div>
+</dd>
+<dt id="xmodel.base.structure.BaseStructure.internal_shared_api_values"><code class="name">var <span class="ident">internal_shared_api_values</span> : Dict[Any, Any]</code></dt>
+<dd>
+<div class="desc"><p>A place an <code><a title="xmodel.base.api.BaseApi" href="api.html#xmodel.base.api.BaseApi">BaseApi</a></code> object can use to share values BaseModel-class wide
+(ie: for all BaseModel's of a specific type).</p>
+<p>This should NOT be used outside of the BaseApi class.
+For example, <code>`xmodel.base.api.BaseApi.client</code> stores it's object lazily here.
+Users outside of BaseApi class should simply ask it for the client and not try
+to go behind it's back and get it here.</p>
+<p>Code/Users outside of <code><a title="xmodel.base.api.BaseApi" href="api.html#xmodel.base.api.BaseApi">BaseApi</a></code> and it's subclasses can't assume
+anything about what's in this dictionary.
+This exists for pure-convenience of the
+<code><a title="xmodel.base.api.BaseApi" href="api.html#xmodel.base.api.BaseApi">BaseApi</a></code> class.</p></div>
+</dd>
+<dt id="xmodel.base.structure.BaseStructure.model_cls"><code class="name">var <span class="ident">model_cls</span> : Type[BaseModel]</code></dt>
+<dd>
+<div class="desc"><p>The model's class we are defining the structure for.
+This is typed as some sort of <code><a title="xmodel.base.model.BaseModel" href="model.html#xmodel.base.model.BaseModel">BaseModel</a></code>
+.
+This is NOT generically typed anymore, to get much better generically typed
+version you should use <code><a title="xmodel.base.api.BaseApi.model_type" href="api.html#xmodel.base.api.BaseApi.model_type">BaseApi.model_type</a></code> to get the BaseModel outside
+of the <code>xmodel.structure</code> module.
+Using that will give the IDE the correctly typed BaseModel class!</p></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="xmodel.base.structure.BaseStructure.endpoint_description"><code class="name">var <span class="ident">endpoint_description</span></code></dt>
+<dd>
+<div class="desc"><p>Gives some sort of basic descriptive string that contains the path/table-name/etc
+that basically indicates the api endpoint being used.</p>
+<p>This is meant for logging and other human readability/debugging purposes.
+Feel free to change the string to whatever is most useful to know.</p>
+<p>I expect this to be overridden by the concrete implementation, see examples here:</p>
+<ul>
+<li><code>xmodel.rest.RestStructure.endpoint_description</code></li>
+<li><code>xmodel.dynamo.DynStructure.endpoint_description</code></li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def endpoint_description(self):
+    &#34;&#34;&#34; Gives some sort of basic descriptive string that contains the path/table-name/etc
+        that basically indicates the api endpoint being used.
+
+        This is meant for logging and other human readability/debugging purposes.
+        Feel free to change the string to whatever is most useful to know.
+
+        I expect this to be overridden by the concrete implementation, see examples here:
+
+        - `xmodel.rest.RestStructure.endpoint_description`
+        - `xmodel.dynamo.DynStructure.endpoint_description`
+    &#34;&#34;&#34;
+    return &#34;?&#34;</code></pre>
+</details>
+</dd>
+<dt id="xmodel.base.structure.BaseStructure.field_map"><code class="name">var <span class="ident">field_map</span> : Mapping[str, ~F]</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Dict[str, xmodel.fields.Field]</code></dt>
+<dd>Map of <code>xmodel.fields.Field.name</code> to
+<code>xmodel.fields.Field</code> objects.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def field_map(self) -&gt; Mapping[str, F]:
+    &#34;&#34;&#34;
+
+    Returns:
+       Dict[str, xmodel.fields.Field]: Map of `xmodel.fields.Field.name` to
+            `xmodel.fields.Field` objects.
+    &#34;&#34;&#34;
+    cached_content = self._get_fields_cache
+    if cached_content is not None:
+        # Mapping proxy is a read-only view of the passed in dict.
+        # This will LIVE update the mapping if underlying dict changed.
+        return MappingProxyType(cached_content)
+
+    generated_fields = self._generate_fields()
+    self._get_fields_cache = generated_fields
+    return MappingProxyType(generated_fields)</code></pre>
+</details>
+</dd>
+<dt id="xmodel.base.structure.BaseStructure.fields"><code class="name">var <span class="ident">fields</span> : List[~F]</code></dt>
+<dd>
+<div class="desc"><p>Returns:
+List[xmodel.fields.Field]: list of field objects.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def fields(self) -&gt; List[F]:
+    &#34;&#34;&#34; Returns:
+            List[xmodel.fields.Field]: list of field objects.
+    &#34;&#34;&#34;
+    return list(self.field_map.values())</code></pre>
+</details>
+</dd>
+<dt id="xmodel.base.structure.BaseStructure.have_api_endpoint"><code class="name">var <span class="ident">have_api_endpoint</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>Right now, a ready-only property that tells you if this BaseModel has an API endpoint.
+That's determined right now via seeing if <code>BaseStructure.has_id_field_set()</code> is True.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def have_api_endpoint(self) -&gt; bool:
+    &#34;&#34;&#34; Right now, a ready-only property that tells you if this BaseModel has an API endpoint.
+        That&#39;s determined right now via seeing if `BaseStructure.has_id_field_set()` is True.
+    &#34;&#34;&#34;
+    if not self.has_id_field():
+        return False
+    else:
+        return True</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="xmodel.base.structure.BaseStructure.configure_for_model_type"><code class="name flex">
+<span>def <span class="ident">configure_for_model_type</span></span>(<span>self, *, model_type: Type[ForwardRef('BaseModel')], type_hints: Dict[str, Any])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This EXPECTS to have passed-in the type-hints for my `BaseStructure.;
+see code inside <code><a title="xmodel.base.model.BaseModel.__init_subclass__" href="model.html#xmodel.base.model.BaseModel.__init_subclass__">BaseModel.__init_subclass__()</a></code> for more details.
+There is no need to get the type-hints twice [it can be a bit expensive, trying to
+limit how may times I grab them]....</p>
+<p>See <code><a title="xmodel.base.model.BaseModel" href="model.html#xmodel.base.model.BaseModel">BaseModel</a></code> for more details on how Models work&hellip;
+This describes the options you
+can pass into a <code><a title="xmodel.base.model.BaseModel" href="model.html#xmodel.base.model.BaseModel">BaseModel</a></code> subclass at class-construction time.
+It allows you to customize how the Model class will work.</p>
+<p>This method will remember the options passed to it, but won't finish constructing the class
+until someone asks for it's <code><a title="xmodel.base.model.BaseModel.api" href="model.html#xmodel.base.model.BaseModel.api">BaseModel.api</a></code> attribute for the first
+time. This allows you
+to dynamically add more Field classes if needed. It also makes things import faster as
+we won't have to fully setup the class unless something tries to use it.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>model_type</code></strong> :&ensp;<code>Type[<a title="xmodel.base.model.BaseModel" href="model.html#xmodel.base.model.BaseModel">BaseModel</a>]</code></dt>
+<dd>The model we are associated with,
+this is what we are configuring ourselves against.</dd>
+<dt><strong><code>type_hints</code></strong> :&ensp;<code>Dict[str, Any]</code></dt>
+<dd>List of typehints via Python's <code>get_type_hints</code> method;
+Be aware that <code>get_type_hints</code> will try and resolve all type-hints, including
+ones that are forward references. Make sure these types are available at
+the module-level by the time <code>get_type_hints</code> runs.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def configure_for_model_type(
+        self,
+        *,  # &lt;-- means we don&#39;t support positional arguments
+        model_type: Type[&#39;BaseModel&#39;],
+        type_hints: Dict[str, Any],
+):
+    &#34;&#34;&#34;
+    This EXPECTS to have passed-in the type-hints for my `BaseStructure.;
+    see code inside `xmodel.base.model.BaseModel.__init_subclass__` for more details.
+    There is no need to get the type-hints twice [it can be a bit expensive, trying to
+    limit how may times I grab them]....
+
+    See `xmodel.base.model.BaseModel` for more details on how Models work...
+    This describes the options you
+    can pass into a `xmodel.base.model.BaseModel` subclass at class-construction time.
+    It allows you to customize how the Model class will work.
+
+    This method will remember the options passed to it, but won&#39;t finish constructing the class
+    until someone asks for it&#39;s `xmodel.base.model.BaseModel.api` attribute for the first
+    time. This allows you
+    to dynamically add more Field classes if needed. It also makes things import faster as
+    we won&#39;t have to fully setup the class unless something tries to use it.
+
+    Args:
+        model_type (Type[xmodel.base.model.BaseModel]): The model we are associated with,
+            this is what we are configuring ourselves against.
+        type_hints (Dict[str, Any]): List of typehints via Python&#39;s `get_type_hints` method;
+            Be aware that `get_type_hints` will try and resolve all type-hints, including
+            ones that are forward references. Make sure these types are available at
+            the module-level by the time `get_type_hints` runs.
+    &#34;&#34;&#34;
+    # Prep model class, remove any class Field objects...
+    # These objects have been &#34;moved&#34; into me via `self.fields`.
+    self._name_to_type_hint_map = type_hints
+    self.model_cls = model_type
+    for field_obj in self.fields:
+        field_name = field_obj.name
+
+        # The default values are inside `field_obj.default` now.
+        # We delete the class-vars, so that `__getattr__` is called when someone attempts
+        # to grab a value from a BaseModel for an attribute that does not directly exist
+        # on the BaseModel subclass so we can do our normal field_obj.default resolution.
+        # If the class keeps the value, it prevents `__getattr__` from being called for
+        # attributes that don&#39;t exist directly on the model instance/object;
+        # Python will instead grab and return the value set on the class for that attribute.
+        #
+        # todo/thoughts/brain-storm:
+        #    Consider just using __getattribute__ for BaseModel instead of __getattr_...
+        #    It&#39;s slightly slower but then I could have more flexablity around this...
+        #    Thinking of returning the associated field-object if you do
+        #    `BaseModelSubClass.some_attr_field` for various purposes....
+        #    Using `__getattribute__` would allow for this....
+        #    just something I have been thinking about...
+        #    For example: you could use that field object as a query-key instead of a string
+        #    with the field-name...
+        #    might be nicer, and get auto-completion that way... not sure, thinking about it.
+        #
+        if field_name in self.model_cls.__dict__:
+            delattr(self.model_cls, field_name)</code></pre>
+</details>
+</dd>
+<dt id="xmodel.base.structure.BaseStructure.excluded_field_map"><code class="name flex">
+<span>def <span class="ident">excluded_field_map</span></span>(<span>self) ‑> Dict[str, ~F]</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Dict[str, xmodel.fields.Field]</code></dt>
+<dd>Mapping of <code>xmodel.fields.Field.name</code> to
+field objects that are excluded (<code>xmodel.fields.Field.exclude</code> == <code>True</code>).</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def excluded_field_map(self) -&gt; Dict[str, F]:
+    &#34;&#34;&#34;
+    Returns:
+        Dict[str, xmodel.fields.Field]: Mapping of `xmodel.fields.Field.name` to
+            field objects that are excluded (`xmodel.fields.Field.exclude` == `True`).
+    &#34;&#34;&#34;
+    return {f.name: f for f in self.fields if f.exclude}</code></pre>
+</details>
+</dd>
+<dt id="xmodel.base.structure.BaseStructure.field_exists"><code class="name flex">
+<span>def <span class="ident">field_exists</span></span>(<span>self, name: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return <code>True</code> if the field with <code>name</code> exists on the model, otherwise <code>False</code>.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def field_exists(self, name: str) -&gt; bool:
+    &#34;&#34;&#34; Return `True` if the field with `name` exists on the model, otherwise `False`. &#34;&#34;&#34;
+    return name in self.field_map</code></pre>
+</details>
+</dd>
+<dt id="xmodel.base.structure.BaseStructure.get_field"><code class="name flex">
+<span>def <span class="ident">get_field</span></span>(<span>self, name: str) ‑> Optional[~F]</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>Field name to query on.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>xmodel.fields.Field</code></dt>
+<dd>If field object exists with <code>name</code>.</dd>
+<dt><code>None</code></dt>
+<dd>If not field with <code>name</code> exists</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_field(self, name: str) -&gt; Optional[F]:
+    &#34;&#34;&#34;
+    Args:
+        name (str): Field name to query on.
+    Returns:
+        xmodel.fields.Field: If field object exists with `name`.
+
+        None: If not field with `name` exists
+    &#34;&#34;&#34;
+    if name is None:
+        return None
+    return self.field_map.get(name)</code></pre>
+</details>
+</dd>
+<dt id="xmodel.base.structure.BaseStructure.get_unwraped_typehint"><code class="name flex">
+<span>def <span class="ident">get_unwraped_typehint</span></span>(<span>self, field_name: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This is now done for you on <code>xmodel.fields.Field.type_hint</code>, so you can just grab it
+directly your self now.</p>
+<p>Gets typehint for field_name and calls <code>xmodel.types.unwrap_optional_type</code>
+on it to try and get the plain type-hint as best as we can.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_unwraped_typehint(self, field_name: str):
+    &#34;&#34;&#34;
+    This is now done for you on `xmodel.fields.Field.type_hint`, so you can just grab it
+    directly your self now.
+
+    Gets typehint for field_name and calls `xmodel.types.unwrap_optional_type`
+    on it to try and get the plain type-hint as best as we can.
+    &#34;&#34;&#34;
+    field = self.get_field(field_name)
+    if field is None:
+        return None
+
+    return field.type_hint</code></pre>
+</details>
+</dd>
+<dt id="xmodel.base.structure.BaseStructure.has_id_field"><code class="name flex">
+<span>def <span class="ident">has_id_field</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defaults to False, returns True for RemoteStructure,
+What this property is really saying is if you can do a foreign-key to the related
+object/model.</p>
+<p>It may be better at some point in the long-run to rename this field to more indicate
+that; perhaps the next time we have a breaking-change we need to do for xmodel.</p>
+<p>For now, we are leaving the name along and hard-coding this to
+return False in BaseStructure, and to return True in RemoteStructure.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def has_id_field(self):
+    &#34;&#34;&#34; Defaults to False, returns True for RemoteStructure,
+        What this property is really saying is if you can do a foreign-key to the related
+        object/model.
+
+        It may be better at some point in the long-run to rename this field to more indicate
+        that; perhaps the next time we have a breaking-change we need to do for xmodel.
+
+        For now, we are leaving the name along and hard-coding this to
+        return False in BaseStructure, and to return True in RemoteStructure.
+    &#34;&#34;&#34;
+    return False</code></pre>
+</details>
+</dd>
+<dt id="xmodel.base.structure.BaseStructure.id_cache_key"><code class="name flex">
+<span>def <span class="ident">id_cache_key</span></span>(<span>self, _id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a proper key to use for <code>xmodel.base.client.BaseClient.cache_get</code>
+and other caching methods for id-based lookup of an object.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def id_cache_key(self, _id):
+    &#34;&#34;&#34; Returns a proper key to use for `xmodel.base.client.BaseClient.cache_get`
+        and other caching methods for id-based lookup of an object.
+    &#34;&#34;&#34;
+    if type(_id) is dict:
+        # todo: Put module name in this key.
+        key = f&#34;{self.model_cls.__name__}&#34;
+        try:
+            sorted_keys = sorted(_id.keys())
+        except TypeError:
+            sorted_keys = _id.keys()
+        for key_name in sorted_keys:
+            key += f&#34;-{key_name}-{_id[key_name]}&#34;
+        return key
+    else:
+        return f&#34;{self.model_cls.__name__}-id-{_id}&#34;</code></pre>
+</details>
+</dd>
+<dt id="xmodel.base.structure.BaseStructure.is_field_a_child"><code class="name flex">
+<span>def <span class="ident">is_field_a_child</span></span>(<span>self, child_field_name, *, and_has_id=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>True if the field is a child, otherwise False.
+Will still return <code>False</code> if
+<code>and_has_id</code> argument is <code>True</code> and the related type is configured to not use id via class
+argument <code>has_id_field=False</code> (see <code><a title="xmodel.base.structure.BaseStructure.configure_for_model_type" href="#xmodel.base.structure.BaseStructure.configure_for_model_type">BaseStructure.configure_for_model_type()</a></code> for more
+details on class arguments).</p>
+<p>Won't raise an exception if field does not exist.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>child_field_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>Name of field to check.</dd>
+<dt><strong><code>and_has_id</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True, then return False if related type is not configured to
+use id.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd><code>True</code> if this field is a child field, otherwise <code>False</code>.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_field_a_child(self, child_field_name, *, and_has_id=False):
+    &#34;&#34;&#34;
+    True if the field is a child, otherwise False.  Will still return `False` if
+    `and_has_id` argument is `True` and the related type is configured to not use id via class
+    argument `has_id_field=False` (see `BaseStructure.configure_for_model_type` for more
+    details on class arguments).
+
+    Won&#39;t raise an exception if field does not exist.
+
+    Args:
+        child_field_name (str): Name of field to check.
+        and_has_id (bool): If True, then return False if related type is not configured to
+            use id.
+    Returns:
+        bool: `True` if this field is a child field, otherwise `False`.
+    &#34;&#34;&#34;
+    field = self.get_field(child_field_name)
+    if not field:
+        return False
+
+    related_type = field.related_type
+    if not related_type:
+        return False
+
+    related_structure = related_type.api.structure
+    if and_has_id and not related_structure.has_id_field():
+        return False
+
+    return True</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="xmodel.base" href="index.html">xmodel.base</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="xmodel.base.structure.BaseStructure" href="#xmodel.base.structure.BaseStructure">BaseStructure</a></code></h4>
+<ul class="">
+<li><code><a title="xmodel.base.structure.BaseStructure.configure_for_model_type" href="#xmodel.base.structure.BaseStructure.configure_for_model_type">configure_for_model_type</a></code></li>
+<li><code><a title="xmodel.base.structure.BaseStructure.endpoint_description" href="#xmodel.base.structure.BaseStructure.endpoint_description">endpoint_description</a></code></li>
+<li><code><a title="xmodel.base.structure.BaseStructure.excluded_field_map" href="#xmodel.base.structure.BaseStructure.excluded_field_map">excluded_field_map</a></code></li>
+<li><code><a title="xmodel.base.structure.BaseStructure.field_exists" href="#xmodel.base.structure.BaseStructure.field_exists">field_exists</a></code></li>
+<li><code><a title="xmodel.base.structure.BaseStructure.field_map" href="#xmodel.base.structure.BaseStructure.field_map">field_map</a></code></li>
+<li><code><a title="xmodel.base.structure.BaseStructure.field_type" href="#xmodel.base.structure.BaseStructure.field_type">field_type</a></code></li>
+<li><code><a title="xmodel.base.structure.BaseStructure.fields" href="#xmodel.base.structure.BaseStructure.fields">fields</a></code></li>
+<li><code><a title="xmodel.base.structure.BaseStructure.get_field" href="#xmodel.base.structure.BaseStructure.get_field">get_field</a></code></li>
+<li><code><a title="xmodel.base.structure.BaseStructure.get_unwraped_typehint" href="#xmodel.base.structure.BaseStructure.get_unwraped_typehint">get_unwraped_typehint</a></code></li>
+<li><code><a title="xmodel.base.structure.BaseStructure.has_id_field" href="#xmodel.base.structure.BaseStructure.has_id_field">has_id_field</a></code></li>
+<li><code><a title="xmodel.base.structure.BaseStructure.have_api_endpoint" href="#xmodel.base.structure.BaseStructure.have_api_endpoint">have_api_endpoint</a></code></li>
+<li><code><a title="xmodel.base.structure.BaseStructure.id_cache_key" href="#xmodel.base.structure.BaseStructure.id_cache_key">id_cache_key</a></code></li>
+<li><code><a title="xmodel.base.structure.BaseStructure.internal_shared_api_values" href="#xmodel.base.structure.BaseStructure.internal_shared_api_values">internal_shared_api_values</a></code></li>
+<li><code><a title="xmodel.base.structure.BaseStructure.is_field_a_child" href="#xmodel.base.structure.BaseStructure.is_field_a_child">is_field_a_child</a></code></li>
+<li><code><a title="xmodel.base.structure.BaseStructure.model_cls" href="#xmodel.base.structure.BaseStructure.model_cls">model_cls</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

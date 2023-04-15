@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>xmodel_rest.settings API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>xmodel_rest.settings</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from xsentinels import Default
+
+from xinject import Dependency
+from xurls import URLStr, URLMutable, URL
+from xsettings import Settings, SettingsField
+import dataclasses
+from copy import deepcopy
+from typing import TypeVar
+
+T = TypeVar(&#34;T&#34;)
+
+
+class RestSettings(Dependency):
+    &#34;&#34;&#34;
+    A basic ConfigType subclass with a few basic features that are useful.
+
+    To see RestSettings class used by the Xyngular-API classes see:
+    `xyn_sdk.core.common.RestSettings`.
+
+    You can subclass this or `xynlib.orm.remote.settings.RestSettings` if you want a more basic
+    version for other types of client. But when using the `xynlib.orm.rest.client.RestClient`
+    it&#39;s expected to use `RestSettings` (or a subclass of `RestSettings`).
+
+    You can use a custom-subclass of `RestSettings` by  creating a custom
+    `xynlib.orm.base.api.BaseApi` subclass
+    and then setting the type-hint for `xynlib.orm.base.api.BaseApi.settings` to you custom
+    settings class.
+
+    For more details see
+    [Use of Type Hints for Changing Type Used](./api.html#use-of-type-hints-for-changing-used-type)
+
+    ## Details when using `xsettings.Settings` with RestSettings
+
+    You can use a `xsettings.Settings` as part of your subclass,
+    just re-define the `root_url` and `base_api_url` as type-hints,
+    and add any others you need.
+
+
+    .. todo:: I want to have this inherit from `xsettings.Settings`, but I need to
+        add support for inheritance from another `xsettings.Settings` class.
+        Should be easy to add in, just need to do it sometime.
+        Don&#39;t have time right now, so leaving this todo here for now.
+        It would allow us to remove the properties below,
+        as settings would automatically raise an exception with a nice message,
+        and it would allow sub-classes of this to inherit the settings-fields
+        so they don&#39;t have to redefine them again in their own Settings subclass.
+    &#34;&#34;&#34;
+
+    root_url: URLStr = URLMutable()
+    &#34;&#34;&#34; The basis for urls returned by `self.api_url`.
+        You can set global defaults for all URL&#39;s that base them selves on this here.
+    &#34;&#34;&#34;
+
+    retry_requests: bool = Default
+    &#34;&#34;&#34;
+    If Default/True (default): Will retry some types of requests such as ones responding with
+    specific 5xx errors; or if there is a connection or timeout error.
+
+    They will be retried once before falling back on the standard library error handling.
+
+    If False: Won&#39;t retry, will return result without retrying it.
+
+    The class/default value is `Default`, to help support xyn-sdk, so that by default the Settings
+    retriever/default values in Settings subclass will be consulted first.
+
+    Eventually, we may create a xyn-settings v2 to handle this better, for now
+    we need to keep it as `Default` at the class-level here.
+
+    TODO: In the future if needed: This could be a `Union[Callable, bool]`, where you could assign
+    a callable that would be able to decide with logic based on the response it&#39;s handed if we
+    should immediately retry the full/entire request or not.
+    &#34;&#34;&#34;
+
+    # Must put value here so pdoc3 will see the docs for it,
+    # so using a property to do that and still get ability to raise an exception if not found.
+    # I would have LOVED to use `xsettings.Settings` field
+    # instead, but I can&#39;t until a upgrade it with an ability to use a parent Settings.
+    # I have a todo (see class doc-comment above) to do that.
+    @property
+    def base_api_url(self) -&gt; URLStr:
+        &#34;&#34;&#34;
+        The basis for every BaseApi URL. When you call `RestSettings.api_url`,
+        the `RestSettings.root_url` is taken and `RestSettings.base_api_url` is appended to it.
+
+        Sub-classes and/or instances of `RestSettings` class need to set this with something.
+        I would recommend using something like this in a Config sub-class:
+
+        `base_api_url` = `ConfigVar`(&#34;ENV_OR_CONFIG_VAR_NAME&#34;)
+
+        &gt;&gt;&gt; from xsettings import Settings
+        &gt;&gt;&gt; class MySettings(Settings, RestSettings):
+        ...     # Tip: Settings will auto-convert str to URL if needed!
+        ...     base_api_url: URL
+        &gt;&gt;&gt;
+        &gt;&gt;&gt; class MyApi(BaseApi[M]):
+        ...     # Tell my BaseApi subclass to use my custom settings
+        ...     settings: MySettings
+        &#34;&#34;&#34;
+        if self._base_api_url is not None:
+            return self._base_api_url
+
+        # AttributeError works with Settings, in case sub-class inherits from Settings,
+        # it will inform Settings to try and retrieve value it&#39;s self if it can.
+        raise AttributeError(
+            f&#39;Object {self} must have a non-None `base_api_url` attribute on it,&#39;
+            f&#39;it is needed as a basic RestSettings setting value.&#39;
+        )
+
+    _base_api_url = None
+
+    @base_api_url.setter
+    def base_api_url(self, value):
+        # See above base_api_url getter for doc/comments/details.
+        self._base_api_url = value
+
+    @property
+    def api_url(self) -&gt; URL:
+        &#34;&#34;&#34;
+        Returns a new URL with base_url plus base_api_url appended to it.
+
+        This property should be used as the base url that all other urls are appended on for
+        all rest api calls using the `xynlib.orm.rest.RestClient`, in general.
+
+        You may have a config that does not need this, because it&#39;s a configuring some
+        other aspect of the system.  In that case you can ignore this.
+
+        I put this property here so I know I could always call it on a generic ConfigType.
+        &#34;&#34;&#34;
+        url = self.base_api_url
+        assert url, f&#34;Had no configured url for base api url for ({self}).&#34;
+        return URL.ensure_url(self.root_url).copy_mutable().append_url(url)
+
+    def copy(self: T) -&gt; T:
+        return deepcopy(self)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="xmodel_rest.settings.RestSettings"><code class="flex name class">
+<span>class <span class="ident">RestSettings</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>A basic ConfigType subclass with a few basic features that are useful.</p>
+<p>To see RestSettings class used by the Xyngular-API classes see:
+<code>xyn_sdk.core.common.RestSettings</code>.</p>
+<p>You can subclass this or <code>xynlib.orm.remote.settings.RestSettings</code> if you want a more basic
+version for other types of client. But when using the <code>xynlib.orm.rest.client.RestClient</code>
+it's expected to use <code><a title="xmodel_rest.settings.RestSettings" href="#xmodel_rest.settings.RestSettings">RestSettings</a></code> (or a subclass of <code><a title="xmodel_rest.settings.RestSettings" href="#xmodel_rest.settings.RestSettings">RestSettings</a></code>).</p>
+<p>You can use a custom-subclass of <code><a title="xmodel_rest.settings.RestSettings" href="#xmodel_rest.settings.RestSettings">RestSettings</a></code> by
+creating a custom
+<code>xynlib.orm.base.api.BaseApi</code> subclass
+and then setting the type-hint for <code>xynlib.orm.base.api.BaseApi.settings</code> to you custom
+settings class.</p>
+<p>For more details see
+<a href="./api.html#use-of-type-hints-for-changing-used-type">Use of Type Hints for Changing Type Used</a></p>
+<h2 id="details-when-using-xsettingssettings-with-restsettings">Details when using <code>xsettings.Settings</code> with RestSettings</h2>
+<p>You can use a <code>xsettings.Settings</code> as part of your subclass,
+just re-define the <code>root_url</code> and <code>base_api_url</code> as type-hints,
+and add any others you need.</p>
+<div class="admonition todo">
+<p class="admonition-title">TODO</p>
+<p>I want to have this inherit from <code>xsettings.Settings</code>, but I need to
+add support for inheritance from another <code>xsettings.Settings</code> class.
+Should be easy to add in, just need to do it sometime.
+Don't have time right now, so leaving this todo here for now.
+It would allow us to remove the properties below,
+as settings would automatically raise an exception with a nice message,
+and it would allow sub-classes of this to inherit the settings-fields
+so they don't have to redefine them again in their own Settings subclass.</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class RestSettings(Dependency):
+    &#34;&#34;&#34;
+    A basic ConfigType subclass with a few basic features that are useful.
+
+    To see RestSettings class used by the Xyngular-API classes see:
+    `xyn_sdk.core.common.RestSettings`.
+
+    You can subclass this or `xynlib.orm.remote.settings.RestSettings` if you want a more basic
+    version for other types of client. But when using the `xynlib.orm.rest.client.RestClient`
+    it&#39;s expected to use `RestSettings` (or a subclass of `RestSettings`).
+
+    You can use a custom-subclass of `RestSettings` by  creating a custom
+    `xynlib.orm.base.api.BaseApi` subclass
+    and then setting the type-hint for `xynlib.orm.base.api.BaseApi.settings` to you custom
+    settings class.
+
+    For more details see
+    [Use of Type Hints for Changing Type Used](./api.html#use-of-type-hints-for-changing-used-type)
+
+    ## Details when using `xsettings.Settings` with RestSettings
+
+    You can use a `xsettings.Settings` as part of your subclass,
+    just re-define the `root_url` and `base_api_url` as type-hints,
+    and add any others you need.
+
+
+    .. todo:: I want to have this inherit from `xsettings.Settings`, but I need to
+        add support for inheritance from another `xsettings.Settings` class.
+        Should be easy to add in, just need to do it sometime.
+        Don&#39;t have time right now, so leaving this todo here for now.
+        It would allow us to remove the properties below,
+        as settings would automatically raise an exception with a nice message,
+        and it would allow sub-classes of this to inherit the settings-fields
+        so they don&#39;t have to redefine them again in their own Settings subclass.
+    &#34;&#34;&#34;
+
+    root_url: URLStr = URLMutable()
+    &#34;&#34;&#34; The basis for urls returned by `self.api_url`.
+        You can set global defaults for all URL&#39;s that base them selves on this here.
+    &#34;&#34;&#34;
+
+    retry_requests: bool = Default
+    &#34;&#34;&#34;
+    If Default/True (default): Will retry some types of requests such as ones responding with
+    specific 5xx errors; or if there is a connection or timeout error.
+
+    They will be retried once before falling back on the standard library error handling.
+
+    If False: Won&#39;t retry, will return result without retrying it.
+
+    The class/default value is `Default`, to help support xyn-sdk, so that by default the Settings
+    retriever/default values in Settings subclass will be consulted first.
+
+    Eventually, we may create a xyn-settings v2 to handle this better, for now
+    we need to keep it as `Default` at the class-level here.
+
+    TODO: In the future if needed: This could be a `Union[Callable, bool]`, where you could assign
+    a callable that would be able to decide with logic based on the response it&#39;s handed if we
+    should immediately retry the full/entire request or not.
+    &#34;&#34;&#34;
+
+    # Must put value here so pdoc3 will see the docs for it,
+    # so using a property to do that and still get ability to raise an exception if not found.
+    # I would have LOVED to use `xsettings.Settings` field
+    # instead, but I can&#39;t until a upgrade it with an ability to use a parent Settings.
+    # I have a todo (see class doc-comment above) to do that.
+    @property
+    def base_api_url(self) -&gt; URLStr:
+        &#34;&#34;&#34;
+        The basis for every BaseApi URL. When you call `RestSettings.api_url`,
+        the `RestSettings.root_url` is taken and `RestSettings.base_api_url` is appended to it.
+
+        Sub-classes and/or instances of `RestSettings` class need to set this with something.
+        I would recommend using something like this in a Config sub-class:
+
+        `base_api_url` = `ConfigVar`(&#34;ENV_OR_CONFIG_VAR_NAME&#34;)
+
+        &gt;&gt;&gt; from xsettings import Settings
+        &gt;&gt;&gt; class MySettings(Settings, RestSettings):
+        ...     # Tip: Settings will auto-convert str to URL if needed!
+        ...     base_api_url: URL
+        &gt;&gt;&gt;
+        &gt;&gt;&gt; class MyApi(BaseApi[M]):
+        ...     # Tell my BaseApi subclass to use my custom settings
+        ...     settings: MySettings
+        &#34;&#34;&#34;
+        if self._base_api_url is not None:
+            return self._base_api_url
+
+        # AttributeError works with Settings, in case sub-class inherits from Settings,
+        # it will inform Settings to try and retrieve value it&#39;s self if it can.
+        raise AttributeError(
+            f&#39;Object {self} must have a non-None `base_api_url` attribute on it,&#39;
+            f&#39;it is needed as a basic RestSettings setting value.&#39;
+        )
+
+    _base_api_url = None
+
+    @base_api_url.setter
+    def base_api_url(self, value):
+        # See above base_api_url getter for doc/comments/details.
+        self._base_api_url = value
+
+    @property
+    def api_url(self) -&gt; URL:
+        &#34;&#34;&#34;
+        Returns a new URL with base_url plus base_api_url appended to it.
+
+        This property should be used as the base url that all other urls are appended on for
+        all rest api calls using the `xynlib.orm.rest.RestClient`, in general.
+
+        You may have a config that does not need this, because it&#39;s a configuring some
+        other aspect of the system.  In that case you can ignore this.
+
+        I put this property here so I know I could always call it on a generic ConfigType.
+        &#34;&#34;&#34;
+        url = self.base_api_url
+        assert url, f&#34;Had no configured url for base api url for ({self}).&#34;
+        return URL.ensure_url(self.root_url).copy_mutable().append_url(url)
+
+    def copy(self: T) -&gt; T:
+        return deepcopy(self)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="xmodel_rest.settings.RestSettings.retry_requests"><code class="name">var <span class="ident">retry_requests</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>If Default/True (default): Will retry some types of requests such as ones responding with
+specific 5xx errors; or if there is a connection or timeout error.</p>
+<p>They will be retried once before falling back on the standard library error handling.</p>
+<p>If False: Won't retry, will return result without retrying it.</p>
+<p>The class/default value is <code>Default</code>, to help support xyn-sdk, so that by default the Settings
+retriever/default values in Settings subclass will be consulted first.</p>
+<p>Eventually, we may create a xyn-settings v2 to handle this better, for now
+we need to keep it as <code>Default</code> at the class-level here.</p>
+<p>TODO: In the future if needed: This could be a <code>Union[Callable, bool]</code>, where you could assign
+a callable that would be able to decide with logic based on the response it's handed if we
+should immediately retry the full/entire request or not.</p></div>
+</dd>
+<dt id="xmodel_rest.settings.RestSettings.root_url"><code class="name">var <span class="ident">root_url</span> : Union[str, <a title="xurls.url.URL" href="../xurls/url.html#xurls.url.URL">URL</a>, None]</code></dt>
+<dd>
+<div class="desc"><p>The basis for urls returned by <code>self.api_url</code>.
+You can set global defaults for all URL's that base them selves on this here.</p></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="xmodel_rest.settings.RestSettings.__init_subclass__"><code class="name flex">
+<span>def <span class="ident">__init_subclass__</span></span>(<span>thread_sharable=Default, attributes_to_skip_while_copying: Optional[Iterable[str]] = Default, **kwargs)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.__init_subclass__" href="../xinject/dependency.html#xinject.dependency.Dependency.__init_subclass__">__init_subclass__</a></code>
+</p>
+<div class="desc inherited"><h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>thread_sharable</code></strong></dt>
+<dd>If <code>False</code>: While a dependency is lazily auto-created, we will
+ensure we do it per-thread, and not make it visible …</dd>
+</dl></div>
+</dd>
+<dt id="xmodel_rest.settings.RestSettings.grab"><code class="name flex">
+<span>def <span class="ident">grab</span></span>(<span>) ‑> ~T</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.grab" href="../xinject/dependency.html#xinject.dependency.Dependency.grab">grab</a></code>
+</p>
+<div class="desc inherited"><p>Gets a potentially shared dependency from the current <code>udpend.context.XContext</code> …</p></div>
+</dd>
+<dt id="xmodel_rest.settings.RestSettings.proxy"><code class="name flex">
+<span>def <span class="ident">proxy</span></span>(<span>) ‑> ~R</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.proxy" href="../xinject/dependency.html#xinject.dependency.Dependency.proxy">proxy</a></code>
+</p>
+<div class="desc inherited"><p>Returns a proxy-object, that when and attribute is asked for, it will
+proxy it to the current object of <code>cls</code> …</p></div>
+</dd>
+<dt id="xmodel_rest.settings.RestSettings.proxy_attribute"><code class="name flex">
+<span>def <span class="ident">proxy_attribute</span></span>(<span>attribute_name: str) ‑> Any</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.proxy_attribute" href="../xinject/dependency.html#xinject.dependency.Dependency.proxy_attribute">proxy_attribute</a></code>
+</p>
+<div class="desc inherited"><p>Returns a proxy-object, that when and attribute is asked for, it will
+proxy it to the current attribute value on the current object of <code>cls</code> …</p></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="xmodel_rest.settings.RestSettings.api_url"><code class="name">var <span class="ident">api_url</span> : <a title="xurls.url.URL" href="../xurls/url.html#xurls.url.URL">URL</a></code></dt>
+<dd>
+<div class="desc"><p>Returns a new URL with base_url plus base_api_url appended to it.</p>
+<p>This property should be used as the base url that all other urls are appended on for
+all rest api calls using the <code>xynlib.orm.rest.RestClient</code>, in general.</p>
+<p>You may have a config that does not need this, because it's a configuring some
+other aspect of the system.
+In that case you can ignore this.</p>
+<p>I put this property here so I know I could always call it on a generic ConfigType.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def api_url(self) -&gt; URL:
+    &#34;&#34;&#34;
+    Returns a new URL with base_url plus base_api_url appended to it.
+
+    This property should be used as the base url that all other urls are appended on for
+    all rest api calls using the `xynlib.orm.rest.RestClient`, in general.
+
+    You may have a config that does not need this, because it&#39;s a configuring some
+    other aspect of the system.  In that case you can ignore this.
+
+    I put this property here so I know I could always call it on a generic ConfigType.
+    &#34;&#34;&#34;
+    url = self.base_api_url
+    assert url, f&#34;Had no configured url for base api url for ({self}).&#34;
+    return URL.ensure_url(self.root_url).copy_mutable().append_url(url)</code></pre>
+</details>
+</dd>
+<dt id="xmodel_rest.settings.RestSettings.base_api_url"><code class="name">var <span class="ident">base_api_url</span> : Union[str, <a title="xurls.url.URL" href="../xurls/url.html#xurls.url.URL">URL</a>, None]</code></dt>
+<dd>
+<div class="desc"><p>The basis for every BaseApi URL. When you call <code><a title="xmodel_rest.settings.RestSettings.api_url" href="#xmodel_rest.settings.RestSettings.api_url">RestSettings.api_url</a></code>,
+the <code><a title="xmodel_rest.settings.RestSettings.root_url" href="#xmodel_rest.settings.RestSettings.root_url">RestSettings.root_url</a></code> is taken and <code><a title="xmodel_rest.settings.RestSettings.base_api_url" href="#xmodel_rest.settings.RestSettings.base_api_url">RestSettings.base_api_url</a></code> is appended to it.</p>
+<p>Sub-classes and/or instances of <code><a title="xmodel_rest.settings.RestSettings" href="#xmodel_rest.settings.RestSettings">RestSettings</a></code> class need to set this with something.
+I would recommend using something like this in a Config sub-class:</p>
+<p><code>base_api_url</code> = <code>ConfigVar</code>("ENV_OR_CONFIG_VAR_NAME")</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; from xsettings import Settings
+&gt;&gt;&gt; class MySettings(Settings, RestSettings):
+...     # Tip: Settings will auto-convert str to URL if needed!
+...     base_api_url: URL
+&gt;&gt;&gt;
+&gt;&gt;&gt; class MyApi(BaseApi[M]):
+...     # Tell my BaseApi subclass to use my custom settings
+...     settings: MySettings
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def base_api_url(self) -&gt; URLStr:
+    &#34;&#34;&#34;
+    The basis for every BaseApi URL. When you call `RestSettings.api_url`,
+    the `RestSettings.root_url` is taken and `RestSettings.base_api_url` is appended to it.
+
+    Sub-classes and/or instances of `RestSettings` class need to set this with something.
+    I would recommend using something like this in a Config sub-class:
+
+    `base_api_url` = `ConfigVar`(&#34;ENV_OR_CONFIG_VAR_NAME&#34;)
+
+    &gt;&gt;&gt; from xsettings import Settings
+    &gt;&gt;&gt; class MySettings(Settings, RestSettings):
+    ...     # Tip: Settings will auto-convert str to URL if needed!
+    ...     base_api_url: URL
+    &gt;&gt;&gt;
+    &gt;&gt;&gt; class MyApi(BaseApi[M]):
+    ...     # Tell my BaseApi subclass to use my custom settings
+    ...     settings: MySettings
+    &#34;&#34;&#34;
+    if self._base_api_url is not None:
+        return self._base_api_url
+
+    # AttributeError works with Settings, in case sub-class inherits from Settings,
+    # it will inform Settings to try and retrieve value it&#39;s self if it can.
+    raise AttributeError(
+        f&#39;Object {self} must have a non-None `base_api_url` attribute on it,&#39;
+        f&#39;it is needed as a basic RestSettings setting value.&#39;
+    )</code></pre>
+</details>
+</dd>
+<dt id="xmodel_rest.settings.RestSettings.obj"><code class="name">var <span class="ident">obj</span> : <a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.obj" href="../xinject/dependency.html#xinject.dependency.Dependency.obj">obj</a></code>
+</p>
+<div class="desc inherited"><p>class property/attribute that will return the current dependency for the subclass
+it's asked on by calling <code>Dependency.grab</code>, passing no extra …</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="xmodel_rest.settings.RestSettings.__call__"><code class="name flex">
+<span>def <span class="ident">__call__</span></span>(<span>self, func)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.__call__" href="../xinject/dependency.html#xinject.dependency.Dependency.__call__">__call__</a></code>
+</p>
+<div class="desc inherited"><p>This makes Resource subclasses have an ability to be used as function decorators
+by default unless this method is overriden to provide some other …</p></div>
+</dd>
+<dt id="xmodel_rest.settings.RestSettings.__copy__"><code class="name flex">
+<span>def <span class="ident">__copy__</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.__copy__" href="../xinject/dependency.html#xinject.dependency.Dependency.__copy__">__copy__</a></code>
+</p>
+<div class="desc inherited"><p>Basic shallow copy protection
+(I am wondering if I should just remove this default copy code) …</p></div>
+</dd>
+<dt id="xmodel_rest.settings.RestSettings.copy"><code class="name flex">
+<span>def <span class="ident">copy</span></span>(<span>self: ~T) ‑> ~T</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def copy(self: T) -&gt; T:
+    return deepcopy(self)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="xmodel_rest" href="index.html">xmodel_rest</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="xmodel_rest.settings.RestSettings" href="#xmodel_rest.settings.RestSettings">RestSettings</a></code></h4>
+<ul class="two-column">
+<li><code><a title="xmodel_rest.settings.RestSettings.__call__" href="../xinject/dependency.html#xmodel_rest.settings.RestSettings.__call__">__call__</a></code></li>
+<li><code><a title="xmodel_rest.settings.RestSettings.__copy__" href="../xinject/dependency.html#xmodel_rest.settings.RestSettings.__copy__">__copy__</a></code></li>
+<li><code><a title="xmodel_rest.settings.RestSettings.__init_subclass__" href="../xinject/dependency.html#xmodel_rest.settings.RestSettings.__init_subclass__">__init_subclass__</a></code></li>
+<li><code><a title="xmodel_rest.settings.RestSettings.api_url" href="#xmodel_rest.settings.RestSettings.api_url">api_url</a></code></li>
+<li><code><a title="xmodel_rest.settings.RestSettings.base_api_url" href="#xmodel_rest.settings.RestSettings.base_api_url">base_api_url</a></code></li>
+<li><code><a title="xmodel_rest.settings.RestSettings.copy" href="#xmodel_rest.settings.RestSettings.copy">copy</a></code></li>
+<li><code><a title="xmodel_rest.settings.RestSettings.grab" href="../xinject/dependency.html#xmodel_rest.settings.RestSettings.grab">grab</a></code></li>
+<li><code><a title="xmodel_rest.settings.RestSettings.obj" href="../xinject/dependency.html#xmodel_rest.settings.RestSettings.obj">obj</a></code></li>
+<li><code><a title="xmodel_rest.settings.RestSettings.proxy" href="../xinject/dependency.html#xmodel_rest.settings.RestSettings.proxy">proxy</a></code></li>
+<li><code><a title="xmodel_rest.settings.RestSettings.proxy_attribute" href="../xinject/dependency.html#xmodel_rest.settings.RestSettings.proxy_attribute">proxy_attribute</a></code></li>
+<li><code><a title="xmodel_rest.settings.RestSettings.retry_requests" href="#xmodel_rest.settings.RestSettings.retry_requests">retry_requests</a></code></li>
+<li><code><a title="xmodel_rest.settings.RestSettings.root_url" href="#xmodel_rest.settings.RestSettings.root_url">root_url</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
