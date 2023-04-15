@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "xmodel_rest"
-version = "0.1.0"
+version = "0.1.1"
 description = "Builds on xmodel, adds ability to get/send/update objects to/from rest API; especially if api uses JSON as it’s request/response body format."
 authors = ["Josh Orr <josh@orr.blue>"]
 packages = [{include = "xmodel_rest"}]
