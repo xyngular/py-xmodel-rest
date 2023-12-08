@@ -7,7 +7,7 @@ from xmodel.common.types import FieldNames, JsonDict
 from xsentinels import Default
 from xsentinels.default import DefaultType
 
-from xmodel_rest import RestModel, RestSettings, RestAuth, RestClient, RestApi
+from xrest import RestModel, RestSettings, RestAuth, RestClient, RestApi
 from xurls import URLStr, URL, URLMutable
 from typing import TypeVar, Dict, Sequence, Tuple, Union
 

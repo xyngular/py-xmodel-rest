@@ -27,7 +27,7 @@ def _lazy_load_types(cls):
     See `xmodel.base.model.BaseModel.__init_subclass__` for more details.
     """
     if 'RestApi' not in globals():
-        from xmodel_rest.api import RestApi
+        from xrest.api import RestApi
         globals()['RestApi'] = RestApi
 
 

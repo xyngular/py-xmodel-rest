@@ -281,7 +281,7 @@ class RestClient(RemoteClient[M]):
 
         If you need something specific for auth that's different vs standard way, you should
         sub-class
-        the `xmodel_rest.auth.RestAuth` sub-type/class you want to customize.
+        the `xrest.auth.RestAuth` sub-type/class you want to customize.
         The sub-class can customize it's self however it wants.
 
         You then set a type-annotation/hint via type hint on BaseApi class:
@@ -313,7 +313,7 @@ class RestClient(RemoteClient[M]):
 
     def __init__(self, api: "RestApi[M]"):
         super().__init__(api)
-        from xmodel_rest import RestModel
+        from xrest import RestModel
         if not issubclass(api.model_type, RestModel):
             raise XynRestError(f"You have created a rest api with a model type ({api.model_type}) "
                                f"that is not a subclass of RestModel.")
@@ -592,7 +592,7 @@ class RestClient(RemoteClient[M]):
         in your `xynlib.orm.base.api.Api` sub-class, make a type-hint like this in the
         Api subclass definition:
 
-        >>> from xmodel_rest import RestApi, RestAuth
+        >>> from xrest import RestApi, RestAuth
         >>> from typing import TypeVar
         >>>
         >>> class MyAuth(BaseAuth):
@@ -667,7 +667,7 @@ class RestClient(RemoteClient[M]):
 
         Example of settting `xynlib.orm.base.structure.BaseStructure.multiple_results_json_path`:
 
-        >>> from xmodel_rest import RestModel
+        >>> from xrest import RestModel
         >>>
         >>> class MyModel(
         ...     RestModel["MyModel"],
@@ -826,7 +826,7 @@ class RestClient(RemoteClient[M]):
         `xynlib.orm.http_state.HttpState.retry_send`, like so:
 
         >>> from xmodel.remote.response_state import ResponseStateRetryValue
-        >>> from xmodel_rest.model import RestModel
+        >>> from xrest.model import RestModel
         >>>
         >>> model_obj: RestModel  # <-- Some RestModel Object
         >>> model_obj.api.response_state.retry_send(ResponseStateRetryValue.EXPORT_JSON_AGAIN)
@@ -998,8 +998,8 @@ class RestClient(RemoteClient[M]):
             top (int): Only return first top/maximum number of objects.
             request_method (function): method used to send request
         Returns:
-            Iterable[xmodel_rest.model.RestModel]: Sequence/List of
-                `xmodel_rest.model.RestModel` objects.
+            Iterable[xrest.model.RestModel]: Sequence/List of
+                `xrest.model.RestModel` objects.
         """
         api = self.api
 
@@ -1156,7 +1156,7 @@ class RestClient(RemoteClient[M]):
         ]:
             raise NotImplementedError(
                 "Use a concrete url generator, "
-                "see `xmodel_rest.client.RestClient.url_for_delete` "
+                "see `xrest.client.RestClient.url_for_delete` "
                 "for an example."
             )
 

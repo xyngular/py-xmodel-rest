@@ -6,7 +6,7 @@ dev_addr: 127.0.0.1:7000
 nav:
   - xmodel-rest:
     - index.md
-  - API Reference: api/xmodel_rest/" target="_blank
+  - API Reference: api/xrest/" target="_blank
   - Changelog: changelog.md
 
 theme:

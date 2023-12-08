@@ -6,13 +6,13 @@ import requests_mock
 import requests
 
 from xmodel.errors import XModelError
-from xmodel_rest.errors import XynRestError
+from xrest.errors import XynRestError
 from .test_models import TestModel, TestFormatBodyModel, TestRestSettings
 from unittest.mock import patch
 import time
 from xmodel.remote import WeakCachePool
 from requests_mock.exceptions import NoMockAddress
-from xmodel_rest.settings import RestSettings
+from xrest.settings import RestSettings
 
 
 @pytest.fixture

@@ -62,7 +62,7 @@ class RestApi(RemoteApi[M]):
         If you want more details on how to make a real full/valid rest-model subclass
         see #INSERT-README-LINK#.)
 
-        >>> from xmodel_rest import RestModel
+        >>> from xrest import RestModel
         >>> class SomeRestModelSubclass(RestModel, base_url="....etc...."):
         ...     pass  # Some attributes from the rest-api go here
         >>> obj1 = SomeRestModelSubclass()
